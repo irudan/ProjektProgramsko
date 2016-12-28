@@ -5,29 +5,52 @@ using ProjektProgramsko;
 
 public partial class MainWindow : Gtk.Window
 {
+	public GlavniMeni glavniMeni;
+	public WidgetPocetna pocetna;
+	public WidgetKnjiga knjige;
+	public HBox glavniHbox;
+
 	public MainWindow() : base(Gtk.WindowType.Toplevel)
 	{
-		//Stvaranje hboxa u koji stavljamo ostale widgete
+		//Stvaranje "container-a" i dodavanje u main window
 		HBox glavniContainer = new HBox();
-
-		//Stvaranje instance custom widgeta koji sluzi kao meni
-		GlavniMeni mainMenu = new GlavniMeni();
-
-		//Dodavanje hbox u nas window
 		this.Add(glavniContainer);
 
+		//Stvaranje custom widgeta
+		glavniMeni = new GlavniMeni();
+		pocetna = new WidgetPocetna();
+		knjige = new WidgetKnjiga();
+
 		//Dodavanje menia u glavni container
-		glavniContainer.Add(mainMenu);
+		glavniContainer.Add(glavniMeni);
 
 		//Dohvacanje vrijednosti hbox-a iz widget-a glavni meni
-		var temp = new HBox();
-		temp = mainMenu.test() as HBox;
-
-		//Stvaranje novog custom widgeta koji sluzi kao pocetna
-		WidgetPocetna pocetna = new WidgetPocetna();
+		glavniHbox = glavniMeni.getHbox() as HBox;
 
 		//Dodavanje widgeta pocetna u hbox iz widgeta meni
-		temp.Add(pocetna);
+		glavniHbox.Add(pocetna);
+
+		Build();
+
+		Button knjigeButton = glavniMeni.getKnjige() as Button;
+		Button pocetnaButton = glavniMeni.getPocetna() as Button;
+
+		knjigeButton.Clicked += prikaziKnjige;
+		pocetnaButton.Clicked += prikaziPocetna;
+	}
+
+	protected void prikaziPocetna(object sender, EventArgs a)
+	{
+		glavniHbox.Remove(knjige);
+		glavniHbox.Add(pocetna);
+
+		Build();
+	}
+
+	protected void prikaziKnjige(object sender, EventArgs a)
+	{
+		glavniHbox.Remove(pocetna);
+		glavniHbox.Add(knjige);
 
 		Build();
 	}

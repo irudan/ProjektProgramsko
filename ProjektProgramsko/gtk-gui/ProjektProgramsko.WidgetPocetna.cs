@@ -128,6 +128,7 @@ namespace ProjektProgramsko
 			w3.Fill = false;
 			// Container child hbox7.Gtk.Box+BoxChild
 			this.vbox7 = new global::Gtk.VBox();
+			this.vbox7.Name = "vbox7";
 			this.vbox7.Spacing = 6;
 			// Container child vbox7.Gtk.Box+BoxChild
 			this.image2 = new global::Gtk.Image();

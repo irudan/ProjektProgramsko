@@ -11,7 +11,17 @@ namespace ProjektProgramsko
 			this.Build();
 		}
 
-		public Widget test()//Funkcija za dohvacanje vrijednosi hbox-a
+		public Widget getKnjige()
+		{
+			return buttonKnjige;
+		}
+
+		public Widget getPocetna()
+		{
+			return buttonPocetna;
+		}
+
+		public Widget getHbox()//Funkcija za dohvacanje vrijednosi hbox-a
 		{
 			return hboxMain;
 		}
