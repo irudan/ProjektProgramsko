@@ -3,6 +3,7 @@ namespace ProjektProgramsko
 {
 	public class Film : Sadrzaj
 	{
+		private int id;
 		private DateTime godina;
 		private int trajanje;
 		private double cijena;
@@ -75,6 +76,19 @@ namespace ProjektProgramsko
 			set
 			{
 				opis = value;
+			}
+		}
+
+		public int Id
+		{
+			get
+			{
+				return id;
+			}
+
+			set
+			{
+				id = value;
 			}
 		}
 	}

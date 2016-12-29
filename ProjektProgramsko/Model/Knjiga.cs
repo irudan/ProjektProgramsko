@@ -5,9 +5,10 @@ namespace ProjektProgramsko
 {
 	public class Knjiga : Sadrzaj
 	{
+		private int id;
 		private string jezik;
 		private string tagovi;
-		List<Izdanje> izdanjeCasopis;
+		List<IzdanjeKnjiga> izdanjeKnjiga;
 
 		public Knjiga()
 		{
@@ -36,6 +37,32 @@ namespace ProjektProgramsko
 			set
 			{
 				tagovi = value;
+			}
+		}
+
+		public List<IzdanjeKnjiga> IzdanjeKnjiga
+		{
+			get
+			{
+				return izdanjeKnjiga;
+			}
+
+			set
+			{
+				izdanjeKnjiga = value;
+			}
+		}
+
+		public int Id
+		{
+			get
+			{
+				return id;
+			}
+
+			set
+			{
+				id = value;
 			}
 		}
 	}

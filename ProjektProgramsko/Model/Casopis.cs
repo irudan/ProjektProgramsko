@@ -5,8 +5,9 @@ namespace ProjektProgramsko
 {
 	public class Casopis : Sadrzaj
 	{
+		private int id;
 		private string tagovi;
-		List<Izdanje> izdanjeCasopis;
+		List<IzdanjeCasopis> izdanjeCasopis;
 
 		public Casopis()
 		{
@@ -22,6 +23,32 @@ namespace ProjektProgramsko
 			set
 			{
 				tagovi = value;
+			}
+		}
+
+		public List<IzdanjeCasopis> IzdanjeCasopis
+		{
+			get
+			{
+				return izdanjeCasopis;
+			}
+
+			set
+			{
+				izdanjeCasopis = value;
+			}
+		}
+
+		public int Id
+		{
+			get
+			{
+				return id;
+			}
+
+			set
+			{
+				id = value;
 			}
 		}
 	}

@@ -1,14 +1,14 @@
 ﻿using System;
 namespace ProjektProgramsko
 {
-	public class Izdanje
+	public class IzdanjeCasopis
 	{
 		private DateTime godina;
-		private int brojStranica;
+		private int brojIzdanja;
 		private string nakladnik;
 		private double cijena;
 
-		public Izdanje()
+		public IzdanjeCasopis()
 		{
 		}
 
@@ -25,16 +25,16 @@ namespace ProjektProgramsko
 			}
 		}
 
-		public int BrojStranica
+		public int BrojIzdanja
 		{
 			get
 			{
-				return brojStranica;
+				return brojIzdanja;
 			}
 
 			set
 			{
-				brojStranica = value;
+				brojIzdanja = value;
 			}
 		}
 
