@@ -20,7 +20,7 @@ namespace ProjektProgramsko
 
 			BP.otvoriKonekciju();
 
-			SqliteCommand command = BP.komanda();
+			SqliteCommand command = BP.konekcija.CreateCommand();
 
 			command.CommandText = "Select * from knjiga, sadrzaj where knjiga.id_sadrzaj = sadrzaj.id";
 

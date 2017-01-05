@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Gtk;
 using Mono.Data.Sqlite;
 using ProjektProgramsko;
@@ -8,7 +9,7 @@ public partial class MainWindow : Gtk.Window
 	public GlavniMeni glavniMeni;
 	public WidgetPocetna pocetna;
 	public WidgetKnjiga knjige;
-	public HBox glavniHbox;
+	public VBox glavniHbox;
 
 	public MainWindow() : base(Gtk.WindowType.Toplevel)
 	{
@@ -25,7 +26,7 @@ public partial class MainWindow : Gtk.Window
 		glavniContainer.Add(glavniMeni);
 
 		//Dohvacanje vrijednosti hbox-a iz widget-a glavni meni
-		glavniHbox = glavniMeni.getHbox() as HBox;
+		glavniHbox = glavniMeni.getHbox() as VBox;
 
 		//Dodavanje widgeta pocetna u hbox iz widgeta meni
 		glavniHbox.Add(pocetna);
@@ -51,6 +52,14 @@ public partial class MainWindow : Gtk.Window
 	{
 		glavniHbox.Remove(pocetna);
 		glavniHbox.Add(knjige);
+
+		/*List<Knjiga> temp = BPKnjiga.DohvatiSve();
+
+		foreach (Knjiga i in temp)
+		{
+			WidgetKnjiga2 nova = new WidgetKnjiga2(i);
+			glavniHbox.Add(nova);
+		}*/
 
 		Build();
 	}

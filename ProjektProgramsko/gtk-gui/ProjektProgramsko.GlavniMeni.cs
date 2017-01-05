@@ -30,7 +30,7 @@ namespace ProjektProgramsko
 
 		private global::Gtk.Button buttonProfil;
 
-		private global::Gtk.HBox hboxMain;
+		private global::Gtk.VBox vboxMain;
 
 		protected virtual void Build()
 		{
@@ -160,11 +160,11 @@ namespace ProjektProgramsko
 			w11.Expand = false;
 			w11.Fill = false;
 			// Container child hbox1.Gtk.Box+BoxChild
-			this.hboxMain = new global::Gtk.HBox();
-			this.hboxMain.Name = "hboxMain";
-			this.hboxMain.Spacing = 6;
-			this.hbox1.Add(this.hboxMain);
-			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.hboxMain]));
+			this.vboxMain = new global::Gtk.VBox();
+			this.vboxMain.Name = "vboxMain";
+			this.vboxMain.Spacing = 6;
+			this.hbox1.Add(this.vboxMain);
+			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vboxMain]));
 			w12.Position = 1;
 			this.vbox4.Add(this.hbox1);
 			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.hbox1]));

@@ -23,7 +23,7 @@ namespace ProjektProgramsko
 
 		public Widget getHbox()//Funkcija za dohvacanje vrijednosi hbox-a
 		{
-			return hboxMain;
+			return vboxMain;
 		}
 	}
 }

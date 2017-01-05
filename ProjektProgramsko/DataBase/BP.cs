@@ -6,27 +6,18 @@ namespace ProjektProgramsko
 {
 	public static class BP
 	{
-		private static SqliteConnection konekcija;
+		private static string connectionString = "URI=file:BazaPodataka.db";
+
+		internal static SqliteConnection konekcija = new SqliteConnection(connectionString);
 
 		public static void otvoriKonekciju()
 		{
-			string connectionString = "URI=file:BazaPodataka.db";
-
-			konekcija = new SqliteConnection(connectionString);
-
 			konekcija.Open();
 		}
 
 		public static void zatvoriKonekciju()
 		{
 			konekcija.Close();
-		}
-
-		public static SqliteCommand komanda()
-		{
-			SqliteCommand temp = konekcija.CreateCommand();
-
-			return temp;
 		}
 	}
 }
