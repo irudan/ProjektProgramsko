@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace ProjektProgramsko
 {
 	public class Sadrzaj
 	{
 		private string naziv;
 
-		public Sadrzaj()
-		{
-		}
+		List<Naplata> naplata;
+
 
 		public string Naziv
 		{
@@ -19,6 +20,19 @@ namespace ProjektProgramsko
 			set
 			{
 				naziv = value;
+			}
+		}
+
+		public List<Naplata> Naplata
+		{
+			get
+			{
+				return naplata;
+			}
+
+			set
+			{
+				naplata = value;
 			}
 		}
 	}
