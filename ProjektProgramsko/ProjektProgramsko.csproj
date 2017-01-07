@@ -80,22 +80,29 @@
     <Compile Include="View\WidgetKnjiga.cs" />
     <Compile Include="View\WidgetPocetna.cs" />
     <Compile Include="DataBase\BP.cs" />
-    <Compile Include="Model\Sadrzaj.cs" />
-    <Compile Include="Model\Knjiga.cs" />
-    <Compile Include="Model\Film.cs" />
-    <Compile Include="Model\Casopis.cs" />
-    <Compile Include="Model\IzdanjeKnjiga.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetKnjiga.cs" />
-    <Compile Include="Model\IzdanjeCasopis.cs" />
     <Compile Include="DataBase\BPKnjiga.cs" />
     <Compile Include="Presenter\KnjigaNode.cs" />
     <Compile Include="Presenter\KnjigaNodeStore.cs" />
     <Compile Include="View\WidgetKnjiga2.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetKnjiga2.cs" />
+    <Compile Include="Model\Autor.cs" />
+    <Compile Include="Model\AutorSadrzaj.cs" />
+    <Compile Include="Model\Casopis.cs" />
+    <Compile Include="Model\Film.cs" />
+    <Compile Include="Model\IzdanjeCasopis.cs" />
+    <Compile Include="Model\IzdanjeKnjiga.cs" />
+    <Compile Include="Model\Kartica.cs" />
+    <Compile Include="Model\Knjiga.cs" />
+    <Compile Include="Model\Korisnik.cs" />
+    <Compile Include="Model\Naplata.cs" />
+    <Compile Include="Model\PayPal.cs" />
+    <Compile Include="Model\Sadrzaj.cs" />
+    <Compile Include="Presenter\CasopisNode.cs" />
+    <Compile Include="Presenter\CasopisNodeStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />
-    <Folder Include="Model\" />
     <Folder Include="Presenter\" />
     <Folder Include="DataBase\" />
   </ItemGroup>
