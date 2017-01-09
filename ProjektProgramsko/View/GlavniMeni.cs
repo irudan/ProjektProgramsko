@@ -11,17 +11,17 @@ namespace ProjektProgramsko
 			this.Build();
 		}
 
-		public Widget getKnjige()
+		public Button getKnjige()
 		{
 			return buttonKnjige;
 		}
 
-		public Widget getPocetna()
+		public Button getPocetna()
 		{
 			return buttonPocetna;
 		}
 
-		public Widget getHbox()//Funkcija za dohvacanje vrijednosi hbox-a
+		public VBox getVbox()//Funkcija za dohvacanje vrijednosi hbox-a
 		{
 			return vboxMain;
 		}

@@ -84,8 +84,6 @@
     <Compile Include="DataBase\BPKnjiga.cs" />
     <Compile Include="Presenter\KnjigaNode.cs" />
     <Compile Include="Presenter\KnjigaNodeStore.cs" />
-    <Compile Include="View\WidgetKnjiga2.cs" />
-    <Compile Include="gtk-gui\ProjektProgramsko.WidgetKnjiga2.cs" />
     <Compile Include="Model\Autor.cs" />
     <Compile Include="Model\AutorSadrzaj.cs" />
     <Compile Include="Model\Casopis.cs" />

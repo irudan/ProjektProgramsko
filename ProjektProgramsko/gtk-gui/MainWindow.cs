@@ -3,20 +3,29 @@
 
 public partial class MainWindow
 {
+	private global::ProjektProgramsko.GlavniMeni glavnimeni2;
+
 	protected virtual void Build()
 	{
 		global::Stetic.Gui.Initialize(this);
 		// Widget MainWindow
+		this.WidthRequest = 600;
+		this.HeightRequest = 400;
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString("MainWindow");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(1));
 		this.BorderWidth = ((uint)(10));
+		// Container child MainWindow.Gtk.Container+ContainerChild
+		this.glavnimeni2 = new global::ProjektProgramsko.GlavniMeni();
+		this.glavnimeni2.Events = ((global::Gdk.EventMask)(256));
+		this.glavnimeni2.Name = "glavnimeni2";
+		this.Add(this.glavnimeni2);
 		if ((this.Child != null))
 		{
 			this.Child.ShowAll();
 		}
-		this.DefaultWidth = 416;
-		this.DefaultHeight = 300;
+		this.DefaultWidth = 600;
+		this.DefaultHeight = 400;
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
 	}

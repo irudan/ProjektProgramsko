@@ -30,6 +30,10 @@ namespace ProjektProgramsko
 
 		private global::Gtk.Button buttonProfil;
 
+		private global::Gtk.VBox vboxMain1;
+
+		private global::Gtk.ScrolledWindow scrolledwindow3;
+
 		private global::Gtk.VBox vboxMain;
 
 		protected virtual void Build()
@@ -160,15 +164,32 @@ namespace ProjektProgramsko
 			w11.Expand = false;
 			w11.Fill = false;
 			// Container child hbox1.Gtk.Box+BoxChild
+			this.vboxMain1 = new global::Gtk.VBox();
+			this.vboxMain1.Name = "vboxMain1";
+			this.vboxMain1.Spacing = 6;
+			// Container child vboxMain1.Gtk.Box+BoxChild
+			this.scrolledwindow3 = new global::Gtk.ScrolledWindow();
+			this.scrolledwindow3.CanFocus = true;
+			this.scrolledwindow3.Name = "scrolledwindow3";
+			this.scrolledwindow3.ShadowType = ((global::Gtk.ShadowType)(1));
+			// Container child scrolledwindow3.Gtk.Container+ContainerChild
+			global::Gtk.Viewport w12 = new global::Gtk.Viewport();
+			w12.ShadowType = ((global::Gtk.ShadowType)(0));
+			// Container child GtkViewport.Gtk.Container+ContainerChild
 			this.vboxMain = new global::Gtk.VBox();
 			this.vboxMain.Name = "vboxMain";
 			this.vboxMain.Spacing = 6;
-			this.hbox1.Add(this.vboxMain);
-			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vboxMain]));
-			w12.Position = 1;
+			w12.Add(this.vboxMain);
+			this.scrolledwindow3.Add(w12);
+			this.vboxMain1.Add(this.scrolledwindow3);
+			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.vboxMain1[this.scrolledwindow3]));
+			w15.Position = 0;
+			this.hbox1.Add(this.vboxMain1);
+			global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vboxMain1]));
+			w16.Position = 1;
 			this.vbox4.Add(this.hbox1);
-			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.hbox1]));
-			w13.Position = 1;
+			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.hbox1]));
+			w17.Position = 1;
 			this.Add(this.vbox4);
 			if ((this.Child != null))
 			{

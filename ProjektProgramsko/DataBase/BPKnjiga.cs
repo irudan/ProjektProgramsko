@@ -41,6 +41,8 @@ namespace ProjektProgramsko
 			reader.Dispose();
 			command.Dispose();
 
+			BP.zatvoriKonekciju();
+
 			return listaKnjiga;
 		}
 	}
