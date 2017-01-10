@@ -8,6 +8,11 @@ public partial class MainWindow : Gtk.Window
 {
 	public WidgetPocetna pocetna;
 	public WidgetKnjiga knjiga;
+	public WidgetDodavanjeSadrzaja dodavanjeSadrzaja;
+
+	public WidgetKnjigaSort tempSort;
+	public ComboBox comboBoxSort;
+
 	public VBox glavniVbox;
 
 	public MainWindow() : base(Gtk.WindowType.Toplevel)
@@ -16,27 +21,46 @@ public partial class MainWindow : Gtk.Window
 
 		glavniVbox = glavnimeni2.getVbox();
 		pocetna = new WidgetPocetna();
+		dodavanjeSadrzaja = new WidgetDodavanjeSadrzaja();
+		tempSort = new WidgetKnjigaSort();
+
+		//Button-i
+		Button knjigaButton = glavnimeni2.getKnjige();
+		Button pocetnaButton = glavnimeni2.getPocetna();
+		Button dodavanjeButton = glavnimeni2.getDodavanje();
+		RadioButton radioK = dodavanjeSadrzaja.radioKnjiga();
+		RadioButton radioC = dodavanjeSadrzaja.radioCasopis();
+		RadioButton radioF = dodavanjeSadrzaja.radioFilm();
 
 
-		Button knjigaButton = glavnimeni2.getKnjige() as Button;
-		Button pocetnaButton = glavnimeni2.getPocetna() as Button;
+		comboBoxSort = tempSort.getComboBox();
 
 		knjigaButton.Clicked += prikaziKnjige;
 		pocetnaButton.Clicked += prikaziPocetna;
+		dodavanjeButton.Clicked += prikaziDodavanje;
+
+		radioK.Clicked += prikaziDodavanjeKnjiga;
+		radioC.Clicked += prikaziDodavanjeCasopis;
+
+
+		comboBoxSort.Changed += odabirSorta;
 	}
 
 	protected void prikaziPocetna(object sender, EventArgs a)
 	{
-		izbrisiDjecu();
+		izbrisiDjecu(glavniVbox);
 
 		glavniVbox.Add(pocetna);
 
 		Build();
 	}
 
+	//Funkcija za prikaz knjige
 	protected void prikaziKnjige(object sender, EventArgs a)
 	{
-		izbrisiDjecu();
+		izbrisiDjecu(glavniVbox);
+
+		glavniVbox.Add(tempSort);
 
 		List<Knjiga> temp = BPKnjiga.DohvatiSve();
 
@@ -49,12 +73,78 @@ public partial class MainWindow : Gtk.Window
 		Build();
 	}
 
-	protected void izbrisiDjecu()
+	//Funkcija za prikaz meni-a za dodavanje
+	protected void prikaziDodavanje(object sender, EventArgs a)
 	{
-		Widget[] temp = glavniVbox.Children;
+		izbrisiDjecu(glavniVbox);
+
+		glavniVbox.Add(dodavanjeSadrzaja);
+
+		Build();
+	}
+
+	//Funkcija za dodavanje knjige
+	protected void prikaziDodavanjeKnjiga(object sender, EventArgs a)
+	{
+		WidgetDodavanjeKnjiga temp = new WidgetDodavanjeKnjiga();
+
+		VBox radiobox = dodavanjeSadrzaja.radioBox();
+
+		izbrisiDjecu(radiobox);
+
+		radiobox.Add(temp);
+
+		this.Build();
+	}
+
+	//Funkcija za dodavanje casopisa
+	protected void prikaziDodavanjeCasopis(object sender, EventArgs a)
+	{
+		WidgetDodavanjeCasopis temp = new WidgetDodavanjeCasopis();
+
+		VBox radiobox = dodavanjeSadrzaja.radioBox();
+
+		izbrisiDjecu(radiobox);
+
+		radiobox.Add(temp);
+
+		this.Build();
+	}
+
+	protected void odabirSorta(object sender, EventArgs a)
+	{
+		List<Knjiga> temp = BPKnjiga.DohvatiSve();
+
+		sortirajKnjige(temp);
+
+		izbrisiDjecu(glavniVbox);
+
+		glavniVbox.Add(tempSort);
+
+		foreach (Knjiga i in temp)
+		{
+			knjiga = new WidgetKnjiga(i);
+			glavniVbox.Add(knjiga);
+		}
+
+		Build();
+	}
+
+	//Funkcija za sortiranje knjiga
+	protected void sortirajKnjige(List<Knjiga> lista)
+	{
+		if(comboBoxSort.ActiveText == "Abeceda (silazno)")
+		   lista.Sort((x, y) => string.Compare(y.Naziv, x.Naziv));
+
+		return;
+	}
+
+	protected void izbrisiDjecu(VBox box)
+	{
+		Widget[] temp = box.Children;
 
 		foreach (var i in temp)
-			glavniVbox.Remove(i);
+			box.Remove(i);
 	}
 
 	protected void OnDeleteEvent(object sender, DeleteEventArgs a)

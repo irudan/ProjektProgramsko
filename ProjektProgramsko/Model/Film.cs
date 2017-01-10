@@ -8,7 +8,6 @@ namespace ProjektProgramsko
 		private int trajanje;
 		private double cijena;
 		private string tagovi;
-		private string opis;
 
 		public Film()
 		{
@@ -66,20 +65,7 @@ namespace ProjektProgramsko
 			}
 		}
 
-		public string Opis
-		{
-			get
-			{
-				return opis;
-			}
-
-			set
-			{
-				opis = value;
-			}
-		}
-
-		public int Id
+		public int IdF
 		{
 			get
 			{

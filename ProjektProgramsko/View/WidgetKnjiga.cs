@@ -13,7 +13,18 @@ namespace ProjektProgramsko
 		{
 			this.Build();
 
-			label1.LabelProp = k.Naziv;
+			labelNaslov.LabelProp = k.Naziv;
+			labelOpis.LabelProp = k.Opis;
+			labelJezik.LabelProp = k.Jezik;
+			labelTagovi.LabelProp = k.Tagovi;
+
+			List<Autor> listaAutora = BPAutor.DohvatiAutore(k);
+
+			foreach (var i in listaAutora)
+			{
+				labelAutori.LabelProp += i.Ime + " " + i.Prezime + ", ";
+			}
+			labelAutori.LabelProp = labelAutori.LabelProp.Remove(labelAutori.LabelProp.Length - 2);
 
 			var buffer = System.IO.File.ReadAllBytes("Images/test.jpg");
 			var pixbuf = new Gdk.Pixbuf(buffer);

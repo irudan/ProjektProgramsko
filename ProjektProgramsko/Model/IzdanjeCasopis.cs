@@ -5,7 +5,6 @@ namespace ProjektProgramsko
 	{
 		private DateTime godina;
 		private int brojIzdanja;
-		private string nakladnik;
 		private double cijena;
 
 		public IzdanjeCasopis()
@@ -35,19 +34,6 @@ namespace ProjektProgramsko
 			set
 			{
 				brojIzdanja = value;
-			}
-		}
-
-		public string Nakladnik
-		{
-			get
-			{
-				return nakladnik;
-			}
-
-			set
-			{
-				nakladnik = value;
 			}
 		}
 

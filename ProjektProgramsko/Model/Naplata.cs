@@ -6,6 +6,10 @@ namespace ProjektProgramsko
 		private string brnaplate;
 		private double iznos;
 
+		public Naplata()
+		{
+		}
+
 		public string Brnaplate
 		{
 			get

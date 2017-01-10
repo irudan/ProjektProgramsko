@@ -3,12 +3,35 @@ using System.Collections.Generic;
 
 namespace ProjektProgramsko
 {
-	public class Autor 
+	public class Autor
 	{
+		private int id;
 		private string ime;
 		private string prezime;
 
-		List<AutorSadrzaj> autorsadrzaj;
+		public Autor()
+		{
+		}
+
+		public Autor(int Id, string Ime, string Prezime)
+		{
+			id = Id;
+			ime = Ime;
+			prezime = Prezime;
+		}
+
+		public int Id
+		{
+			get
+			{
+				return id;
+			}
+
+			set
+			{
+				id = value;
+			}
+		}
 
 		public string Ime
 		{
@@ -33,19 +56,6 @@ namespace ProjektProgramsko
 			set
 			{
 				prezime = value;
-			}
-		}
-
-		public List<AutorSadrzaj> Autorsadrzaj
-		{
-			get
-			{
-				return autorsadrzaj;
-			}
-
-			set
-			{
-				autorsadrzaj = value;
 			}
 		}
 	}

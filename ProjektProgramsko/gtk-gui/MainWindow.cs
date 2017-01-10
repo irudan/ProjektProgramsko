@@ -9,7 +9,7 @@ public partial class MainWindow
 	{
 		global::Stetic.Gui.Initialize(this);
 		// Widget MainWindow
-		this.WidthRequest = 600;
+		this.WidthRequest = 675;
 		this.HeightRequest = 400;
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString("MainWindow");
@@ -24,7 +24,7 @@ public partial class MainWindow
 		{
 			this.Child.ShowAll();
 		}
-		this.DefaultWidth = 600;
+		this.DefaultWidth = 675;
 		this.DefaultHeight = 400;
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);

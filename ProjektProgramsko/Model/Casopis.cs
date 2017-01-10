@@ -39,7 +39,7 @@ namespace ProjektProgramsko
 			}
 		}
 
-		public int Id
+		public int IdC
 		{
 			get
 			{

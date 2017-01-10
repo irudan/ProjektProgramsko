@@ -10,6 +10,14 @@ namespace ProjektProgramsko
 		private string tagovi;
 		List<IzdanjeKnjiga> izdanjeKnjiga;
 
+		public Knjiga(string jezik, string tagovi, string naziv, string opis)
+		{
+			this.jezik = jezik;
+			this.tagovi = tagovi;
+			this.Naziv = naziv;
+			this.Opis = opis;
+		}
+
 		public Knjiga()
 		{
 		}
@@ -53,7 +61,7 @@ namespace ProjektProgramsko
 			}
 		}
 
-		public int Id
+		public int IdK
 		{
 			get
 			{
