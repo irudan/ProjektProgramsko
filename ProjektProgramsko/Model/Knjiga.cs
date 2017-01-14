@@ -6,17 +6,13 @@ namespace ProjektProgramsko
 	public class Knjiga : Sadrzaj
 	{
 		private int id;
+		private int brojStranica;
+		private double cijena;
+		private string nakladnik;
 		private string jezik;
 		private string tagovi;
-		List<IzdanjeKnjiga> izdanjeKnjiga;
-
-		public Knjiga(string jezik, string tagovi, string naziv, string opis)
-		{
-			this.jezik = jezik;
-			this.tagovi = tagovi;
-			this.Naziv = naziv;
-			this.Opis = opis;
-		}
+		private int godina;
+		private string slikaPath;
 
 		public Knjiga()
 		{
@@ -48,19 +44,6 @@ namespace ProjektProgramsko
 			}
 		}
 
-		public List<IzdanjeKnjiga> IzdanjeKnjiga
-		{
-			get
-			{
-				return izdanjeKnjiga;
-			}
-
-			set
-			{
-				izdanjeKnjiga = value;
-			}
-		}
-
 		public int IdK
 		{
 			get
@@ -71,6 +54,71 @@ namespace ProjektProgramsko
 			set
 			{
 				id = value;
+			}
+		}
+
+		public string SlikaPath
+		{
+			get
+			{
+				return slikaPath;
+			}
+
+			set
+			{
+				slikaPath = value;
+			}
+		}
+
+		public int BrojStranica
+		{
+			get
+			{
+				return brojStranica;
+			}
+
+			set
+			{
+				brojStranica = value;
+			}
+		}
+
+		public double Cijena
+		{
+			get
+			{
+				return cijena;
+			}
+
+			set
+			{
+				cijena = value;
+			}
+		}
+
+		public string Nakladnik
+		{
+			get
+			{
+				return nakladnik;
+			}
+
+			set
+			{
+				nakladnik = value;
+			}
+		}
+
+		public int Godina
+		{
+			get
+			{
+				return godina;
+			}
+
+			set
+			{
+				godina = value;
 			}
 		}
 	}

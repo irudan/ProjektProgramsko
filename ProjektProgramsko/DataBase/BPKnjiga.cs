@@ -18,22 +18,11 @@ namespace ProjektProgramsko
 			command.ExecuteNonQuery();
 
 			//Dohvacanje id koji je stvoren prethodnim ubacivanjem podataka
-			command.CommandText = String.Format(@"Select id from sadrzaj where sadrzaj.naziv = '{0}'", k.Naziv);
-
-			SqliteDataReader reader = command.ExecuteReader();
-
-			int idS = new int();
-
-			while (reader.Read())
-			{
-				idS = (int)(Int64)reader["id"];
-				Console.WriteLine(idS);
-			}
-
-			reader.Dispose();
+			k.Id = BPSadrzaj.DohvatiId(k.Naziv);
 
 			//Umetanje podataka u tablicu knjiga
-			command.CommandText = String.Format(@"Insert into knjiga (jezik, tagovi, id_sadrzaj) Values ('{0}', '{1}', '{2}')", k.Jezik, k.Tagovi, idS);
+			command.CommandText = String.Format(@"Insert into knjiga (broj_stranica, cijena, nakladnik, jezik, tagovi, slika_path, id_sadrzaj) 
+			Values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}')", k.BrojStranica, k.Cijena, k.Nakladnik, k.Jezik, k.Tagovi, k.SlikaPath, k.Id);
 
 			command.ExecuteNonQuery();
 
@@ -54,8 +43,6 @@ namespace ProjektProgramsko
 
 		public static void DohvatiId(Knjiga k)
 		{
-			//BP.otvoriKonekciju();
-
 			SqliteCommand command = BP.konekcija.CreateCommand();
 
 			command.CommandText = String.Format(@"Select knjiga.id from knjiga, sadrzaj where sadrzaj.naziv = '{0}' and sadrzaj.id = knjiga.id_sadrzaj", k.Naziv);
@@ -64,13 +51,11 @@ namespace ProjektProgramsko
 
 			while (reader.Read())
 			{
-				k.Id = (int)(Int64)reader["id"];
+				k.IdK = (int)(Int64)reader["id"];
 			}
 
 			reader.Dispose();
 			command.Dispose();
-
-			//BP.zatvoriKonekciju();
 		}
 
 		public static List<Knjiga> DohvatiSve()
@@ -92,8 +77,12 @@ namespace ProjektProgramsko
 				k.IdK = (int)(Int64)reader["id"];
 				k.Opis = (string)reader["opis"];
 				k.Naziv = (string)reader["naziv"];
+				k.BrojStranica = (int)(Int64)reader["broj_stranica"];
+				k.Cijena = (int)(double)reader["cijena"];
+				k.Nakladnik = (string)reader["nakladnik"];
 				k.Jezik = (string)reader["jezik"];
 				k.Tagovi = (string)reader["tagovi"];
+				k.SlikaPath = (string)reader["slika_path"];
 
 				listaKnjiga.Add(k);
 			}

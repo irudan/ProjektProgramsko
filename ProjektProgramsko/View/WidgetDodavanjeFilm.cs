@@ -1,25 +1,35 @@
 ﻿using System;
+using Gtk;
+
 namespace ProjektProgramsko
 {
 	[System.ComponentModel.ToolboxItem(true)]
-	public partial class WidgetDodavanjeCasopis : Gtk.Bin
+	public partial class WidgetDodavanjeFilm : Gtk.Bin
 	{
-		public WidgetDodavanjeCasopis()
+		public WidgetDodavanjeFilm()
 		{
 			this.Build();
 
-			buttonSpremi.Clicked += spremiCasopis;
+			buttonSpremi.Clicked += spremiFilm;
+
+			FileFilter filter = new FileFilter();
+			filter.AddPattern("*.jpg");
+			filechooserbutton1.AddFilter(filter);
 		}
 
-		protected void spremiCasopis(object sender, EventArgs a)
+		protected void spremiFilm(object sender, EventArgs a)
 		{
-			Casopis c = new Casopis();
+			Film f = new Film();
 
-			c.Naziv = entryNaziv.Text;
-			c.Opis = entryOpis.Text;
-			c.Tagovi = entryTagovi.Text;
+			f.Naziv = entryNaziv.Text;
+			f.Opis = entryOpis.Text;
+			f.Redatelj = entryRedatelj.Text;
+			f.Godina = int.Parse(entryGodina.Text);
+			f.Trajanje = int.Parse(entryTrajanje.Text);
+			f.Cijena = int.Parse(entryCijena.Text);
+			f.Tagovi = entryTagovi.Text;
 
-			/*string slika = filechooserbutton1.Filename;
+			string slika = filechooserbutton1.Filename;
 
 			for (int i = slika.Length - 1; i != 0; i--)
 			{
@@ -30,11 +40,12 @@ namespace ProjektProgramsko
 				}
 			}
 
-			c.SlikaPath = "Images/" + slika;
+			f.SlikaPath = "Images/" + slika;
 
-			spremiSliku(c.SlikaPath);*/
+			spremiSliku(f.SlikaPath);
 
-			BPCasopis.Spremi(c);
+			//D:\Downloads\AeKQcUf.jpg
+			BPFilm.Spremi(f);
 		}
 
 		protected void spremiSliku(string slika)

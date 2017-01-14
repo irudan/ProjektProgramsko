@@ -88,7 +88,6 @@
     <Compile Include="Model\Casopis.cs" />
     <Compile Include="Model\Film.cs" />
     <Compile Include="Model\IzdanjeCasopis.cs" />
-    <Compile Include="Model\IzdanjeKnjiga.cs" />
     <Compile Include="Model\Kartica.cs" />
     <Compile Include="Model\Knjiga.cs" />
     <Compile Include="Model\Korisnik.cs" />
@@ -111,6 +110,15 @@
     <Compile Include="DataBase\BPAutor.cs" />
     <Compile Include="View\WindowDodavanjeAutora.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WindowDodavanjeAutora.cs" />
+    <Compile Include="DataBase\BPSadrzaj.cs" />
+    <Compile Include="View\WidgetCasopis.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WidgetCasopis.cs" />
+    <Compile Include="DataBase\BPIzdanjeCasopis.cs" />
+    <Compile Include="View\WidgetFilm.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WidgetFilm.cs" />
+    <Compile Include="DataBase\BPFilm.cs" />
+    <Compile Include="View\WidgetDodavanjeFilm.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WidgetDodavanjeFilm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />

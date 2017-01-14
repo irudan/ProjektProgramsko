@@ -19,6 +19,16 @@ namespace ProjektProgramsko
 			return buttonKnjige;
 		}
 
+		public Button getCasopis()
+		{
+			return buttonCasopisi;
+		}
+
+		public Button getFilm()
+		{
+			return buttonFilmovi;
+		}
+
 		public Button getPocetna()
 		{
 			return buttonPocetna;

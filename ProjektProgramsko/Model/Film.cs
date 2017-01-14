@@ -4,16 +4,18 @@ namespace ProjektProgramsko
 	public class Film : Sadrzaj
 	{
 		private int id;
-		private DateTime godina;
+		private string redatelj;
+		private int godina;
 		private int trajanje;
 		private double cijena;
 		private string tagovi;
+		private string slikaPath;
 
 		public Film()
 		{
 		}
 
-		public DateTime Godina
+		public int Godina
 		{
 			get
 			{
@@ -75,6 +77,32 @@ namespace ProjektProgramsko
 			set
 			{
 				id = value;
+			}
+		}
+
+		public string Redatelj
+		{
+			get
+			{
+				return redatelj;
+			}
+
+			set
+			{
+				redatelj = value;
+			}
+		}
+
+		public string SlikaPath
+		{
+			get
+			{
+				return slikaPath;
+			}
+
+			set
+			{
+				slikaPath = value;
 			}
 		}
 	}

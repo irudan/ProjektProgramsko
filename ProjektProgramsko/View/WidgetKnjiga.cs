@@ -15,6 +15,9 @@ namespace ProjektProgramsko
 
 			labelNaslov.LabelProp = k.Naziv;
 			labelOpis.LabelProp = k.Opis;
+			labelBrojStranica.LabelProp = k.BrojStranica.ToString();
+			labelCijena.LabelProp = k.Cijena.ToString() + " kn";
+			labelNakladnik.LabelProp = k.Nakladnik;
 			labelJezik.LabelProp = k.Jezik;
 			labelTagovi.LabelProp = k.Tagovi;
 
@@ -26,7 +29,7 @@ namespace ProjektProgramsko
 			}
 			labelAutori.LabelProp = labelAutori.LabelProp.Remove(labelAutori.LabelProp.Length - 2);
 
-			var buffer = System.IO.File.ReadAllBytes("Images/test.jpg");
+			var buffer = System.IO.File.ReadAllBytes(k.SlikaPath);
 			var pixbuf = new Gdk.Pixbuf(buffer);
 			image1.Pixbuf = pixbuf;
 		}

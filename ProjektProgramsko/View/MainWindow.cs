@@ -8,6 +8,8 @@ public partial class MainWindow : Gtk.Window
 {
 	public WidgetPocetna pocetna;
 	public WidgetKnjiga knjiga;
+	public WidgetCasopis casopis;
+	public WidgetFilm film;
 	public WidgetDodavanjeSadrzaja dodavanjeSadrzaja;
 
 	public WidgetKnjigaSort tempSort;
@@ -25,8 +27,11 @@ public partial class MainWindow : Gtk.Window
 		tempSort = new WidgetKnjigaSort();
 
 		//Button-i
-		Button knjigaButton = glavnimeni2.getKnjige();
 		Button pocetnaButton = glavnimeni2.getPocetna();
+		Button knjigaButton = glavnimeni2.getKnjige();
+		Button casopisButton = glavnimeni2.getCasopis();
+		Button filmButton = glavnimeni2.getFilm();
+
 		Button dodavanjeButton = glavnimeni2.getDodavanje();
 		RadioButton radioK = dodavanjeSadrzaja.radioKnjiga();
 		RadioButton radioC = dodavanjeSadrzaja.radioCasopis();
@@ -35,12 +40,16 @@ public partial class MainWindow : Gtk.Window
 
 		comboBoxSort = tempSort.getComboBox();
 
-		knjigaButton.Clicked += prikaziKnjige;
 		pocetnaButton.Clicked += prikaziPocetna;
+		knjigaButton.Clicked += prikaziKnjige;
+		casopisButton.Clicked += prikaziCasopis;
+		filmButton.Clicked += prikaziFilm;
+
 		dodavanjeButton.Clicked += prikaziDodavanje;
 
 		radioK.Clicked += prikaziDodavanjeKnjiga;
 		radioC.Clicked += prikaziDodavanjeCasopis;
+		radioF.Clicked += prikaziDodavanjeFilm;
 
 
 		comboBoxSort.Changed += odabirSorta;
@@ -68,6 +77,50 @@ public partial class MainWindow : Gtk.Window
 		{
 			knjiga = new WidgetKnjiga(i);
 			glavniVbox.Add(knjiga);
+		}
+
+		Build();
+	}
+
+	//Funkcija za prikaz casopisa
+	protected void prikaziCasopis(object sender, EventArgs a)
+	{
+		izbrisiDjecu(glavniVbox);
+
+		glavniVbox.Add(tempSort);
+
+		List<Casopis> temp = BPCasopis.DohvatiSve();
+
+		foreach (Casopis i in temp)
+		{
+			if (i.IzdanjeCasopis.Capacity == 0)
+			{
+				casopis = new WidgetCasopis(i, null);
+				glavniVbox.Add(casopis);
+			}
+			foreach (var j in i.IzdanjeCasopis)
+			{
+				casopis = new WidgetCasopis(i, j);
+				glavniVbox.Add(casopis);
+			}
+		}
+
+		Build();
+	}
+
+	//Funkcija za prikaz filma
+	protected void prikaziFilm(object sender, EventArgs a)
+	{
+		izbrisiDjecu(glavniVbox);
+
+		glavniVbox.Add(tempSort);
+
+		List<Film> temp = BPFilm.DohvatiSve();
+
+		foreach (Film i in temp)
+		{
+			film = new WidgetFilm(i);
+			glavniVbox.Add(film);
 		}
 
 		Build();
@@ -101,6 +154,20 @@ public partial class MainWindow : Gtk.Window
 	protected void prikaziDodavanjeCasopis(object sender, EventArgs a)
 	{
 		WidgetDodavanjeCasopis temp = new WidgetDodavanjeCasopis();
+
+		VBox radiobox = dodavanjeSadrzaja.radioBox();
+
+		izbrisiDjecu(radiobox);
+
+		radiobox.Add(temp);
+
+		this.Build();
+	}
+
+	//Funkcija za dodavanje filma
+	protected void prikaziDodavanjeFilm(object sender, EventArgs a)
+	{
+		WidgetDodavanjeFilm temp = new WidgetDodavanjeFilm();
 
 		VBox radiobox = dodavanjeSadrzaja.radioBox();
 

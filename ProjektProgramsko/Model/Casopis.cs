@@ -11,6 +11,7 @@ namespace ProjektProgramsko
 
 		public Casopis()
 		{
+			izdanjeCasopis = new List<IzdanjeCasopis>();
 		}
 
 		public string Tagovi

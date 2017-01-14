@@ -3,25 +3,12 @@ namespace ProjektProgramsko
 {
 	public class IzdanjeCasopis
 	{
-		private DateTime godina;
+		private int datum;
 		private int brojIzdanja;
 		private double cijena;
 
 		public IzdanjeCasopis()
 		{
-		}
-
-		public DateTime Godina
-		{
-			get
-			{
-				return godina;
-			}
-
-			set
-			{
-				godina = value;
-			}
 		}
 
 		public int BrojIzdanja
@@ -47,6 +34,19 @@ namespace ProjektProgramsko
 			set
 			{
 				cijena = value;
+			}
+		}
+
+		public int Datum
+		{
+			get
+			{
+				return datum;
+			}
+
+			set
+			{
+				datum = value;
 			}
 		}
 	}
