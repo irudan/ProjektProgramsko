@@ -3,7 +3,7 @@ namespace ProjektProgramsko
 {
 	public class Film : Sadrzaj
 	{
-		private int id;
+		private long id;
 		private string redatelj;
 		private int godina;
 		private int trajanje;
@@ -67,7 +67,7 @@ namespace ProjektProgramsko
 			}
 		}
 
-		public int IdF
+		public long IdF
 		{
 			get
 			{

@@ -119,6 +119,10 @@
     <Compile Include="DataBase\BPFilm.cs" />
     <Compile Include="View\WidgetDodavanjeFilm.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetDodavanjeFilm.cs" />
+    <Compile Include="View\WidgetDodavanjeIzdanje.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WidgetDodavanjeIzdanje.cs" />
+    <Compile Include="View\WindowPregledCasopisa.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WindowPregledCasopisa.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />

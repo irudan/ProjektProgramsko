@@ -4,6 +4,8 @@ namespace ProjektProgramsko
 {
 	public partial class WidgetDodavanjeSadrzaja
 	{
+		private global::Gtk.UIManager UIManager;
+
 		private global::Gtk.VBox vbox1;
 
 		private global::Gtk.HBox hboxMain;
@@ -14,6 +16,8 @@ namespace ProjektProgramsko
 
 		private global::Gtk.RadioButton radiobuttonFilm;
 
+		private global::Gtk.RadioButton radiobuttonIzdanje;
+
 		private global::Gtk.VBox vbox4;
 
 		private global::ProjektProgramsko.WidgetDodavanjeKnjiga widgetdodavanjeknjiga1;
@@ -22,7 +26,10 @@ namespace ProjektProgramsko
 		{
 			global::Stetic.Gui.Initialize(this);
 			// Widget ProjektProgramsko.WidgetDodavanjeSadrzaja
-			global::Stetic.BinContainer.Attach(this);
+			Stetic.BinContainer w1 = global::Stetic.BinContainer.Attach(this);
+			this.UIManager = new global::Gtk.UIManager();
+			global::Gtk.ActionGroup w2 = new global::Gtk.ActionGroup("Default");
+			this.UIManager.InsertActionGroup(w2, 0);
 			this.Name = "ProjektProgramsko.WidgetDodavanjeSadrzaja";
 			// Container child ProjektProgramsko.WidgetDodavanjeSadrzaja.Gtk.Container+ContainerChild
 			this.vbox1 = new global::Gtk.VBox();
@@ -41,8 +48,8 @@ namespace ProjektProgramsko
 			this.radiobuttonKnjiga.UseUnderline = true;
 			this.radiobuttonKnjiga.Group = new global::GLib.SList(global::System.IntPtr.Zero);
 			this.hboxMain.Add(this.radiobuttonKnjiga);
-			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.hboxMain[this.radiobuttonKnjiga]));
-			w1.Position = 0;
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hboxMain[this.radiobuttonKnjiga]));
+			w3.Position = 0;
 			// Container child hboxMain.Gtk.Box+BoxChild
 			this.radiobuttonCasopis = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Časopis"));
 			this.radiobuttonCasopis.CanFocus = true;
@@ -51,8 +58,8 @@ namespace ProjektProgramsko
 			this.radiobuttonCasopis.UseUnderline = true;
 			this.radiobuttonCasopis.Group = this.radiobuttonKnjiga.Group;
 			this.hboxMain.Add(this.radiobuttonCasopis);
-			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hboxMain[this.radiobuttonCasopis]));
-			w2.Position = 1;
+			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hboxMain[this.radiobuttonCasopis]));
+			w4.Position = 1;
 			// Container child hboxMain.Gtk.Box+BoxChild
 			this.radiobuttonFilm = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Film"));
 			this.radiobuttonFilm.CanFocus = true;
@@ -61,12 +68,23 @@ namespace ProjektProgramsko
 			this.radiobuttonFilm.UseUnderline = true;
 			this.radiobuttonFilm.Group = this.radiobuttonKnjiga.Group;
 			this.hboxMain.Add(this.radiobuttonFilm);
-			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hboxMain[this.radiobuttonFilm]));
-			w3.Position = 2;
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hboxMain[this.radiobuttonFilm]));
+			w5.Position = 2;
+			// Container child hboxMain.Gtk.Box+BoxChild
+			this.radiobuttonIzdanje = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Izdanje Časopis"));
+			this.radiobuttonIzdanje.CanFocus = true;
+			this.radiobuttonIzdanje.Name = "radiobuttonIzdanje";
+			this.radiobuttonIzdanje.DrawIndicator = true;
+			this.radiobuttonIzdanje.UseUnderline = true;
+			this.radiobuttonIzdanje.Group = this.radiobuttonKnjiga.Group;
+			this.hboxMain.Add(this.radiobuttonIzdanje);
+			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hboxMain[this.radiobuttonIzdanje]));
+			w6.PackType = ((global::Gtk.PackType)(1));
+			w6.Position = 3;
 			this.vbox1.Add(this.hboxMain);
-			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hboxMain]));
-			w4.Position = 0;
-			w4.Expand = false;
+			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hboxMain]));
+			w7.Position = 0;
+			w7.Expand = false;
 			// Container child vbox1.Gtk.Box+BoxChild
 			this.vbox4 = new global::Gtk.VBox();
 			this.vbox4.Name = "vbox4";
@@ -76,20 +94,21 @@ namespace ProjektProgramsko
 			this.widgetdodavanjeknjiga1.Events = ((global::Gdk.EventMask)(256));
 			this.widgetdodavanjeknjiga1.Name = "widgetdodavanjeknjiga1";
 			this.vbox4.Add(this.widgetdodavanjeknjiga1);
-			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.widgetdodavanjeknjiga1]));
-			w5.Position = 0;
-			w5.Expand = false;
-			w5.Fill = false;
+			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.widgetdodavanjeknjiga1]));
+			w8.Position = 0;
+			w8.Expand = false;
+			w8.Fill = false;
 			this.vbox1.Add(this.vbox4);
-			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.vbox4]));
-			w6.Position = 1;
-			w6.Expand = false;
-			w6.Fill = false;
+			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.vbox4]));
+			w9.Position = 1;
+			w9.Expand = false;
+			w9.Fill = false;
 			this.Add(this.vbox1);
 			if ((this.Child != null))
 			{
 				this.Child.ShowAll();
 			}
+			w1.SetUiManager(UIManager);
 			this.Hide();
 		}
 	}

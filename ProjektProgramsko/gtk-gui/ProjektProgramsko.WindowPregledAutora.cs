@@ -8,6 +8,10 @@ namespace ProjektProgramsko
 
 		private global::Gtk.VBox vboxMain;
 
+		private global::Gtk.VBox vbox2;
+
+		private global::Gtk.Fixed fixed1;
+
 		private global::Gtk.HBox hbox2;
 
 		private global::Gtk.Button buttonSpremi;
@@ -29,9 +33,27 @@ namespace ProjektProgramsko
 			this.vboxMain = new global::Gtk.VBox();
 			this.vboxMain.Name = "vboxMain";
 			this.vboxMain.Spacing = 6;
-			this.vbox1.Add(this.vboxMain);
-			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.vboxMain]));
+			// Container child vboxMain.Gtk.Box+BoxChild
+			this.vbox2 = new global::Gtk.VBox();
+			this.vbox2.Name = "vbox2";
+			this.vbox2.Spacing = 6;
+			// Container child vbox2.Gtk.Box+BoxChild
+			this.fixed1 = new global::Gtk.Fixed();
+			this.fixed1.Name = "fixed1";
+			this.fixed1.HasWindow = false;
+			this.vbox2.Add(this.fixed1);
+			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.fixed1]));
 			w1.Position = 0;
+			w1.Expand = false;
+			w1.Fill = false;
+			this.vboxMain.Add(this.vbox2);
+			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vboxMain[this.vbox2]));
+			w2.Position = 0;
+			w2.Expand = false;
+			this.vbox1.Add(this.vboxMain);
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.vboxMain]));
+			w3.Position = 0;
+			w3.Fill = false;
 			// Container child vbox1.Gtk.Box+BoxChild
 			this.hbox2 = new global::Gtk.HBox();
 			this.hbox2.Name = "hbox2";
@@ -43,23 +65,22 @@ namespace ProjektProgramsko
 			this.buttonSpremi.UseUnderline = true;
 			this.buttonSpremi.Label = global::Mono.Unix.Catalog.GetString("GtkButton");
 			this.hbox2.Add(this.buttonSpremi);
-			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.buttonSpremi]));
-			w2.Position = 0;
-			w2.Expand = false;
-			w2.Fill = false;
-			w2.Padding = ((uint)(5));
+			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.buttonSpremi]));
+			w4.Position = 0;
+			w4.Expand = false;
+			w4.Fill = false;
+			w4.Padding = ((uint)(5));
 			this.vbox1.Add(this.hbox2);
-			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox2]));
-			w3.Position = 1;
-			w3.Expand = false;
-			w3.Fill = false;
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox2]));
+			w5.Position = 1;
+			w5.Fill = false;
 			this.Add(this.vbox1);
 			if ((this.Child != null))
 			{
 				this.Child.ShowAll();
 			}
 			this.DefaultWidth = 400;
-			this.DefaultHeight = 300;
+			this.DefaultHeight = 283;
 			this.Show();
 		}
 	}

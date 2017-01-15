@@ -11,16 +11,13 @@ namespace ProjektProgramsko
 			labelNaslov.LabelProp = c.Naziv;
 			labelOpis.LabelProp = c.Opis;
 
-			//string temp = ic.Datum.ToString();
-			if (ic != null)
-			{
-				labelDatum.LabelProp = ic.Datum.ToString().Insert(2, "/");
-				labelBrojIzdanja.LabelProp = ic.BrojIzdanja.ToString();
-				labelCijena.LabelProp = ic.Cijena.ToString();
-			}
-			/*var buffer = System.IO.File.ReadAllBytes(c.SlikaPath);
+			labelDatum.LabelProp = ic.Datum.ToString().Insert(2, "/");
+			labelBrojIzdanja.LabelProp = ic.BrojIzdanja.ToString();
+			labelCijena.LabelProp = ic.Cijena.ToString();
+		
+			var buffer = System.IO.File.ReadAllBytes(ic.SlikaPath);
 			var pixbuf = new Gdk.Pixbuf(buffer);
-			image1.Pixbuf = pixbuf;*/
+			image1.Pixbuf = pixbuf;
 		}
 	}
 }

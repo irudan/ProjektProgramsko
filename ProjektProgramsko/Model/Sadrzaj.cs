@@ -5,7 +5,7 @@ namespace ProjektProgramsko
 {
 	public class Sadrzaj
 	{
-		private int id;
+		private long id;
 		private string naziv;
 		private string opis;
 
@@ -50,7 +50,7 @@ namespace ProjektProgramsko
 			}
 		}
 
-		public int Id
+		public long Id
 		{
 			get
 			{

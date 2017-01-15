@@ -28,8 +28,6 @@ namespace ProjektProgramsko
 
 		private global::Gtk.Button buttonSpremi;
 
-		private global::Gtk.FileChooserButton filechooserbutton1;
-
 		private global::Gtk.Fixed fixed1;
 
 		protected virtual void Build()
@@ -140,23 +138,17 @@ namespace ProjektProgramsko
 			w10.Fill = false;
 			w10.Padding = ((uint)(5));
 			// Container child hbox7.Gtk.Box+BoxChild
-			this.filechooserbutton1 = new global::Gtk.FileChooserButton(global::Mono.Unix.Catalog.GetString("Select a File"), ((global::Gtk.FileChooserAction)(0)));
-			this.filechooserbutton1.Name = "filechooserbutton1";
-			this.hbox7.Add(this.filechooserbutton1);
-			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.filechooserbutton1]));
-			w11.Position = 1;
-			// Container child hbox7.Gtk.Box+BoxChild
 			this.fixed1 = new global::Gtk.Fixed();
 			this.fixed1.Name = "fixed1";
 			this.fixed1.HasWindow = false;
 			this.hbox7.Add(this.fixed1);
-			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.fixed1]));
-			w12.Position = 2;
+			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.fixed1]));
+			w11.Position = 1;
 			this.vbox3.Add(this.hbox7);
-			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.hbox7]));
-			w13.Position = 3;
-			w13.Expand = false;
-			w13.Fill = false;
+			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.hbox7]));
+			w12.Position = 3;
+			w12.Expand = false;
+			w12.Fill = false;
 			this.Add(this.vbox3);
 			if ((this.Child != null))
 			{

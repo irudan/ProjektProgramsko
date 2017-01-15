@@ -36,6 +36,7 @@ public partial class MainWindow : Gtk.Window
 		RadioButton radioK = dodavanjeSadrzaja.radioKnjiga();
 		RadioButton radioC = dodavanjeSadrzaja.radioCasopis();
 		RadioButton radioF = dodavanjeSadrzaja.radioFilm();
+		RadioButton radioI = dodavanjeSadrzaja.radioIzdanje();
 
 
 		comboBoxSort = tempSort.getComboBox();
@@ -50,6 +51,7 @@ public partial class MainWindow : Gtk.Window
 		radioK.Clicked += prikaziDodavanjeKnjiga;
 		radioC.Clicked += prikaziDodavanjeCasopis;
 		radioF.Clicked += prikaziDodavanjeFilm;
+		radioI.Clicked += prikaziDodavanjeIzdanje;
 
 
 		comboBoxSort.Changed += odabirSorta;
@@ -93,11 +95,6 @@ public partial class MainWindow : Gtk.Window
 
 		foreach (Casopis i in temp)
 		{
-			if (i.IzdanjeCasopis.Capacity == 0)
-			{
-				casopis = new WidgetCasopis(i, null);
-				glavniVbox.Add(casopis);
-			}
 			foreach (var j in i.IzdanjeCasopis)
 			{
 				casopis = new WidgetCasopis(i, j);
@@ -168,6 +165,20 @@ public partial class MainWindow : Gtk.Window
 	protected void prikaziDodavanjeFilm(object sender, EventArgs a)
 	{
 		WidgetDodavanjeFilm temp = new WidgetDodavanjeFilm();
+
+		VBox radiobox = dodavanjeSadrzaja.radioBox();
+
+		izbrisiDjecu(radiobox);
+
+		radiobox.Add(temp);
+
+		this.Build();
+	}
+
+	//Funkcija za dodavanje izdanja
+	protected void prikaziDodavanjeIzdanje(object sender, EventArgs a)
+	{
+		WidgetDodavanjeIzdanje temp = new WidgetDodavanjeIzdanje();
 
 		VBox radiobox = dodavanjeSadrzaja.radioBox();
 

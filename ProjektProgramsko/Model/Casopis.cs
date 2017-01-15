@@ -5,7 +5,7 @@ namespace ProjektProgramsko
 {
 	public class Casopis : Sadrzaj
 	{
-		private int id;
+		private long id;
 		private string tagovi;
 		List<IzdanjeCasopis> izdanjeCasopis;
 
@@ -40,7 +40,7 @@ namespace ProjektProgramsko
 			}
 		}
 
-		public int IdC
+		public long IdC
 		{
 			get
 			{

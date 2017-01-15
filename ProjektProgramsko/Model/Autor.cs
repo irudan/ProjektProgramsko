@@ -5,7 +5,7 @@ namespace ProjektProgramsko
 {
 	public class Autor
 	{
-		private int id;
+		private long id;
 		private string ime;
 		private string prezime;
 
@@ -13,14 +13,14 @@ namespace ProjektProgramsko
 		{
 		}
 
-		public Autor(int Id, string Ime, string Prezime)
+		public Autor(long Id, string Ime, string Prezime)
 		{
 			id = Id;
 			ime = Ime;
 			prezime = Prezime;
 		}
 
-		public int Id
+		public long Id
 		{
 			get
 			{

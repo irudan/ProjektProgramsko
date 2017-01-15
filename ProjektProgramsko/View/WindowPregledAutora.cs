@@ -47,7 +47,7 @@ namespace ProjektProgramsko
 					string ime = labelSplit[0];
 					string prezime = labelSplit[1];
 
-					int autorID = 0;
+					long autorID = new long();
 
 					foreach (var j in listaAutoriBP)
 					{

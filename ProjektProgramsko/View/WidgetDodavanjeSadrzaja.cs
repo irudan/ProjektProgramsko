@@ -25,6 +25,11 @@ namespace ProjektProgramsko
 			return radiobuttonFilm;
 		}
 
+		public RadioButton radioIzdanje()
+		{
+			return radiobuttonIzdanje;
+		}
+
 		public VBox radioBox()
 		{
 			return vbox4;

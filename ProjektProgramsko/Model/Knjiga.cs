@@ -5,7 +5,7 @@ namespace ProjektProgramsko
 {
 	public class Knjiga : Sadrzaj
 	{
-		private int id;
+		private long id;
 		private int brojStranica;
 		private double cijena;
 		private string nakladnik;
@@ -44,7 +44,7 @@ namespace ProjektProgramsko
 			}
 		}
 
-		public int IdK
+		public long IdK
 		{
 			get
 			{

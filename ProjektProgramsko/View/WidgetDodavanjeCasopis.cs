@@ -37,7 +37,7 @@ namespace ProjektProgramsko
 			BPCasopis.Spremi(c);
 		}
 
-		protected void spremiSliku(string slika)
+		/*protected void spremiSliku(string slika)
 		{
 			System.Diagnostics.Process process = new System.Diagnostics.Process();
 			System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
@@ -46,6 +46,6 @@ namespace ProjektProgramsko
 			startInfo.Arguments = "/C copy " + filechooserbutton1.Filename + " C:\\Users\\Mateo\\Documents\\GitHub\\ProjektProgramsko\\ProjektProgramsko\\bin\\Debug\\Images";
 			process.StartInfo = startInfo;
 			process.Start();
-		}
+		}*/
 	}
 }

@@ -6,7 +6,7 @@ namespace ProjektProgramsko
 {
 	public static class BPIzdanjeCasopis
 	{
-		public static List<IzdanjeCasopis> DohvatiSve(int id)
+		public static List<IzdanjeCasopis> DohvatiSve(long id)
 		{
 			List<IzdanjeCasopis> listaIzdanja = new List<IzdanjeCasopis>();
 
@@ -23,6 +23,7 @@ namespace ProjektProgramsko
 				ic.Datum = (int)(Int64)reader["datum"];
 				ic.BrojIzdanja = (int)(Int64)reader["broj_izdanja"];
 				ic.Cijena = (int)(double)reader["cijena"];
+				ic.SlikaPath = (string)reader["slika_path"];
 
 				listaIzdanja.Add(ic);
 			}
@@ -31,6 +32,22 @@ namespace ProjektProgramsko
 			command.Dispose();
 
 			return listaIzdanja;
+		}
+
+		public static void Spremi(IzdanjeCasopis ic, long id)
+		{
+			BP.otvoriKonekciju();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = String.Format(@"Insert into izdanje_casopis (datum, broj_izdanja, cijena, slika_path, id_casopis) 
+												Values ('{0}', '{1}', '{2}', '{3}', '{4}')", ic.Datum, ic.BrojIzdanja, ic.Cijena, ic.SlikaPath, id);
+
+			command.ExecuteNonQuery();
+
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
 		}
 	}
 }

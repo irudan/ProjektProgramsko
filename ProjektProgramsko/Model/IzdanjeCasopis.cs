@@ -6,6 +6,7 @@ namespace ProjektProgramsko
 		private int datum;
 		private int brojIzdanja;
 		private double cijena;
+		private string slikaPath;
 
 		public IzdanjeCasopis()
 		{
@@ -47,6 +48,19 @@ namespace ProjektProgramsko
 			set
 			{
 				datum = value;
+			}
+		}
+
+		public string SlikaPath
+		{
+			get
+			{
+				return slikaPath;
+			}
+
+			set
+			{
+				slikaPath = value;
 			}
 		}
 	}
