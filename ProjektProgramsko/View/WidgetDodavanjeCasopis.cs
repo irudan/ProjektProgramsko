@@ -1,4 +1,6 @@
 ﻿using System;
+using Gtk;
+
 namespace ProjektProgramsko
 {
 	[System.ComponentModel.ToolboxItem(true)]
@@ -13,39 +15,36 @@ namespace ProjektProgramsko
 
 		protected void spremiCasopis(object sender, EventArgs a)
 		{
+			Widget[] polje = vboxEntry.Children;
+			Entry entry;
+
+			foreach (var i in polje)
+			{
+				entry = (Entry)i;
+				if (entry.Text == "")
+				{
+					Dialog d = new Gtk.MessageDialog((Window)this.Toplevel, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Sva polja moraju biti unesena!");
+
+					d.Run();
+					d.Destroy();
+					return;
+				}
+			}
+
 			Casopis c = new Casopis();
 
 			c.Naziv = entryNaziv.Text;
 			c.Opis = entryOpis.Text;
 			c.Tagovi = entryTagovi.Text;
 
-			/*string slika = filechooserbutton1.Filename;
+			BPCasopis.Spremi(c);
 
-			for (int i = slika.Length - 1; i != 0; i--)
+			foreach (var i in polje)
 			{
-				if (slika[i] == '\\')
-				{
-					slika = slika.Remove(0, i + 1);
-					break;
-				}
+				entry = (Entry)i;
+				entry.Text = "";
 			}
 
-			c.SlikaPath = "Images/" + slika;
-
-			spremiSliku(c.SlikaPath);*/
-
-			BPCasopis.Spremi(c);
 		}
-
-		/*protected void spremiSliku(string slika)
-		{
-			System.Diagnostics.Process process = new System.Diagnostics.Process();
-			System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-			startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-			startInfo.FileName = "cmd.exe";
-			startInfo.Arguments = "/C copy " + filechooserbutton1.Filename + " C:\\Users\\Mateo\\Documents\\GitHub\\ProjektProgramsko\\ProjektProgramsko\\bin\\Debug\\Images";
-			process.StartInfo = startInfo;
-			process.Start();
-		}*/
 	}
 }

@@ -15,6 +15,7 @@ namespace ProjektProgramsko
 			temp = odabraniCasopis;
 
 			buttonSpremi.Clicked += spremiCasopis;
+			buttonOdustani.Clicked += odustani;
 
 			CasopisNodeStore casopisPresenter = new CasopisNodeStore();
 
@@ -38,11 +39,17 @@ namespace ProjektProgramsko
 			if (casopisSelected == null)
 				return;
 
-			temp.IdC = casopisSelected.id;
+			temp.Id = casopisSelected.id;
+			temp.IdC = casopisSelected.idC;
 			temp.Naziv = casopisSelected.naziv;
 			temp.Opis = casopisSelected.opis;
 			temp.Tagovi = casopisSelected.tagovi;
 
+			this.Destroy();
+		}
+
+		protected void odustani(object sender, EventArgs a)
+		{
 			this.Destroy();
 		}
 	}

@@ -123,6 +123,34 @@
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetDodavanjeIzdanje.cs" />
     <Compile Include="View\WindowPregledCasopisa.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WindowPregledCasopisa.cs" />
+    <Compile Include="View\WidgetUredivanjeSadrzaja.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WidgetUredivanjeSadrzaja.cs" />
+    <Compile Include="View\WidgetUredivanjeKnjiga.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WidgetUredivanjeKnjiga.cs" />
+    <Compile Include="View\WidgetUredivanjeCasopis.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WidgetUredivanjeCasopis.cs" />
+    <Compile Include="View\WidgetUredivanjeFilm.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WidgetUredivanjeFilm.cs" />
+    <Compile Include="Presenter\FilmNode.cs" />
+    <Compile Include="Presenter\FilmNodeStore.cs" />
+    <Compile Include="View\WidgetUredivanjeIzdanje.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WidgetUredivanjeIzdanje.cs" />
+    <Compile Include="Presenter\IzdanjeNode.cs" />
+    <Compile Include="Presenter\IzdanjeNodeStore.cs" />
+    <Compile Include="View\WindowUredivanjeKnjiga.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WindowUredivanjeKnjiga.cs" />
+    <Compile Include="View\WindowUredivanjeCasopis.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WindowUredivanjeCasopis.cs" />
+    <Compile Include="View\WindowUredivanjeFilm.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WindowUredivanjeFilm.cs" />
+    <Compile Include="View\WindowUredivanjeIzdanje.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WindowUredivanjeIzdanje.cs" />
+    <Compile Include="View\WidgetUredivanjeAutora.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WidgetUredivanjeAutora.cs" />
+    <Compile Include="Presenter\AutorNode.cs" />
+    <Compile Include="Presenter\AutorNodeStore.cs" />
+    <Compile Include="View\WindowUredivanjeAutora.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WindowUredivanjeAutora.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />

@@ -13,12 +13,29 @@ namespace ProjektProgramsko
 			buttonSpremi.Clicked += spremiFilm;
 
 			FileFilter filter = new FileFilter();
+			filter.Name = "Images";
 			filter.AddPattern("*.jpg");
 			filechooserbutton1.AddFilter(filter);
 		}
 
 		protected void spremiFilm(object sender, EventArgs a)
 		{
+			Widget[] polje = vboxEntry.Children;
+			Entry entry;
+
+			foreach (var i in polje)
+			{
+				entry = (Entry)i;
+				if (entry.Text == "" || filechooserbutton1.Filename == null)
+				{
+					Dialog d = new Gtk.MessageDialog((Window)this.Toplevel, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Sva polja moraju biti unesena!");
+
+					d.Run();
+					d.Destroy();
+					return;
+				}
+			}
+
 			Film f = new Film();
 
 			f.Naziv = entryNaziv.Text;
@@ -46,6 +63,12 @@ namespace ProjektProgramsko
 
 			//D:\Downloads\AeKQcUf.jpg
 			BPFilm.Spremi(f);
+
+			foreach (var i in polje)
+			{
+				entry = (Entry)i;
+				entry.Text = "";
+			}
 		}
 
 		protected void spremiSliku(string slika)

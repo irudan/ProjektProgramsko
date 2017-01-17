@@ -21,17 +21,23 @@ namespace ProjektProgramsko
 			labelJezik.LabelProp = k.Jezik;
 			labelTagovi.LabelProp = k.Tagovi;
 
-			List<Autor> listaAutora = BPAutor.DohvatiAutore(k);
+			List<Autor> listaAutora = BPAutor.DohvatiAutore(k.IdK);
 
 			foreach (var i in listaAutora)
 			{
 				labelAutori.LabelProp += i.Ime + " " + i.Prezime + ", ";
 			}
+			if(listaAutora.Capacity != 0)
 			labelAutori.LabelProp = labelAutori.LabelProp.Remove(labelAutori.LabelProp.Length - 2);
 
 			var buffer = System.IO.File.ReadAllBytes(k.SlikaPath);
 			var pixbuf = new Gdk.Pixbuf(buffer);
 			image1.Pixbuf = pixbuf;
+		}
+
+		public Button getKupi()
+		{
+			return button81;
 		}
 	}
 }

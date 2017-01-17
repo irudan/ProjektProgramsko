@@ -11,11 +11,14 @@ public partial class MainWindow : Gtk.Window
 	public WidgetCasopis casopis;
 	public WidgetFilm film;
 	public WidgetDodavanjeSadrzaja dodavanjeSadrzaja;
+	public WidgetUredivanjeSadrzaja uredivanjeSadrzaja;
 
 	public WidgetKnjigaSort tempSort;
 	public ComboBox comboBoxSort;
 
 	public VBox glavniVbox;
+
+	public List<WidgetKnjiga> listaKnjiga;
 
 	public MainWindow() : base(Gtk.WindowType.Toplevel)
 	{
@@ -25,6 +28,9 @@ public partial class MainWindow : Gtk.Window
 		pocetna = new WidgetPocetna();
 		dodavanjeSadrzaja = new WidgetDodavanjeSadrzaja();
 		tempSort = new WidgetKnjigaSort();
+		uredivanjeSadrzaja = new WidgetUredivanjeSadrzaja();
+
+		glavniVbox.Add(pocetna);
 
 		//Button-i
 		Button pocetnaButton = glavnimeni2.getPocetna();
@@ -33,10 +39,18 @@ public partial class MainWindow : Gtk.Window
 		Button filmButton = glavnimeni2.getFilm();
 
 		Button dodavanjeButton = glavnimeni2.getDodavanje();
+		Button uredivanjeButton = glavnimeni2.getUredivanje();
+
 		RadioButton radioK = dodavanjeSadrzaja.radioKnjiga();
 		RadioButton radioC = dodavanjeSadrzaja.radioCasopis();
 		RadioButton radioF = dodavanjeSadrzaja.radioFilm();
 		RadioButton radioI = dodavanjeSadrzaja.radioIzdanje();
+
+		RadioButton radioKU = uredivanjeSadrzaja.radioKnjiga();
+		RadioButton radioCU = uredivanjeSadrzaja.radioCasopis();
+		RadioButton radioFU = uredivanjeSadrzaja.radioFilm();
+		RadioButton radioIU = uredivanjeSadrzaja.radioIzdanje();
+		RadioButton radioAU = uredivanjeSadrzaja.radioAutor();
 
 
 		comboBoxSort = tempSort.getComboBox();
@@ -47,14 +61,23 @@ public partial class MainWindow : Gtk.Window
 		filmButton.Clicked += prikaziFilm;
 
 		dodavanjeButton.Clicked += prikaziDodavanje;
+		uredivanjeButton.Clicked += prikaziUredivanje;
 
 		radioK.Clicked += prikaziDodavanjeKnjiga;
 		radioC.Clicked += prikaziDodavanjeCasopis;
 		radioF.Clicked += prikaziDodavanjeFilm;
 		radioI.Clicked += prikaziDodavanjeIzdanje;
 
+		radioKU.Clicked += prikaziUredivanjeKnjiga;
+		radioCU.Clicked += prikaziUredivanjeCasopis;
+		radioFU.Clicked += prikaziUredivanjeFilm;
+		radioIU.Clicked += prikaziUredivanjeIzdanje;
+		radioAU.Clicked += prikaziUredivanjeAutor;
+
 
 		comboBoxSort.Changed += odabirSorta;
+
+		Build();
 	}
 
 	protected void prikaziPocetna(object sender, EventArgs a)
@@ -79,9 +102,18 @@ public partial class MainWindow : Gtk.Window
 		{
 			knjiga = new WidgetKnjiga(i);
 			glavniVbox.Add(knjiga);
+
+			/*Button kupi = knjiga.getKupi();
+			kupi.Clicked += test;*/
 		}
 
 		Build();
+	}
+
+	protected void test(object sender, EventArgs a)
+	{
+		Button temp = sender as Button;
+		temp.Label = "ajmoo";
 	}
 
 	//Funkcija za prikaz casopisa
@@ -129,6 +161,16 @@ public partial class MainWindow : Gtk.Window
 		izbrisiDjecu(glavniVbox);
 
 		glavniVbox.Add(dodavanjeSadrzaja);
+
+		Build();
+	}
+
+	//Funkcija za prikaz meni-a za uredivanje
+	protected void prikaziUredivanje(object sender, EventArgs a)
+	{
+		izbrisiDjecu(glavniVbox);
+
+		glavniVbox.Add(uredivanjeSadrzaja);
 
 		Build();
 	}
@@ -189,6 +231,76 @@ public partial class MainWindow : Gtk.Window
 		this.Build();
 	}
 
+	//Funkcija za uredivanje knjige
+	protected void prikaziUredivanjeKnjiga(object sender, EventArgs a)
+	{
+		WidgetUredivanjeKnjiga temp = new WidgetUredivanjeKnjiga();
+
+		VBox radiobox = uredivanjeSadrzaja.radioBox();
+
+		izbrisiDjecu(radiobox);
+
+		radiobox.Add(temp);
+
+		this.Build();
+	}
+
+	//Funkcija za uredivanje casopisa
+	protected void prikaziUredivanjeCasopis(object sender, EventArgs a)
+	{
+		WidgetUredivanjeCasopis temp = new WidgetUredivanjeCasopis();
+
+		VBox radiobox = uredivanjeSadrzaja.radioBox();
+
+		izbrisiDjecu(radiobox);
+
+		radiobox.Add(temp);
+
+		this.Build();
+	}
+
+	//Funkcija za uredivanje filma
+	protected void prikaziUredivanjeFilm(object sender, EventArgs a)
+	{
+		WidgetUredivanjeFilm temp = new WidgetUredivanjeFilm();
+
+		VBox radiobox = uredivanjeSadrzaja.radioBox();
+
+		izbrisiDjecu(radiobox);
+
+		radiobox.Add(temp);
+
+		this.Build();
+	}
+
+	//Funkcija za uredivanje izdanja
+	protected void prikaziUredivanjeIzdanje(object sender, EventArgs a)
+	{
+		WidgetUredivanjeIzdanje temp = new WidgetUredivanjeIzdanje();
+
+		VBox radiobox = uredivanjeSadrzaja.radioBox();
+
+		izbrisiDjecu(radiobox);
+
+		radiobox.Add(temp);
+
+		this.Build();
+	}
+
+	//Funkcija za uredivanje autora
+	protected void prikaziUredivanjeAutor(object sender, EventArgs a)
+	{
+		WidgetUredivanjeAutora temp = new WidgetUredivanjeAutora();
+
+		VBox radiobox = uredivanjeSadrzaja.radioBox();
+
+		izbrisiDjecu(radiobox);
+
+		radiobox.Add(temp);
+
+		this.Build();
+	}
+
 	protected void odabirSorta(object sender, EventArgs a)
 	{
 		List<Knjiga> temp = BPKnjiga.DohvatiSve();
@@ -211,8 +323,8 @@ public partial class MainWindow : Gtk.Window
 	//Funkcija za sortiranje knjiga
 	protected void sortirajKnjige(List<Knjiga> lista)
 	{
-		if(comboBoxSort.ActiveText == "Abeceda (silazno)")
-		   lista.Sort((x, y) => string.Compare(y.Naziv, x.Naziv));
+		if(comboBoxSort.ActiveText == "Abeceda (uzlazno)")
+		   lista.Sort((x, y) => string.Compare(x.Naziv, y.Naziv));
 
 		return;
 	}
@@ -229,5 +341,10 @@ public partial class MainWindow : Gtk.Window
 	{
 		Application.Quit();
 		a.RetVal = true;
+	}
+
+	public MainWindow getId()
+	{
+		return this;
 	}
 }

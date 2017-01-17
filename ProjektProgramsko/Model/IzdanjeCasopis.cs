@@ -3,13 +3,16 @@ namespace ProjektProgramsko
 {
 	public class IzdanjeCasopis
 	{
-		private int datum;
+		private long id;
+		private string datum;
 		private int brojIzdanja;
 		private double cijena;
 		private string slikaPath;
+		private long brojProdanih;
 
 		public IzdanjeCasopis()
 		{
+			brojProdanih = 0;
 		}
 
 		public int BrojIzdanja
@@ -38,7 +41,7 @@ namespace ProjektProgramsko
 			}
 		}
 
-		public int Datum
+		public string Datum
 		{
 			get
 			{
@@ -61,6 +64,32 @@ namespace ProjektProgramsko
 			set
 			{
 				slikaPath = value;
+			}
+		}
+
+		public long Id
+		{
+			get
+			{
+				return id;
+			}
+
+			set
+			{
+				id = value;
+			}
+		}
+
+		public long BrojProdanih
+		{
+			get
+			{
+				return brojProdanih;
+			}
+
+			set
+			{
+				brojProdanih = value;
 			}
 		}
 	}

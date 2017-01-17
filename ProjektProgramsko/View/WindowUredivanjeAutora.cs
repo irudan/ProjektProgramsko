@@ -3,18 +3,25 @@ using Gtk;
 
 namespace ProjektProgramsko
 {
-	public partial class WindowDodavanjeAutora : Gtk.Window
+	public partial class WindowUredivanjeAutora : Gtk.Window
 	{
-		public WindowDodavanjeAutora() :
+		public Autor at;
+
+		public WindowUredivanjeAutora(Autor arg) :
 				base(Gtk.WindowType.Toplevel)
 		{
 			this.Build();
 
-			buttonSpremi.Clicked += spremiAutora;
+			at = arg;
+
+			entryIme.Text = at.Ime;
+			entryPrezime.Text = at.Prezime;
+
+			buttonSpremi.Clicked += spremiAutor;
 			buttonOdustani.Clicked += odustani;
 		}
 
-		protected void spremiAutora(object sender, EventArgs a)
+		protected void spremiAutor(object sender, EventArgs a)
 		{
 			if (entryIme.Text == "" || entryPrezime.Text == "")
 			{
@@ -26,12 +33,10 @@ namespace ProjektProgramsko
 				return;
 			}
 
-			Autor temp = new Autor();
+			at.Ime = entryIme.Text;
+			at.Prezime = entryPrezime.Text;
 
-			temp.Ime = entryIme.Text;
-			temp.Prezime = entryPrezime.Text;
-
-			BPAutor.Spremi(temp);
+			BPAutor.Uredi(at);
 
 			this.Destroy();
 		}

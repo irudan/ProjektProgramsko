@@ -39,6 +39,11 @@ namespace ProjektProgramsko
 			return buttonDodavanje;
 		}
 
+		public Button getUredivanje()
+		{
+			return buttonUredivanje;
+		}
+
 		public Button getPretrazi()
 		{
 			return buttonPretraga;
@@ -47,11 +52,6 @@ namespace ProjektProgramsko
 		public VBox getVbox()
 		{
 			return vboxMain;
-		}
-
-		public Label labela()
-		{
-			return label3;
 		}
 	}
 }

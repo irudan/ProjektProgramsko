@@ -6,6 +6,93 @@ namespace ProjektProgramsko
 {
 	public static class BPIzdanjeCasopis
 	{
+		public static void Spremi(IzdanjeCasopis ic, long id)
+		{
+			BP.otvoriKonekciju();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = String.Format(@"Insert into izdanje_casopis (datum, broj_izdanja, cijena, slika_path, broj_prodanih, id_casopis) 
+												Values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')", ic.Datum, ic.BrojIzdanja, ic.Cijena, ic.SlikaPath, ic.BrojProdanih, id);
+
+			command.ExecuteNonQuery();
+
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
+		}
+
+		public static void Uredi(IzdanjeCasopis ic, long id)
+		{
+			BP.otvoriKonekciju();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			if (id != 0)
+			{
+				command.CommandText = String.Format(@"Update izdanje_casopis set datum = '{0}', broj_izdanja = '{1}', cijena = '{2}', slika_path = '{3}', id_casopis = '{4}' 
+												where izdanje_casopis.id = '{5}'", ic.Datum, ic.BrojIzdanja, ic.Cijena, ic.SlikaPath, id, ic.Id);
+			}
+			else
+			{
+				command.CommandText = String.Format(@"Update izdanje_casopis set datum = '{0}', broj_izdanja = '{1}', cijena = '{2}', slika_path = '{3}'
+												where izdanje_casopis.id = '{4}'", ic.Datum, ic.BrojIzdanja, ic.Cijena, ic.SlikaPath, ic.Id);
+			}
+
+
+			command.ExecuteNonQuery();
+
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
+		}
+
+		public static void Izbrisi(long id)
+		{
+			BP.otvoriKonekciju();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+
+			command.CommandText = String.Format(@"Delete from izdanje_casopis where id = '{0}'", id);
+
+			command.ExecuteNonQuery();
+
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
+		}
+
+		public static IzdanjeCasopis DohvatiIzdanje(long id)
+		{
+			BP.otvoriKonekciju();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = String.Format(@"Select * from izdanje_casopis where id = '{0}'", id);
+
+			SqliteDataReader reader = command.ExecuteReader();
+
+			IzdanjeCasopis ic = new IzdanjeCasopis();
+
+			while (reader.Read())
+			{
+				ic.Id = (int)(Int64)reader["id"];
+				ic.Datum = (string)reader["datum"];
+				ic.BrojIzdanja = (int)(Int64)reader["broj_izdanja"];
+				ic.Cijena = (int)(double)reader["cijena"];
+				ic.SlikaPath = (string)reader["slika_path"];
+				ic.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
+			}
+
+			reader.Dispose();
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
+
+			return ic;
+		}
+
 		public static List<IzdanjeCasopis> DohvatiSve(long id)
 		{
 			List<IzdanjeCasopis> listaIzdanja = new List<IzdanjeCasopis>();
@@ -20,10 +107,13 @@ namespace ProjektProgramsko
 			{
 				IzdanjeCasopis ic = new IzdanjeCasopis();
 
-				ic.Datum = (int)(Int64)reader["datum"];
+				ic.Id = (int)(Int64)reader["id"];
+				ic.Datum = (string)reader["datum"];
 				ic.BrojIzdanja = (int)(Int64)reader["broj_izdanja"];
 				ic.Cijena = (int)(double)reader["cijena"];
 				ic.SlikaPath = (string)reader["slika_path"];
+				ic.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
+
 
 				listaIzdanja.Add(ic);
 			}
@@ -32,22 +122,6 @@ namespace ProjektProgramsko
 			command.Dispose();
 
 			return listaIzdanja;
-		}
-
-		public static void Spremi(IzdanjeCasopis ic, long id)
-		{
-			BP.otvoriKonekciju();
-
-			SqliteCommand command = BP.konekcija.CreateCommand();
-
-			command.CommandText = String.Format(@"Insert into izdanje_casopis (datum, broj_izdanja, cijena, slika_path, id_casopis) 
-												Values ('{0}', '{1}', '{2}', '{3}', '{4}')", ic.Datum, ic.BrojIzdanja, ic.Cijena, ic.SlikaPath, id);
-
-			command.ExecuteNonQuery();
-
-			command.Dispose();
-
-			BP.zatvoriKonekciju();
 		}
 	}
 }

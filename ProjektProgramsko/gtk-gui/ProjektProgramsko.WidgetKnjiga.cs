@@ -54,6 +54,8 @@ namespace ProjektProgramsko
 
 		private global::Gtk.Label labelJezik;
 
+		private global::Gtk.Fixed fixed1;
+
 		private global::Gtk.VButtonBox vbuttonbox1;
 
 		private global::Gtk.Button button81;
@@ -83,6 +85,7 @@ namespace ProjektProgramsko
 			w1.Fill = false;
 			// Container child hbox1.Gtk.Box+BoxChild
 			this.vbox1 = new global::Gtk.VBox();
+			this.vbox1.WidthRequest = 150;
 			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
 			// Container child vbox1.Gtk.Box+BoxChild
@@ -292,6 +295,15 @@ namespace ProjektProgramsko
 			this.hbox1.Add(this.vbox1);
 			global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vbox1]));
 			w24.Position = 1;
+			w24.Expand = false;
+			w24.Fill = false;
+			// Container child hbox1.Gtk.Box+BoxChild
+			this.fixed1 = new global::Gtk.Fixed();
+			this.fixed1.Name = "fixed1";
+			this.fixed1.HasWindow = false;
+			this.hbox1.Add(this.fixed1);
+			global::Gtk.Box.BoxChild w25 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.fixed1]));
+			w25.Position = 2;
 			// Container child hbox1.Gtk.Box+BoxChild
 			this.vbuttonbox1 = new global::Gtk.VButtonBox();
 			this.vbuttonbox1.Name = "vbuttonbox1";
@@ -303,9 +315,9 @@ namespace ProjektProgramsko
 			this.button81.UseUnderline = true;
 			this.button81.Label = global::Mono.Unix.Catalog.GetString("Kupi");
 			this.vbuttonbox1.Add(this.button81);
-			global::Gtk.ButtonBox.ButtonBoxChild w25 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.vbuttonbox1[this.button81]));
-			w25.Expand = false;
-			w25.Fill = false;
+			global::Gtk.ButtonBox.ButtonBoxChild w26 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.vbuttonbox1[this.button81]));
+			w26.Expand = false;
+			w26.Fill = false;
 			// Container child vbuttonbox1.Gtk.ButtonBox+ButtonBoxChild
 			this.button82 = new global::Gtk.Button();
 			this.button82.CanFocus = true;
@@ -313,10 +325,10 @@ namespace ProjektProgramsko
 			this.button82.UseUnderline = true;
 			this.button82.Label = global::Mono.Unix.Catalog.GetString("Preuzmi");
 			this.vbuttonbox1.Add(this.button82);
-			global::Gtk.ButtonBox.ButtonBoxChild w26 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.vbuttonbox1[this.button82]));
-			w26.Position = 1;
-			w26.Expand = false;
-			w26.Fill = false;
+			global::Gtk.ButtonBox.ButtonBoxChild w27 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.vbuttonbox1[this.button82]));
+			w27.Position = 1;
+			w27.Expand = false;
+			w27.Fill = false;
 			// Container child vbuttonbox1.Gtk.ButtonBox+ButtonBoxChild
 			this.button83 = new global::Gtk.Button();
 			this.button83.CanFocus = true;
@@ -324,15 +336,15 @@ namespace ProjektProgramsko
 			this.button83.UseUnderline = true;
 			this.button83.Label = global::Mono.Unix.Catalog.GetString("Pregledaj");
 			this.vbuttonbox1.Add(this.button83);
-			global::Gtk.ButtonBox.ButtonBoxChild w27 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.vbuttonbox1[this.button83]));
-			w27.Position = 2;
-			w27.Expand = false;
-			w27.Fill = false;
-			this.hbox1.Add(this.vbuttonbox1);
-			global::Gtk.Box.BoxChild w28 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vbuttonbox1]));
+			global::Gtk.ButtonBox.ButtonBoxChild w28 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.vbuttonbox1[this.button83]));
 			w28.Position = 2;
 			w28.Expand = false;
 			w28.Fill = false;
+			this.hbox1.Add(this.vbuttonbox1);
+			global::Gtk.Box.BoxChild w29 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vbuttonbox1]));
+			w29.Position = 3;
+			w29.Expand = false;
+			w29.Fill = false;
 			this.Add(this.hbox1);
 			if ((this.Child != null))
 			{

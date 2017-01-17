@@ -10,7 +10,7 @@ namespace ProjektProgramsko
 		public List<Autor> listaAutoriBP;
 		public VBox vboxmain;
 
-		public WindowPregledAutora(ref List<Autor> listaAutora) :
+		public WindowPregledAutora(ref List<Autor> listaAutora, long id) :
 				base(Gtk.WindowType.Toplevel)
 		{
 			this.Build();
@@ -19,15 +19,26 @@ namespace ProjektProgramsko
 
 			listaAutoriBP = BPAutor.DohvatiSve();
 
+			List<Autor> listaOznacenihAutora = BPAutor.DohvatiAutore(id);
+
 			foreach (var i in listaAutoriBP)
 			{
 				CheckButton button = new CheckButton();
 				button.Label = i.Ime +" "+ i.Prezime;
 
+				foreach (var j in listaOznacenihAutora)
+				{
+					if (i.Ime == j.Ime && i.Prezime == j.Prezime)
+					{
+						button.Active = true;
+					}
+				}
+
 				vboxMain.Add(button);
 			}
 
 			buttonSpremi.Clicked += spremiAutore;
+			buttonOdustani.Clicked += odustani;
 			vboxmain = vboxMain;
 
 			Build();
@@ -37,10 +48,14 @@ namespace ProjektProgramsko
 		{
 			Widget []djeca = vboxmain.Children;
 
+			int brojac = 0;
+
 			foreach (CheckButton i in djeca)
 			{
 				if (i.Active)
 				{
+					brojac++;
+
 					string label = i.Label;
 					string []labelSplit = label.Split(new[] { ' ' }, 2);
 
@@ -64,6 +79,21 @@ namespace ProjektProgramsko
 				}
 			}
 
+			if (brojac == 0)
+			{
+
+				Dialog d = new Gtk.MessageDialog((Window)this.Toplevel, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Bar jedan autor mora biti odabran!");
+
+				d.Run();
+				d.Destroy();
+				return;
+			}
+
+			this.Destroy();
+		}
+
+		protected void odustani(object sender, EventArgs a)
+		{
 			this.Destroy();
 		}
 	}

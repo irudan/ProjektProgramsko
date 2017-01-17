@@ -1,20 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
 using Gtk;
 
 namespace ProjektProgramsko
 {
-	[System.ComponentModel.ToolboxItem(true)]
-	public partial class WidgetDodavanjeIzdanje : Gtk.Bin
+	public partial class WindowUredivanjeIzdanje : Gtk.Window
 	{
+		public IzdanjeCasopis ic;
 		public Casopis odabraniCasopis = new Casopis();
 
-		public WidgetDodavanjeIzdanje()
+		public WindowUredivanjeIzdanje(IzdanjeCasopis arg) :
+				base(Gtk.WindowType.Toplevel)
 		{
 			this.Build();
 
+			ic = arg;
+
 			buttonSpremi.Clicked += spremiIzdanje;
+			buttonOdustani.Clicked += odustani;
 			buttonOdabirCasopis.Clicked += odaberiCasopis;
+
+			entryMjesec.Text = ic.Datum.Substring(0, 2);
+			entryGodina.Text = ic.Datum.Substring(2);
+			entryIzdanja.Text = ic.BrojIzdanja.ToString();
+			entryCijena.Text = ic.Cijena.ToString();
 
 			FileFilter filter = new FileFilter();
 			filter.Name = "Images";
@@ -24,59 +32,49 @@ namespace ProjektProgramsko
 
 		protected void spremiIzdanje(object sender, EventArgs a)
 		{
-			Widget[] polje = vboxEntry.Children;
-			Entry entry;
-
-			foreach (var i in polje)
+			if (entryGodina.Text == "" || entryMjesec.Text == "" || entryCijena.Text == "" || entryIzdanja.Text == "" || odabraniCasopis.Naziv == null)
 			{
-				entry = (Entry)i;
-				if (entry.Text == "" || entryGodina.Text == "" || entryMjesec.Text =="" || filechooserbutton1.Filename == null || odabraniCasopis.Naziv == null)
-				{
-					Dialog d = new Gtk.MessageDialog((Window)this.Toplevel, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Sva polja moraju biti unesena!");
 
-					d.Run();
-					d.Destroy();
-					return;
-				}
+				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Sva polja moraju biti unesena!");
+
+				d.Run();
+				d.Destroy();
+				return;
 			}
-
-			IzdanjeCasopis ic = new IzdanjeCasopis();
 
 			ic.Datum = entryMjesec.Text + entryGodina.Text;
 			ic.BrojIzdanja = int.Parse(entryIzdanja.Text);
 			ic.Cijena = double.Parse(entryCijena.Text);
 
-			string slika = filechooserbutton1.Filename;
-
-			for (int i = slika.Length - 1; i != 0; i--)
+			if (filechooserbutton1.Filename != null)
 			{
-				if (slika[i] == '\\')
+				string slika = filechooserbutton1.Filename;
+
+				for (int i = slika.Length - 1; i != 0; i--)
 				{
-					slika = slika.Remove(0, i + 1);
-					break;
+					if (slika[i] == '\\')
+					{
+						slika = slika.Remove(0, i + 1);
+						break;
+					}
 				}
+
+				ic.SlikaPath = "Images/" + slika;
+
+				spremiSliku(ic.SlikaPath);
 			}
 
-			ic.SlikaPath = "Images/" + slika;
-
-			spremiSliku(ic.SlikaPath);
-
-			BPIzdanjeCasopis.Spremi(ic, odabraniCasopis.IdC);
-
-			foreach (var i in polje)
-			{
-				entry = (Entry)i;
-				entry.Text = "";
-			}
-			entryMjesec.Text = "";
-			entryGodina.Text = "";
-
-			odabraniCasopis = new Casopis();
+			BPIzdanjeCasopis.Uredi(ic, odabraniCasopis.IdC);
 		}
 
 		protected void odaberiCasopis(object sender, EventArgs a)
 		{
 			var windowCasopisi = new WindowPregledCasopisa(odabraniCasopis);
+		}
+
+		protected void odustani(object sender, EventArgs a)
+		{
+			this.Destroy();
 		}
 
 		protected void spremiSliku(string slika)

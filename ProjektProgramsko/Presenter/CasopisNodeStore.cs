@@ -15,7 +15,7 @@ namespace ProjektProgramsko
 			this.AddNode(temp);
 		}
 
-		public void dodajCasopis(List<Casopis> c)
+		public void dodajCasopise(List<Casopis> c)
 		{
 			foreach (Casopis i in c)
 			{

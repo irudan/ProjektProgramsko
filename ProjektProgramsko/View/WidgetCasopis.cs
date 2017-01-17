@@ -14,6 +14,7 @@ namespace ProjektProgramsko
 			labelDatum.LabelProp = ic.Datum.ToString().Insert(2, "/");
 			labelBrojIzdanja.LabelProp = ic.BrojIzdanja.ToString();
 			labelCijena.LabelProp = ic.Cijena.ToString();
+			labelTagovi.LabelProp = c.Tagovi;
 		
 			var buffer = System.IO.File.ReadAllBytes(ic.SlikaPath);
 			var pixbuf = new Gdk.Pixbuf(buffer);

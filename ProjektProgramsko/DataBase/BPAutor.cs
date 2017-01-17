@@ -21,6 +21,40 @@ namespace ProjektProgramsko
 			BP.zatvoriKonekciju();
 		}
 
+		public static void Uredi(Autor a)
+		{
+			BP.otvoriKonekciju();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = String.Format(@"Update autor set ime = '{0}', prezime = '{1}' where autor.id = '{2}'", a.Ime, a.Prezime, a.Id);
+
+			command.ExecuteNonQuery();
+
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
+		}
+
+		public static void Izbrisi(long id)
+		{
+			BP.otvoriKonekciju();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = String.Format(@"Delete from autor where autor.id = '{0}'", id);
+
+			command.ExecuteNonQuery();
+
+			command.CommandText = String.Format(@"Delete from autorknjiga where autorknjiga.id_autor = '{0}'", id);
+
+			command.ExecuteNonQuery();
+
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
+		}
+
 		public static List<Autor> DohvatiSve()
 		{
 			List<Autor> listaAutora = new List<Autor>();
@@ -52,7 +86,7 @@ namespace ProjektProgramsko
 			return listaAutora;
 		}
 
-		public static List<Autor> DohvatiAutore(Knjiga k)
+		public static List<Autor> DohvatiAutore(long id)
 		{
 			List<Autor> listaAutora = new List<Autor>();
 
@@ -60,7 +94,7 @@ namespace ProjektProgramsko
 
 			SqliteCommand command = BP.konekcija.CreateCommand();
 
-			command.CommandText = String.Format(@"Select ime, prezime from autor, autorknjiga where id_knjiga = '{0}' And id_autor = autor.id", k.IdK);
+			command.CommandText = String.Format(@"Select ime, prezime from autor, autorknjiga where id_knjiga = '{0}' And id_autor = autor.id", id);
 
 			SqliteDataReader reader = command.ExecuteReader();
 

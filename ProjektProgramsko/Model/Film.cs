@@ -10,9 +10,11 @@ namespace ProjektProgramsko
 		private double cijena;
 		private string tagovi;
 		private string slikaPath;
+		private long brojProdanih;
 
 		public Film()
 		{
+			brojProdanih = 0;
 		}
 
 		public int Godina
@@ -103,6 +105,19 @@ namespace ProjektProgramsko
 			set
 			{
 				slikaPath = value;
+			}
+		}
+
+		public long BrojProdanih
+		{
+			get
+			{
+				return brojProdanih;
+			}
+
+			set
+			{
+				brojProdanih = value;
 			}
 		}
 	}
