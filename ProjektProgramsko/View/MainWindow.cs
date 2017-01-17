@@ -10,13 +10,14 @@ public partial class MainWindow : Gtk.Window
 	public WidgetKnjiga knjiga;
 	public WidgetCasopis casopis;
 	public WidgetFilm film;
+	public WidgetProfil profil;
 	public WidgetDodavanjeSadrzaja dodavanjeSadrzaja;
 	public WidgetUredivanjeSadrzaja uredivanjeSadrzaja;
 
 	public WidgetKnjigaSort tempSort;
 	public ComboBox comboBoxSort;
 
-	public VBox glavniVbox;
+	public VBox glavniVbox = new VBox();
 
 	public List<WidgetKnjiga> listaKnjiga;
 
@@ -37,6 +38,7 @@ public partial class MainWindow : Gtk.Window
 		Button knjigaButton = glavnimeni2.getKnjige();
 		Button casopisButton = glavnimeni2.getCasopis();
 		Button filmButton = glavnimeni2.getFilm();
+		Button profilButton = glavnimeni2.getProfil();
 
 		Button dodavanjeButton = glavnimeni2.getDodavanje();
 		Button uredivanjeButton = glavnimeni2.getUredivanje();
@@ -59,6 +61,7 @@ public partial class MainWindow : Gtk.Window
 		knjigaButton.Clicked += prikaziKnjige;
 		casopisButton.Clicked += prikaziCasopis;
 		filmButton.Clicked += prikaziFilm;
+		profilButton.Clicked += prikaziProfil;
 
 		dodavanjeButton.Clicked += prikaziDodavanje;
 		uredivanjeButton.Clicked += prikaziUredivanje;
@@ -151,6 +154,16 @@ public partial class MainWindow : Gtk.Window
 			film = new WidgetFilm(i);
 			glavniVbox.Add(film);
 		}
+
+		Build();
+	}
+
+
+	protected void prikaziProfil(object sender, EventArgs a)
+	{
+		izbrisiDjecu(glavniVbox);
+
+		glavniVbox.Add(profil);
 
 		Build();
 	}
