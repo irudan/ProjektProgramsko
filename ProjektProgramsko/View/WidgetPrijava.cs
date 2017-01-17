@@ -2,9 +2,9 @@
 namespace ProjektProgramsko
 {
 	[System.ComponentModel.ToolboxItem(true)]
-	public partial class WidgetProfil : Gtk.Bin
+	public partial class WidgetPrijava : Gtk.Bin
 	{
-		public WidgetProfil()
+		public WidgetPrijava()
 		{
 			this.Build();
 		}
