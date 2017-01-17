@@ -14,6 +14,7 @@ public partial class MainWindow : Gtk.Window
 	public WidgetDodavanjeSadrzaja dodavanjeSadrzaja;
 	public WidgetUredivanjeSadrzaja uredivanjeSadrzaja;
 
+
 	public WidgetKnjigaSort tempSort;
 	public ComboBox comboBoxSort;
 
@@ -27,6 +28,7 @@ public partial class MainWindow : Gtk.Window
 
 		glavniVbox = glavnimeni2.getVbox();
 		pocetna = new WidgetPocetna();
+		profil = new WidgetProfil();
 		dodavanjeSadrzaja = new WidgetDodavanjeSadrzaja();
 		tempSort = new WidgetKnjigaSort();
 		uredivanjeSadrzaja = new WidgetUredivanjeSadrzaja();
@@ -39,6 +41,7 @@ public partial class MainWindow : Gtk.Window
 		Button casopisButton = glavnimeni2.getCasopis();
 		Button filmButton = glavnimeni2.getFilm();
 		Button profilButton = glavnimeni2.getProfil();
+		Button prijavaButton = glavnimeni2.getPrijava();
 
 		Button dodavanjeButton = glavnimeni2.getDodavanje();
 		Button uredivanjeButton = glavnimeni2.getUredivanje();
@@ -62,6 +65,7 @@ public partial class MainWindow : Gtk.Window
 		casopisButton.Clicked += prikaziCasopis;
 		filmButton.Clicked += prikaziFilm;
 		profilButton.Clicked += prikaziProfil;
+		prijavaButton.Clicked += prikaziPrijava;
 
 		dodavanjeButton.Clicked += prikaziDodavanje;
 		uredivanjeButton.Clicked += prikaziUredivanje;
@@ -91,6 +95,13 @@ public partial class MainWindow : Gtk.Window
 
 		Build();
 	}
+
+	protected void prikaziPrijava(object sender, EventArgs a)
+	{
+		var windowPrijava = new WindowPrijava();
+	}
+
+
 
 	//Funkcija za prikaz knjige
 	protected void prikaziKnjige(object sender, EventArgs a)

@@ -153,10 +153,10 @@
     <Compile Include="gtk-gui\ProjektProgramsko.WindowUredivanjeAutora.cs" />
     <Compile Include="View\WidgetProfil.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetProfil.cs" />
-    <Compile Include="View\WidgetRegistracija.cs" />
-    <Compile Include="gtk-gui\ProjektProgramsko.WidgetRegistracija.cs" />
     <Compile Include="View\WindowPrijava.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WindowPrijava.cs" />
+    <Compile Include="View\WindowRegistracija.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WindowRegistracija.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />

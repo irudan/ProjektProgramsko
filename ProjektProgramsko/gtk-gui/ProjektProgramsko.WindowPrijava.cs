@@ -20,15 +20,15 @@ namespace ProjektProgramsko
 
 		private global::Gtk.HBox hbox15;
 
-		private global::Gtk.Button button130;
+		private global::Gtk.Button buttonSpremi;
 
-		private global::Gtk.Button button131;
+		private global::Gtk.Button buttonOdustani;
 
 		private global::Gtk.HBox hbox16;
 
 		private global::Gtk.Label label14;
 
-		private global::Gtk.Button buttonregistrirajse;
+		private global::Gtk.Button buttonRegistrirajse;
 
 		protected virtual void Build()
 		{
@@ -41,6 +41,7 @@ namespace ProjektProgramsko
 			this.vbox4 = new global::Gtk.VBox();
 			this.vbox4.Name = "vbox4";
 			this.vbox4.Spacing = 6;
+			this.vbox4.BorderWidth = ((uint)(4));
 			// Container child vbox4.Gtk.Box+BoxChild
 			this.hbox13 = new global::Gtk.HBox();
 			this.hbox13.Name = "hbox13";
@@ -106,23 +107,23 @@ namespace ProjektProgramsko
 			this.hbox15.Name = "hbox15";
 			this.hbox15.Spacing = 6;
 			// Container child hbox15.Gtk.Box+BoxChild
-			this.button130 = new global::Gtk.Button();
-			this.button130.CanFocus = true;
-			this.button130.Name = "button130";
-			this.button130.UseUnderline = true;
-			this.button130.Label = global::Mono.Unix.Catalog.GetString("Spremi");
-			this.hbox15.Add(this.button130);
-			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox15[this.button130]));
+			this.buttonSpremi = new global::Gtk.Button();
+			this.buttonSpremi.CanFocus = true;
+			this.buttonSpremi.Name = "buttonSpremi";
+			this.buttonSpremi.UseUnderline = true;
+			this.buttonSpremi.Label = global::Mono.Unix.Catalog.GetString("Spremi");
+			this.hbox15.Add(this.buttonSpremi);
+			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox15[this.buttonSpremi]));
 			w7.Position = 0;
 			w7.Fill = false;
 			// Container child hbox15.Gtk.Box+BoxChild
-			this.button131 = new global::Gtk.Button();
-			this.button131.CanFocus = true;
-			this.button131.Name = "button131";
-			this.button131.UseUnderline = true;
-			this.button131.Label = global::Mono.Unix.Catalog.GetString("Odustani");
-			this.hbox15.Add(this.button131);
-			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.hbox15[this.button131]));
+			this.buttonOdustani = new global::Gtk.Button();
+			this.buttonOdustani.CanFocus = true;
+			this.buttonOdustani.Name = "buttonOdustani";
+			this.buttonOdustani.UseUnderline = true;
+			this.buttonOdustani.Label = global::Mono.Unix.Catalog.GetString("Odustani");
+			this.hbox15.Add(this.buttonOdustani);
+			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.hbox15[this.buttonOdustani]));
 			w8.Position = 1;
 			w8.Fill = false;
 			this.vbox4.Add(this.hbox15);
@@ -144,13 +145,13 @@ namespace ProjektProgramsko
 			w10.Position = 0;
 			w10.Fill = false;
 			// Container child hbox16.Gtk.Box+BoxChild
-			this.buttonregistrirajse = new global::Gtk.Button();
-			this.buttonregistrirajse.CanFocus = true;
-			this.buttonregistrirajse.Name = "buttonregistrirajse";
-			this.buttonregistrirajse.UseUnderline = true;
-			this.buttonregistrirajse.Label = global::Mono.Unix.Catalog.GetString("Registriraj se");
-			this.hbox16.Add(this.buttonregistrirajse);
-			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox16[this.buttonregistrirajse]));
+			this.buttonRegistrirajse = new global::Gtk.Button();
+			this.buttonRegistrirajse.CanFocus = true;
+			this.buttonRegistrirajse.Name = "buttonRegistrirajse";
+			this.buttonRegistrirajse.UseUnderline = true;
+			this.buttonRegistrirajse.Label = global::Mono.Unix.Catalog.GetString("Registriraj se");
+			this.hbox16.Add(this.buttonRegistrirajse);
+			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox16[this.buttonRegistrirajse]));
 			w11.Position = 1;
 			w11.Fill = false;
 			this.vbox4.Add(this.hbox16);
