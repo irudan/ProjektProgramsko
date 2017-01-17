@@ -29,6 +29,11 @@ namespace ProjektProgramsko
 			return buttonFilmovi;
 		}
 
+		public Button getProfil()
+		{
+			return buttonProfil;
+			}
+		
 		public Button getPocetna()
 		{
 			return buttonPocetna;
