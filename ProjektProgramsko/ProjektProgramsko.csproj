@@ -157,6 +157,12 @@
     <Compile Include="gtk-gui\ProjektProgramsko.WindowPrijava.cs" />
     <Compile Include="View\WindowRegistracija.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WindowRegistracija.cs" />
+    <Compile Include="View\WindowKupovina.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WindowKupovina.cs" />
+    <Compile Include="View\WidgetKartica.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WidgetKartica.cs" />
+    <Compile Include="View\WidgetPayPal.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WidgetPayPal.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />

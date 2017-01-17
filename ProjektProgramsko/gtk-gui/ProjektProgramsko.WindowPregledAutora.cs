@@ -27,7 +27,6 @@ namespace ProjektProgramsko
 			this.BorderWidth = ((uint)(15));
 			// Container child ProjektProgramsko.WindowPregledAutora.Gtk.Container+ContainerChild
 			this.vbox1 = new global::Gtk.VBox();
-			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
 			// Container child vbox1.Gtk.Box+BoxChild
 			this.vboxMain = new global::Gtk.VBox();

@@ -20,5 +20,10 @@ namespace ProjektProgramsko
 			var pixbuf = new Gdk.Pixbuf(buffer);
 			image1.Pixbuf = pixbuf;
 		}
+
+		protected void Kupi(object sender, EventArgs e)
+		{
+			var windowKupovina = new WindowKupovina();
+		}
 	}
 }

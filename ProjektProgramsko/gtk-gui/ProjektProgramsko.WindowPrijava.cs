@@ -20,7 +20,7 @@ namespace ProjektProgramsko
 
 		private global::Gtk.HBox hbox15;
 
-		private global::Gtk.Button buttonSpremi;
+		private global::Gtk.Button buttonPotvrdi;
 
 		private global::Gtk.Button buttonOdustani;
 
@@ -36,7 +36,11 @@ namespace ProjektProgramsko
 			// Widget ProjektProgramsko.WindowPrijava
 			this.Name = "ProjektProgramsko.WindowPrijava";
 			this.Title = global::Mono.Unix.Catalog.GetString("WindowPrijava");
-			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			this.WindowPosition = ((global::Gtk.WindowPosition)(3));
+			this.BorderWidth = ((uint)(5));
+			this.AllowGrow = false;
+			this.DefaultWidth = 150;
+			this.DefaultHeight = 50;
 			// Container child ProjektProgramsko.WindowPrijava.Gtk.Container+ContainerChild
 			this.vbox4 = new global::Gtk.VBox();
 			this.vbox4.Name = "vbox4";
@@ -107,13 +111,13 @@ namespace ProjektProgramsko
 			this.hbox15.Name = "hbox15";
 			this.hbox15.Spacing = 6;
 			// Container child hbox15.Gtk.Box+BoxChild
-			this.buttonSpremi = new global::Gtk.Button();
-			this.buttonSpremi.CanFocus = true;
-			this.buttonSpremi.Name = "buttonSpremi";
-			this.buttonSpremi.UseUnderline = true;
-			this.buttonSpremi.Label = global::Mono.Unix.Catalog.GetString("Spremi");
-			this.hbox15.Add(this.buttonSpremi);
-			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox15[this.buttonSpremi]));
+			this.buttonPotvrdi = new global::Gtk.Button();
+			this.buttonPotvrdi.CanFocus = true;
+			this.buttonPotvrdi.Name = "buttonPotvrdi";
+			this.buttonPotvrdi.UseUnderline = true;
+			this.buttonPotvrdi.Label = global::Mono.Unix.Catalog.GetString("Potvrdi");
+			this.hbox15.Add(this.buttonPotvrdi);
+			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox15[this.buttonPotvrdi]));
 			w7.Position = 0;
 			w7.Fill = false;
 			// Container child hbox15.Gtk.Box+BoxChild
@@ -164,8 +168,6 @@ namespace ProjektProgramsko
 			{
 				this.Child.ShowAll();
 			}
-			this.DefaultWidth = 395;
-			this.DefaultHeight = 189;
 			this.Show();
 		}
 	}

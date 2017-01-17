@@ -39,5 +39,10 @@ namespace ProjektProgramsko
 		{
 			return button81;
 		}
+
+		protected void Kupi(object sender, EventArgs e)
+		{
+			var windowKupovina = new WindowKupovina();
+		}
 	}
 }
