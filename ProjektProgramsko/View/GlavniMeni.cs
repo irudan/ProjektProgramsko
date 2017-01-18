@@ -54,6 +54,11 @@ namespace ProjektProgramsko
 			return buttonPretraga;
 		}
 
+		public Button getPrijava()
+		{
+			return buttonPrijava;
+			}
+		
 		public VBox getVbox()
 		{
 			return vboxMain;

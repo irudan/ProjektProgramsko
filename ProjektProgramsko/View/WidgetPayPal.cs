@@ -1,12 +1,15 @@
 ﻿using System;
+using Gtk;
 namespace ProjektProgramsko
 {
 	[System.ComponentModel.ToolboxItem(true)]
-	public partial class WidgetRegistracija : Gtk.Bin
+	public partial class WidgetPayPal : Gtk.Bin
 	{
-		public WidgetRegistracija()
+		public WidgetPayPal()
 		{
 			this.Build();
 		}
+
+
 	}
 }

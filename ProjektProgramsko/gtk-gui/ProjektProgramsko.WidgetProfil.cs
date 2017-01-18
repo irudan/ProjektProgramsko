@@ -34,7 +34,7 @@ namespace ProjektProgramsko
 
 		private global::Gtk.Label label5;
 
-		private global::Gtk.Button buttonpromjenalozinke;
+		private global::Gtk.Entry entry1;
 
 		private global::Gtk.HBox hbox6;
 
@@ -52,9 +52,9 @@ namespace ProjektProgramsko
 			this.hbox1 = new global::Gtk.HBox();
 			this.hbox1.Name = "hbox1";
 			this.hbox1.Spacing = 6;
+			this.hbox1.BorderWidth = ((uint)(4));
 			// Container child hbox1.Gtk.Box+BoxChild
 			this.vbox1 = new global::Gtk.VBox();
-			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
 			// Container child vbox1.Gtk.Box+BoxChild
 			this.imageprofil = new global::Gtk.Image();
@@ -86,7 +86,6 @@ namespace ProjektProgramsko
 			// Container child vbox2.Gtk.Box+BoxChild
 			this.label1 = new global::Gtk.Label();
 			this.label1.Name = "label1";
-			this.label1.Ypad = 7;
 			this.label1.Xalign = 0F;
 			this.label1.LabelProp = global::Mono.Unix.Catalog.GetString("Ime");
 			this.vbox2.Add(this.label1);
@@ -99,7 +98,7 @@ namespace ProjektProgramsko
 			this.entryprofilime = new global::Gtk.Entry();
 			this.entryprofilime.CanFocus = true;
 			this.entryprofilime.Name = "entryprofilime";
-			this.entryprofilime.IsEditable = true;
+			this.entryprofilime.IsEditable = false;
 			this.entryprofilime.InvisibleChar = '●';
 			this.vbox2.Add(this.entryprofilime);
 			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.entryprofilime]));
@@ -184,21 +183,20 @@ namespace ProjektProgramsko
 			w12.Position = 0;
 			w12.Expand = false;
 			w12.Fill = false;
-			// Container child hbox4.Gtk.Box+BoxChild
-			this.buttonpromjenalozinke = new global::Gtk.Button();
-			this.buttonpromjenalozinke.WidthRequest = 150;
-			this.buttonpromjenalozinke.CanFocus = true;
-			this.buttonpromjenalozinke.Name = "buttonpromjenalozinke";
-			this.buttonpromjenalozinke.UseUnderline = true;
-			this.buttonpromjenalozinke.Label = global::Mono.Unix.Catalog.GetString("Promijeni Lozinku");
-			this.hbox4.Add(this.buttonpromjenalozinke);
-			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.buttonpromjenalozinke]));
-			w13.Position = 1;
+			this.vbox2.Add(this.hbox4);
+			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.hbox4]));
+			w13.Position = 8;
 			w13.Expand = false;
 			w13.Fill = false;
-			this.vbox2.Add(this.hbox4);
-			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.hbox4]));
-			w14.Position = 8;
+			// Container child vbox2.Gtk.Box+BoxChild
+			this.entry1 = new global::Gtk.Entry();
+			this.entry1.CanFocus = true;
+			this.entry1.Name = "entry1";
+			this.entry1.IsEditable = true;
+			this.entry1.InvisibleChar = '●';
+			this.vbox2.Add(this.entry1);
+			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.entry1]));
+			w14.Position = 9;
 			w14.Expand = false;
 			w14.Fill = false;
 			// Container child vbox2.Gtk.Box+BoxChild
@@ -232,7 +230,7 @@ namespace ProjektProgramsko
 			this.vbox2.Add(this.hbox6);
 			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.hbox6]));
 			w17.PackType = ((global::Gtk.PackType)(1));
-			w17.Position = 9;
+			w17.Position = 10;
 			w17.Expand = false;
 			w17.Fill = false;
 			this.hbox1.Add(this.vbox2);

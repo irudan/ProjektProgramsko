@@ -7,6 +7,13 @@ namespace ProjektProgramsko
 				base(Gtk.WindowType.Toplevel)
 		{
 			this.Build();
+
+
+		}
+
+		protected void Odustani(object sender, EventArgs e)
+		{
+			this.Destroy();
 		}
 	}
 }
