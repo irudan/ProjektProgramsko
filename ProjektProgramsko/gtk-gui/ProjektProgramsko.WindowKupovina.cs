@@ -83,8 +83,6 @@ namespace ProjektProgramsko
 				this.Child.ShowAll();
 			}
 			this.Show();
-			this.radiobuttonkartica.Clicked += new global::System.EventHandler(this.Kartica);
-			this.radiobuttonpaypal.Clicked += new global::System.EventHandler(this.PayPal);
 		}
 	}
 }

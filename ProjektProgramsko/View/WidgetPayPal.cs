@@ -1,4 +1,5 @@
 ﻿using System;
+using Gtk;
 namespace ProjektProgramsko
 {
 	[System.ComponentModel.ToolboxItem(true)]
@@ -8,5 +9,7 @@ namespace ProjektProgramsko
 		{
 			this.Build();
 		}
+
+
 	}
 }
