@@ -196,5 +196,43 @@ namespace ProjektProgramsko
 
 			return listaKnjiga;
 		}
+
+		public static List<Knjiga> DohvatiSort(string sort)
+		{
+			List<Knjiga> listaKnjiga = new List<Knjiga>();
+
+			BP.otvoriKonekciju();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = String.Format(@"Select * from knjiga, sadrzaj where knjiga.id_sadrzaj = sadrzaj.id order by {0}", sort);
+
+			SqliteDataReader reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				Knjiga k = new Knjiga();
+
+				k.IdK = (int)(Int64)reader["id"];
+				k.Opis = (string)reader["opis"];
+				k.Naziv = (string)reader["naziv"];
+				k.BrojStranica = (int)(Int64)reader["broj_stranica"];
+				k.Cijena = (int)(double)reader["cijena"];
+				k.Nakladnik = (string)reader["nakladnik"];
+				k.Jezik = (string)reader["jezik"];
+				k.Tagovi = (string)reader["tagovi"];
+				k.SlikaPath = (string)reader["slika_path"];
+				k.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
+
+				listaKnjiga.Add(k);
+			}
+
+			reader.Dispose();
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
+
+			return listaKnjiga;
+		}
 	}
 }

@@ -83,6 +83,7 @@ namespace ProjektProgramsko
 				ic.Cijena = (int)(double)reader["cijena"];
 				ic.SlikaPath = (string)reader["slika_path"];
 				ic.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
+				ic.IdC = (int)(Int64)reader["id_casopis"];
 			}
 
 			reader.Dispose();
@@ -113,6 +114,7 @@ namespace ProjektProgramsko
 				ic.Cijena = (int)(double)reader["cijena"];
 				ic.SlikaPath = (string)reader["slika_path"];
 				ic.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
+				ic.IdC = (int)(Int64)reader["id_casopis"];
 
 
 				listaIzdanja.Add(ic);
@@ -120,6 +122,79 @@ namespace ProjektProgramsko
 
 			reader.Dispose();
 			command.Dispose();
+
+			return listaIzdanja;
+		}
+
+		public static List<IzdanjeCasopis> DohvatiSve()
+		{
+			BP.otvoriKonekciju();
+
+			List<IzdanjeCasopis> listaIzdanja = new List<IzdanjeCasopis>();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = "Select * from izdanje_casopis";
+
+			SqliteDataReader reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				IzdanjeCasopis ic = new IzdanjeCasopis();
+
+				ic.Id = (int)(Int64)reader["id"];
+				ic.Datum = (string)reader["datum"];
+				ic.BrojIzdanja = (int)(Int64)reader["broj_izdanja"];
+				ic.Cijena = (int)(double)reader["cijena"];
+				ic.SlikaPath = (string)reader["slika_path"];
+				ic.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
+				ic.IdC = (int)(Int64)reader["id_casopis"];
+
+
+				listaIzdanja.Add(ic);
+			}
+
+			reader.Dispose();
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
+
+			return listaIzdanja;
+		}
+
+		public static List<IzdanjeCasopis> DohvatiSort(string sort)
+		{
+			BP.otvoriKonekciju();
+
+			List<IzdanjeCasopis> listaIzdanja = new List<IzdanjeCasopis>();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = String.Format(@"Select * from izdanje_casopis, casopis, sadrzaj where izdanje_casopis.id_casopis = casopis.id and casopis.id_sadrzaj = sadrzaj.id
+												 order by {0}", sort);
+
+			SqliteDataReader reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				IzdanjeCasopis ic = new IzdanjeCasopis();
+
+				ic.Id = (int)(Int64)reader["id"];
+				ic.Datum = (string)reader["datum"];
+				ic.BrojIzdanja = (int)(Int64)reader["broj_izdanja"];
+				ic.Cijena = (int)(double)reader["cijena"];
+				ic.SlikaPath = (string)reader["slika_path"];
+				ic.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
+				ic.IdC = (int)(Int64)reader["id_casopis"];
+
+
+				listaIzdanja.Add(ic);
+			}
+
+			reader.Dispose();
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
 
 			return listaIzdanja;
 		}

@@ -4,6 +4,7 @@ namespace ProjektProgramsko
 	public class IzdanjeCasopis
 	{
 		private long id;
+		private long idC;
 		private string datum;
 		private int brojIzdanja;
 		private double cijena;
@@ -90,6 +91,19 @@ namespace ProjektProgramsko
 			set
 			{
 				brojProdanih = value;
+			}
+		}
+
+		public long IdC
+		{
+			get
+			{
+				return idC;
+			}
+
+			set
+			{
+				idC = value;
 			}
 		}
 	}

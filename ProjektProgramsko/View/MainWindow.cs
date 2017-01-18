@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Gtk;
 using Mono.Data.Sqlite;
+using System.Linq;
 using ProjektProgramsko;
 
 public partial class MainWindow : Gtk.Window
@@ -14,8 +15,13 @@ public partial class MainWindow : Gtk.Window
 	public WidgetDodavanjeSadrzaja dodavanjeSadrzaja;
 	public WidgetUredivanjeSadrzaja uredivanjeSadrzaja;
 
-	public WidgetKnjigaSort tempSort;
-	public ComboBox comboBoxSort;
+	public WidgetSort knjigaSort = new WidgetSort();
+	public WidgetSort filmSort = new WidgetSort();
+	public WidgetSort casopisSort = new WidgetSort();
+
+	public ComboBox knjigaCombo;
+	public ComboBox casopisCombo;
+	public ComboBox filmCombo;
 
 	public VBox glavniVbox = new VBox();
 
@@ -28,7 +34,6 @@ public partial class MainWindow : Gtk.Window
 		glavniVbox = glavnimeni2.getVbox();
 		pocetna = new WidgetPocetna();
 		dodavanjeSadrzaja = new WidgetDodavanjeSadrzaja();
-		tempSort = new WidgetKnjigaSort();
 		uredivanjeSadrzaja = new WidgetUredivanjeSadrzaja();
 
 		glavniVbox.Add(pocetna);
@@ -55,7 +60,9 @@ public partial class MainWindow : Gtk.Window
 		RadioButton radioAU = uredivanjeSadrzaja.radioAutor();
 
 
-		comboBoxSort = tempSort.getComboBox();
+		ComboBox knjigaCombo = knjigaSort.getComboBox();
+		ComboBox casopisCombo = casopisSort.getComboBox();
+		ComboBox filmCombo = filmSort.getComboBox();
 
 		pocetnaButton.Clicked += prikaziPocetna;
 		knjigaButton.Clicked += prikaziKnjige;
@@ -78,7 +85,9 @@ public partial class MainWindow : Gtk.Window
 		radioAU.Clicked += prikaziUredivanjeAutor;
 
 
-		comboBoxSort.Changed += odabirSorta;
+		knjigaCombo.Changed += sortKnjiga;
+		casopisCombo.Changed += sortCasopis;
+		filmCombo.Changed += sortFilm;
 
 		Build();
 	}
@@ -97,7 +106,7 @@ public partial class MainWindow : Gtk.Window
 	{
 		izbrisiDjecu(glavniVbox);
 
-		glavniVbox.Add(tempSort);
+		glavniVbox.Add(knjigaSort);
 
 		List<Knjiga> temp = BPKnjiga.DohvatiSve();
 
@@ -124,17 +133,16 @@ public partial class MainWindow : Gtk.Window
 	{
 		izbrisiDjecu(glavniVbox);
 
-		glavniVbox.Add(tempSort);
+		glavniVbox.Add(casopisSort);
 
-		List<Casopis> temp = BPCasopis.DohvatiSve();
+		List<IzdanjeCasopis> temp = BPIzdanjeCasopis.DohvatiSve();
 
-		foreach (Casopis i in temp)
+		foreach (IzdanjeCasopis i in temp)
 		{
-			foreach (var j in i.IzdanjeCasopis)
-			{
-				casopis = new WidgetCasopis(i, j);
-				glavniVbox.Add(casopis);
-			}
+			Casopis c = BPCasopis.DohvatiCasopis(i.IdC);
+
+			casopis = new WidgetCasopis(c, i);
+			glavniVbox.Add(casopis);
 		}
 
 		Build();
@@ -145,7 +153,7 @@ public partial class MainWindow : Gtk.Window
 	{
 		izbrisiDjecu(glavniVbox);
 
-		glavniVbox.Add(tempSort);
+		glavniVbox.Add(filmSort);
 
 		List<Film> temp = BPFilm.DohvatiSve();
 
@@ -313,33 +321,136 @@ public partial class MainWindow : Gtk.Window
 
 		this.Build();
 	}
-
-	protected void odabirSorta(object sender, EventArgs a)
+	 //Funkcija za sortiranje knjiga
+	protected void sortKnjiga(object sender, EventArgs a)
 	{
-		List<Knjiga> temp = BPKnjiga.DohvatiSve();
+		List<Knjiga> lista = new List<Knjiga>();
 
-		sortirajKnjige(temp);
+		ComboBox comboBoxSort = sender as ComboBox;
 
+		switch (comboBoxSort.ActiveText)
+		{
+			case "Abeceda (uzlazno)":
+				lista = BPKnjiga.DohvatiSort("naziv");
+				break;
+			case "Abeceda (silazno)":
+				lista = BPKnjiga.DohvatiSort("naziv desc");
+				break;
+			case "Cijena (uzlazno)":
+				lista = BPKnjiga.DohvatiSort("cijena");
+				break;
+			case "Cijena (silazno)":
+				lista = BPKnjiga.DohvatiSort("cijena desc");
+				break;
+			case "Najprodavanije":
+				lista = BPKnjiga.DohvatiSort("broj_prodanih");
+				break;
+			case "Najnovije":
+				lista = BPKnjiga.DohvatiSort("id desc");
+				break;
+		}
+		
 		izbrisiDjecu(glavniVbox);
 
-		glavniVbox.Add(tempSort);
+		glavniVbox.Add(knjigaSort);
 
-		foreach (Knjiga i in temp)
+		foreach (Knjiga i in lista)
 		{
 			knjiga = new WidgetKnjiga(i);
 			glavniVbox.Add(knjiga);
+
+			/*Button kupi = knjiga.getKupi();
+			kupi.Clicked += test;*/
 		}
 
 		Build();
 	}
 
-	//Funkcija za sortiranje knjiga
-	protected void sortirajKnjige(List<Knjiga> lista)
+	protected void sortCasopis(object sender, EventArgs a)
 	{
-		if(comboBoxSort.ActiveText == "Abeceda (uzlazno)")
-		   lista.Sort((x, y) => string.Compare(x.Naziv, y.Naziv));
+		List<IzdanjeCasopis> lista = new List<IzdanjeCasopis>();
 
-		return;
+		ComboBox comboBoxSort = sender as ComboBox;
+
+		switch (comboBoxSort.ActiveText)
+		{
+			case "Abeceda (uzlazno)":
+				lista = BPIzdanjeCasopis.DohvatiSort("sadrzaj.naziv");
+				break;
+			case "Abeceda (silazno)":
+				lista = BPIzdanjeCasopis.DohvatiSort("sadrzaj.naziv desc");
+				break;
+			case "Cijena (uzlazno)":
+				lista = BPIzdanjeCasopis.DohvatiSort("izdanje_casopis.cijena");
+				break;
+			case "Cijena (silazno)":
+				lista = BPIzdanjeCasopis.DohvatiSort("izdanje_casopis.cijena desc");
+				break;
+			case "Najprodavanije":
+				lista = BPIzdanjeCasopis.DohvatiSort("izdanje_casopis.broj_prodanih");
+				break;
+			case "Najnovije":
+				lista = BPIzdanjeCasopis.DohvatiSort("izdanje_casopis.id desc");
+				break;
+		}
+
+		izbrisiDjecu(glavniVbox);
+
+		glavniVbox.Add(casopisSort);
+
+		foreach (IzdanjeCasopis i in lista)
+		{
+			Casopis c = BPCasopis.DohvatiCasopis(i.IdC);
+
+			casopis = new WidgetCasopis(c, i);
+			glavniVbox.Add(casopis);
+		}
+
+		Build();
+	}
+
+	protected void sortFilm(object sender, EventArgs a)
+	{
+		List<Film> lista = new List<Film>();
+
+		ComboBox comboBoxSort = sender as ComboBox;
+
+		switch (comboBoxSort.ActiveText)
+		{
+			case "Abeceda (uzlazno)":
+				lista = BPFilm.DohvatiSort("naziv");
+				break;
+			case "Abeceda (silazno)":
+				lista = BPFilm.DohvatiSort("naziv desc");
+				break;
+			case "Cijena (uzlazno)":
+				lista = BPFilm.DohvatiSort("cijena");
+				break;
+			case "Cijena (silazno)":
+				lista = BPFilm.DohvatiSort("cijena desc");
+				break;
+			case "Najprodavanije":
+				lista = BPFilm.DohvatiSort("broj_prodanih");
+				break;
+			case "Najnovije":
+				lista = BPFilm.DohvatiSort("id desc");
+				break;
+		}
+
+		izbrisiDjecu(glavniVbox);
+
+		glavniVbox.Add(filmSort);
+
+		foreach (Film i in lista)
+		{
+			film = new WidgetFilm(i);
+			glavniVbox.Add(film);
+
+			/*Button kupi = knjiga.getKupi();
+			kupi.Clicked += test;*/
+		}
+
+		Build();
 	}
 
 	protected void izbrisiDjecu(VBox box)

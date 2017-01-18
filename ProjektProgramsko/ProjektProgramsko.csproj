@@ -103,8 +103,6 @@
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetDodavanjeKnjiga.cs" />
     <Compile Include="View\WidgetDodavanjeCasopis.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetDodavanjeCasopis.cs" />
-    <Compile Include="View\WidgetKnjigaSort.cs" />
-    <Compile Include="gtk-gui\ProjektProgramsko.WidgetKnjigaSort.cs" />
     <Compile Include="View\WindowPregledAutora.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WindowPregledAutora.cs" />
     <Compile Include="DataBase\BPAutor.cs" />
@@ -157,6 +155,8 @@
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetRegistracija.cs" />
     <Compile Include="View\WindowPrijava.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WindowPrijava.cs" />
+    <Compile Include="View\WidgetSort.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WidgetSort.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />

@@ -21,7 +21,7 @@ namespace ProjektProgramsko
 			f.Id = BPSadrzaj.DohvatiId(f.Naziv);
 
 			//Umetanje podataka u tablicu casopis
-			command.CommandText = String.Format(@"Insert into film (redatelj, godina, trajanje, cijena, tagovi, slika_path, broj_prodanih id_sadrzaj) 
+			command.CommandText = String.Format(@"Insert into film (redatelj, godina, trajanje, cijena, tagovi, slika_path, broj_prodanih, id_sadrzaj) 
 			Values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", f.Redatelj, f.Godina, f.Trajanje, f.Cijena, f.Tagovi, f.SlikaPath, f.BrojProdanih, f.Id);
 
 			command.ExecuteNonQuery();
@@ -116,6 +116,45 @@ namespace ProjektProgramsko
 			SqliteCommand command = BP.konekcija.CreateCommand();
 
 			command.CommandText = "Select * from film, sadrzaj where film.id_sadrzaj = sadrzaj.id";
+
+			SqliteDataReader reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				Film f = new Film();
+
+				f.Id = (int)(Int64)reader["id_sadrzaj"];
+				f.IdF = (int)(Int64)reader["id"];
+				f.Naziv = (string)reader["naziv"];
+				f.Opis = (string)reader["opis"];
+				f.Redatelj = (string)reader["redatelj"];
+				f.Godina = (int)(Int64)reader["godina"];
+				f.Trajanje = (int)(Int64)reader["trajanje"];
+				f.Cijena = (int)(Double)reader["cijena"];
+				f.Tagovi = (string)reader["tagovi"];
+				f.SlikaPath = (string)reader["slika_path"];
+				f.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
+
+				listaFilmovi.Add(f);
+			}
+
+			reader.Dispose();
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
+
+			return listaFilmovi;
+		}
+
+		public static List<Film> DohvatiSort(string sort)
+		{
+			List<Film> listaFilmovi = new List<Film>();
+
+			BP.otvoriKonekciju();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = String.Format(@"Select * from film, sadrzaj where film.id_sadrzaj = sadrzaj.id order by {0}", sort);
 
 			SqliteDataReader reader = command.ExecuteReader();
 
