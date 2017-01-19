@@ -16,6 +16,12 @@ namespace ProjektProgramsko
 
 		private global::ProjektProgramsko.WidgetKartica widgetkartica2;
 
+		private global::Gtk.HBox hbox1;
+
+		private global::Gtk.Button buttonPotvrdi;
+
+		private global::Gtk.Button buttonOdustani;
+
 		protected virtual void Build()
 		{
 			global::Stetic.Gui.Initialize(this);
@@ -77,6 +83,38 @@ namespace ProjektProgramsko
 			w5.Position = 1;
 			w5.Expand = false;
 			w5.Fill = false;
+			// Container child vbox2.Gtk.Box+BoxChild
+			this.hbox1 = new global::Gtk.HBox();
+			this.hbox1.Name = "hbox1";
+			this.hbox1.Spacing = 6;
+			// Container child hbox1.Gtk.Box+BoxChild
+			this.buttonPotvrdi = new global::Gtk.Button();
+			this.buttonPotvrdi.WidthRequest = 100;
+			this.buttonPotvrdi.CanFocus = true;
+			this.buttonPotvrdi.Name = "buttonPotvrdi";
+			this.buttonPotvrdi.UseUnderline = true;
+			this.buttonPotvrdi.Label = global::Mono.Unix.Catalog.GetString("Potvrdi");
+			this.hbox1.Add(this.buttonPotvrdi);
+			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.buttonPotvrdi]));
+			w6.Position = 0;
+			w6.Fill = false;
+			// Container child hbox1.Gtk.Box+BoxChild
+			this.buttonOdustani = new global::Gtk.Button();
+			this.buttonOdustani.WidthRequest = 100;
+			this.buttonOdustani.CanFocus = true;
+			this.buttonOdustani.Name = "buttonOdustani";
+			this.buttonOdustani.UseUnderline = true;
+			this.buttonOdustani.Label = global::Mono.Unix.Catalog.GetString("GtkButton");
+			this.hbox1.Add(this.buttonOdustani);
+			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.buttonOdustani]));
+			w7.Position = 1;
+			w7.Fill = false;
+			this.vbox2.Add(this.hbox1);
+			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.hbox1]));
+			w8.PackType = ((global::Gtk.PackType)(1));
+			w8.Position = 2;
+			w8.Expand = false;
+			w8.Fill = false;
 			this.Add(this.vbox2);
 			if ((this.Child != null))
 			{

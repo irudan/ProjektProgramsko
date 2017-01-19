@@ -18,12 +18,6 @@ namespace ProjektProgramsko
 
 		private global::Gtk.Entry entry7;
 
-		private global::Gtk.HBox hbox10;
-
-		private global::Gtk.Button button427;
-
-		private global::Gtk.Button button428;
-
 		protected virtual void Build()
 		{
 			global::Stetic.Gui.Initialize(this);
@@ -89,37 +83,6 @@ namespace ProjektProgramsko
 			w6.Position = 1;
 			w6.Expand = false;
 			w6.Fill = false;
-			// Container child vbox4.Gtk.Box+BoxChild
-			this.hbox10 = new global::Gtk.HBox();
-			this.hbox10.Name = "hbox10";
-			this.hbox10.Spacing = 6;
-			// Container child hbox10.Gtk.Box+BoxChild
-			this.button427 = new global::Gtk.Button();
-			this.button427.WidthRequest = 100;
-			this.button427.CanFocus = true;
-			this.button427.Name = "button427";
-			this.button427.UseUnderline = true;
-			this.button427.Label = global::Mono.Unix.Catalog.GetString("Potvrdi");
-			this.hbox10.Add(this.button427);
-			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox10[this.button427]));
-			w7.Position = 0;
-			w7.Fill = false;
-			// Container child hbox10.Gtk.Box+BoxChild
-			this.button428 = new global::Gtk.Button();
-			this.button428.WidthRequest = 100;
-			this.button428.CanFocus = true;
-			this.button428.Name = "button428";
-			this.button428.UseUnderline = true;
-			this.button428.Label = global::Mono.Unix.Catalog.GetString("Odustani");
-			this.hbox10.Add(this.button428);
-			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.hbox10[this.button428]));
-			w8.Position = 1;
-			w8.Fill = false;
-			this.vbox4.Add(this.hbox10);
-			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.hbox10]));
-			w9.Position = 2;
-			w9.Expand = false;
-			w9.Fill = false;
 			this.Add(this.vbox4);
 			if ((this.Child != null))
 			{
