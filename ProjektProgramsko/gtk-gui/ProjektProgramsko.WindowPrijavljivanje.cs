@@ -14,7 +14,9 @@ namespace ProjektProgramsko
 			// Widget ProjektProgramsko.WindowPrijavljivanje
 			this.Name = "ProjektProgramsko.WindowPrijavljivanje";
 			this.Title = global::Mono.Unix.Catalog.GetString("WindowPrijavljivanje");
-			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			this.WindowPosition = ((global::Gtk.WindowPosition)(1));
+			this.Resizable = false;
+			this.AllowGrow = false;
 			// Container child ProjektProgramsko.WindowPrijavljivanje.Gtk.Container+ContainerChild
 			this.vbox1 = new global::Gtk.VBox();
 			this.vbox1.Name = "vbox1";

@@ -65,7 +65,7 @@ namespace ProjektProgramsko
 			radioP.Clicked += PrikaziPayPal;
 		}
 
-		protected void PotvrdiNaplata(object seneder, EventArgs a, ButtonsType b)
+		protected void PotvrdiNaplata(object seneder, EventArgs a)
 		{
 			Dialog d = new MessageDialog(this, DialogFlags.Modal,
 			                             MessageType.Question, 
