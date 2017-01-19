@@ -17,22 +17,21 @@ namespace ProjektProgramsko
 		public VBox vboxKupovina()
 		{
 			return vbox5;
-			}
+		}
 
 		public RadioButton radioKartica()
 		{
 			return radiobuttonkartica;
-			}
+		}
 
 		public RadioButton radioPayPal()
 		{
 			return radiobuttonpaypal;
-			}
+		}
 
 		public WindowKupovina() :
 				base(Gtk.WindowType.Toplevel)
 		{
-
 			this.Build();
 
 
@@ -44,8 +43,7 @@ namespace ProjektProgramsko
 
 			radioK.Clicked += PrikaziKartica;
 			radioP.Clicked += PrikaziPayPal;
-
-			}
+		}
 
 		protected void PrikaziKartica(object sender, EventArgs a)
 		{
@@ -72,10 +70,7 @@ namespace ProjektProgramsko
 			foreach (var i in temp)
 				box.Remove(i);
 		}
-
 	}
-
-
 }
 
 

@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using Gtk;
-using Mono.Data.Sqlite;
-using System.Linq;
 using ProjektProgramsko;
 
 public partial class MainWindow : Gtk.Window
 {
 	public WidgetPocetna pocetna;
-	public WidgetKnjiga knjiga;
-	public WidgetCasopis casopis;
-	public WidgetFilm film;
+	//public WidgetKnjiga knjiga;
+	//public WidgetCasopis casopis;
+	//public WidgetFilm film;
 	public WidgetProfil profil;
 	public WidgetDodavanjeSadrzaja dodavanjeSadrzaja;
 	public WidgetUredivanjeSadrzaja uredivanjeSadrzaja;
@@ -108,10 +106,8 @@ public partial class MainWindow : Gtk.Window
 
 	protected void prikaziPrijava(object sender, EventArgs a)
 	{
-		var windowPrijava = new WindowPrijava();
+		var windowPrijavljivanje = new WindowPrijavljivanje();
 	}
-
-
 
 	//Funkcija za prikaz knjige
 	protected void prikaziKnjige(object sender, EventArgs a)
@@ -124,20 +120,20 @@ public partial class MainWindow : Gtk.Window
 
 		foreach (Knjiga i in temp)
 		{
-			knjiga = new WidgetKnjiga(i);
-			glavniVbox.Add(knjiga);
+			WidgetKnjiga knjiga = new WidgetKnjiga(i);
 
-			/*Button kupi = knjiga.getKupi();
-			kupi.Clicked += test;*/
+			Button kupi = knjiga.getKupi();
+			kupi.Clicked += kupiKnjiga;
+
+			glavniVbox.Add(knjiga);
 		}
 
 		Build();
 	}
 
-	protected void test(object sender, EventArgs a)
+	protected void kupiKnjiga(object sender, EventArgs a)
 	{
-		Button temp = sender as Button;
-		temp.Label = "ajmoo";
+		var windowKupovina = new WindowKupovina();
 	}
 
 	//Funkcija za prikaz casopisa
@@ -153,7 +149,7 @@ public partial class MainWindow : Gtk.Window
 		{
 			Casopis c = BPCasopis.DohvatiCasopis(i.IdC);
 
-			casopis = new WidgetCasopis(c, i);
+			WidgetCasopis casopis = new WidgetCasopis(c, i);
 			glavniVbox.Add(casopis);
 		}
 
@@ -171,7 +167,7 @@ public partial class MainWindow : Gtk.Window
 
 		foreach (Film i in temp)
 		{
-			film = new WidgetFilm(i);
+			WidgetFilm film = new WidgetFilm(i);
 			glavniVbox.Add(film);
 		}
 
@@ -368,7 +364,7 @@ public partial class MainWindow : Gtk.Window
 
 		foreach (Knjiga i in lista)
 		{
-			knjiga = new WidgetKnjiga(i);
+			WidgetKnjiga knjiga = new WidgetKnjiga(i);
 			glavniVbox.Add(knjiga);
 
 			/*Button kupi = knjiga.getKupi();
@@ -414,7 +410,7 @@ public partial class MainWindow : Gtk.Window
 		{
 			Casopis c = BPCasopis.DohvatiCasopis(i.IdC);
 
-			casopis = new WidgetCasopis(c, i);
+			WidgetCasopis casopis = new WidgetCasopis(c, i);
 			glavniVbox.Add(casopis);
 		}
 
@@ -455,7 +451,7 @@ public partial class MainWindow : Gtk.Window
 
 		foreach (Film i in lista)
 		{
-			film = new WidgetFilm(i);
+			WidgetFilm film = new WidgetFilm(i);
 			glavniVbox.Add(film);
 
 			/*Button kupi = knjiga.getKupi();

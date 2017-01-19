@@ -71,6 +71,7 @@ namespace ProjektProgramsko
 			w1.Fill = false;
 			// Container child hbox1.Gtk.Box+BoxChild
 			this.vbox1 = new global::Gtk.VBox();
+			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
 			// Container child vbox1.Gtk.Box+BoxChild
 			this.labelNaslov = new global::Gtk.Label();
