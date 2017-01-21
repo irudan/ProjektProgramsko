@@ -121,19 +121,10 @@ public partial class MainWindow : Gtk.Window
 		foreach (Knjiga i in temp)
 		{
 			WidgetKnjiga knjiga = new WidgetKnjiga(i);
-
-			Button kupi = knjiga.getKupi();
-			kupi.Clicked += kupiKnjiga;
-
 			glavniVbox.Add(knjiga);
 		}
 
 		Build();
-	}
-
-	protected void kupiKnjiga(object sender, EventArgs a)
-	{
-		var windowKupovina = new WindowKupovina();
 	}
 
 	//Funkcija za prikaz casopisa

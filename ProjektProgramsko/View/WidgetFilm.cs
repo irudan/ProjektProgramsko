@@ -19,6 +19,8 @@ namespace ProjektProgramsko
 			var buffer = System.IO.File.ReadAllBytes(f.SlikaPath);
 			var pixbuf = new Gdk.Pixbuf(buffer);
 			image1.Pixbuf = pixbuf;
+
+			buttonKupi.Clicked += Kupi;
 		}
 
 		protected void Kupi(object sender, EventArgs e)

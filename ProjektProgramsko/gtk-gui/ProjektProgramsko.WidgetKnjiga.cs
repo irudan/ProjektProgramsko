@@ -351,7 +351,6 @@ namespace ProjektProgramsko
 				this.Child.ShowAll();
 			}
 			this.Hide();
-			this.button81.Clicked += new global::System.EventHandler(this.Kupi);
 		}
 	}
 }

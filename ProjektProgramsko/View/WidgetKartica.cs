@@ -9,8 +9,5 @@ namespace ProjektProgramsko
 		{
 			this.Build();
 		}
-
-
-	
 	}
 }

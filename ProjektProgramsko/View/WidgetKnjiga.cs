@@ -33,14 +33,11 @@ namespace ProjektProgramsko
 			var buffer = System.IO.File.ReadAllBytes(k.SlikaPath);
 			var pixbuf = new Gdk.Pixbuf(buffer);
 			image1.Pixbuf = pixbuf;
+
+			buttonKupi.Clicked += Kupi;
 		}
 
-		public Button getKupi()
-		{
-			return button81;
-		}
-
-		protected void Kupi(object sender, EventArgs e)
+		protected void Kupi(object sender, EventArgs a)
 		{
 			var windowKupovina = new WindowKupovina();
 		}

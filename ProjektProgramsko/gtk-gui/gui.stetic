@@ -1069,13 +1069,12 @@
             <property name="Size">3</property>
             <property name="LayoutStyle">Start</property>
             <child>
-              <widget class="Gtk.Button" id="button81">
+              <widget class="Gtk.Button" id="buttonKupi">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Kupi</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="Kupi" />
               </widget>
               <packing>
                 <property name="Expand">False</property>
@@ -1083,7 +1082,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Button" id="button82">
+              <widget class="Gtk.Button" id="buttonPreuzmi">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
@@ -1097,7 +1096,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Button" id="button83">
+              <widget class="Gtk.Button" id="buttonPregledaj">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
@@ -2185,7 +2184,7 @@
             <property name="Size">3</property>
             <property name="LayoutStyle">Start</property>
             <child>
-              <widget class="Gtk.Button" id="button81">
+              <widget class="Gtk.Button" id="buttonKupi">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
@@ -2199,7 +2198,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Button" id="button82">
+              <widget class="Gtk.Button" id="buttonPreuzmi">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
@@ -2213,7 +2212,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Button" id="button83">
+              <widget class="Gtk.Button" id="buttonPregledaj">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
@@ -2505,7 +2504,7 @@
             <property name="Size">3</property>
             <property name="LayoutStyle">Start</property>
             <child>
-              <widget class="Gtk.Button" id="button81">
+              <widget class="Gtk.Button" id="buttonKupi">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
@@ -2519,7 +2518,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Button" id="button82">
+              <widget class="Gtk.Button" id="buttonPreuzmi">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
@@ -2533,7 +2532,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Button" id="button83">
+              <widget class="Gtk.Button" id="buttonPregledaj">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
