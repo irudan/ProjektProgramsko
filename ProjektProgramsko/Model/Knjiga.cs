@@ -13,6 +13,7 @@ namespace ProjektProgramsko
 		private string tagovi;
 		private int godina;
 		private string slikaPath;
+		private string pdfPath;
 		private long brojProdanih;
 
 		public Knjiga()
@@ -134,6 +135,19 @@ namespace ProjektProgramsko
 			set
 			{
 				brojProdanih = value;
+			}
+		}
+
+		public string PdfPath
+		{
+			get
+			{
+				return pdfPath;
+			}
+
+			set
+			{
+				pdfPath = value;
 			}
 		}
 	}

@@ -9,6 +9,7 @@ namespace ProjektProgramsko
 		private int brojIzdanja;
 		private double cijena;
 		private string slikaPath;
+		private string pdfPath;
 		private long brojProdanih;
 
 		public IzdanjeCasopis()
@@ -104,6 +105,19 @@ namespace ProjektProgramsko
 			set
 			{
 				idC = value;
+			}
+		}
+
+		public string PdfPath
+		{
+			get
+			{
+				return pdfPath;
+			}
+
+			set
+			{
+				pdfPath = value;
 			}
 		}
 	}

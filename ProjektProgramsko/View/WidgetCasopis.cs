@@ -4,9 +4,18 @@ namespace ProjektProgramsko
 	[System.ComponentModel.ToolboxItem(true)]
 	public partial class WidgetCasopis : Gtk.Bin
 	{
+		public Casopis pokC;
+		public IzdanjeCasopis pokI;
+
 		public WidgetCasopis(Casopis c, IzdanjeCasopis ic)
 		{
 			this.Build();
+
+			pokC = c;
+			pokI = ic;
+
+			buttonPregledaj.Clicked += pregledaj;
+			buttonKupi.Clicked += kupi;
 
 			labelNaslov.LabelProp = c.Naziv;
 			labelOpis.LabelProp = c.Opis;
@@ -20,12 +29,16 @@ namespace ProjektProgramsko
 			var pixbuf = new Gdk.Pixbuf(buffer);
 			image1.Pixbuf = pixbuf;
 
-			buttonKupi.Clicked += Kupi;
 		}
 
-		protected void Kupi(object sender, EventArgs e)
+		protected void kupi(object sender, EventArgs e)
 		{
 			var windowKupovina = new WindowKupovina();
+		}
+
+		protected void pregledaj(object sender, EventArgs a)
+		{
+			var windowPregledaj = new WindowPregledaj(pokI.PdfPath, pokC.Id, pokI.Id);
 		}
 	}
 }

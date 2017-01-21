@@ -29,23 +29,33 @@ namespace ProjektProgramsko
 			buttonDodaj.Clicked += spremiAutora;
 			buttonPregled.Clicked += pregledAutora;
 
-			FileFilter filter = new FileFilter();
-			filter.Name = "Images";
-			filter.AddPattern("*.jpg");
-			filechooserbutton1.AddFilter(filter);
+			FileFilter filterSlika = new FileFilter();
+			filterSlika.Name = "Images";
+			filterSlika.AddPattern("*.jpg");
+			filechooserbuttonSlika.AddFilter(filterSlika);
+
+			FileFilter filterPdf = new FileFilter();
+			filterPdf.Name = "Pdf Files";
+			filterPdf.AddPattern("*.pdf");
+			filechooserbuttonPdf.AddFilter(filterPdf);
 		}
 
 		protected void spremiKnjiga(object sender, EventArgs a)
 		{
-			if (entryNaziv.Text == "" || entryOpis.Text == "" || entryBrojStranica.Text == "" || entryCijena.Text == "" || entryNakladnik.Text == ""
-				|| entryTagovi.Text == "" || entryCijena.Text == "")
+			Widget[] polje = vboxEntry.Children;
+			Entry entry;
+
+			foreach (var i in polje)
 			{
+				entry = (Entry)i;
+				if (entry.Text == "")
+				{
+					Dialog d = new Gtk.MessageDialog((Window)this.Toplevel, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Sva polja moraju biti unesena!");
 
-				Dialog d = new Gtk.MessageDialog(this, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Sva polja moraju biti unesena!");
-
-				d.Run();
-				d.Destroy();
-				return;
+					d.Run();
+					d.Destroy();
+					return;
+				}
 			}
 
 			k.Naziv = entryNaziv.Text;
@@ -56,9 +66,12 @@ namespace ProjektProgramsko
 			k.Tagovi = entryTagovi.Text;
 			k.Jezik = entryJezik.Text;
 
-			if (filechooserbutton1.Filename != null)
+			if (filechooserbuttonPdf.Filename != null)
+				k.PdfPath = filechooserbuttonPdf.Filename;
+
+			if (filechooserbuttonSlika.Filename != null)
 			{
-				string slika = filechooserbutton1.Filename;
+				string slika = filechooserbuttonSlika.Filename;
 
 				for (int i = slika.Length - 1; i != 0; i--)
 				{
@@ -69,7 +82,7 @@ namespace ProjektProgramsko
 					}
 				}
 
-				k.SlikaPath = "Images/" + slika;
+				k.SlikaPath = "C:\\temp\\Images\\" + slika;
 
 				spremiSliku(k.SlikaPath);
 			}
@@ -100,7 +113,7 @@ namespace ProjektProgramsko
 			System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
 			startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
 			startInfo.FileName = "cmd.exe";
-			startInfo.Arguments = "/C copy " + filechooserbutton1.Filename + " C:\\Users\\Mateo\\Documents\\GitHub\\ProjektProgramsko\\ProjektProgramsko\\bin\\Debug\\Images";
+			startInfo.Arguments = "/C copy " + filechooserbuttonSlika.Filename + " C:\\temp\\Images";
 			process.StartInfo = startInfo;
 			process.Start();
 		}

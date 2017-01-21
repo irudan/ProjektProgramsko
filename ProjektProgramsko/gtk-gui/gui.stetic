@@ -1228,7 +1228,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="ProjektProgramsko.WidgetDodavanjeKnjiga" design-size="300 319">
+  <widget class="Gtk.Bin" id="ProjektProgramsko.WidgetDodavanjeKnjiga" design-size="300 343">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -1500,19 +1500,63 @@
                 <property name="Fill">False</property>
               </packing>
             </child>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HBox" id="hbox2">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.FileChooserButton" id="filechooserbutton1">
+              <widget class="Gtk.Label" id="label9">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Slika:</property>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.FileChooserButton" id="filechooserbuttonSlika">
                 <property name="MemberName" />
               </widget>
               <packing>
-                <property name="PackType">End</property>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="label10">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Pdf:</property>
+              </widget>
+              <packing>
+                <property name="Position">2</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.FileChooserButton" id="filechooserbuttonPdf">
+                <property name="MemberName" />
+              </widget>
+              <packing>
                 <property name="Position">3</property>
                 <property name="AutoSize">True</property>
               </packing>
             </child>
           </widget>
           <packing>
-            <property name="Position">1</property>
+            <property name="Position">2</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -1550,7 +1594,7 @@
             </child>
           </widget>
           <packing>
-            <property name="Position">2</property>
+            <property name="Position">3</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -2190,7 +2234,6 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Kupi</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="Kupi" />
               </widget>
               <packing>
                 <property name="Expand">False</property>
@@ -2841,7 +2884,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="ProjektProgramsko.WidgetDodavanjeIzdanje" design-size="300 185">
+  <widget class="Gtk.Bin" id="ProjektProgramsko.WidgetDodavanjeIzdanje" design-size="300 212">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -3038,6 +3081,60 @@
           </packing>
         </child>
         <child>
+          <widget class="Gtk.HBox" id="hbox2">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Gtk.Label" id="label9">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Slika:</property>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.FileChooserButton" id="filechooserbuttonSlika">
+                <property name="MemberName" />
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="label10">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Pdf:</property>
+              </widget>
+              <packing>
+                <property name="Position">2</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.FileChooserButton" id="filechooserbuttonPdf">
+                <property name="MemberName" />
+              </widget>
+              <packing>
+                <property name="Position">3</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">3</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
           <widget class="Gtk.HBox" id="hbox7">
             <property name="MemberName" />
             <property name="Spacing">6</property>
@@ -3058,27 +3155,18 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.FileChooserButton" id="filechooserbutton1">
+              <widget class="Gtk.Fixed" id="fixed1">
                 <property name="MemberName" />
+                <property name="HasWindow">False</property>
               </widget>
               <packing>
                 <property name="Position">1</property>
                 <property name="AutoSize">True</property>
               </packing>
             </child>
-            <child>
-              <widget class="Gtk.Fixed" id="fixed1">
-                <property name="MemberName" />
-                <property name="HasWindow">False</property>
-              </widget>
-              <packing>
-                <property name="Position">2</property>
-                <property name="AutoSize">True</property>
-              </packing>
-            </child>
           </widget>
           <packing>
-            <property name="Position">3</property>
+            <property name="Position">4</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -3591,7 +3679,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="ProjektProgramsko.WindowUredivanjeKnjiga" design-size="357 358">
+  <widget class="Gtk.Window" id="ProjektProgramsko.WindowUredivanjeKnjiga" design-size="357 414">
     <property name="MemberName" />
     <property name="Title" translatable="yes">WindowUredivanjeKnjiga</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -3866,19 +3954,63 @@
                 <property name="Fill">False</property>
               </packing>
             </child>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HBox" id="hbox2">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.FileChooserButton" id="filechooserbutton1">
+              <widget class="Gtk.Label" id="label9">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Slika:</property>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.FileChooserButton" id="filechooserbuttonSlika">
                 <property name="MemberName" />
               </widget>
               <packing>
-                <property name="PackType">End</property>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="label10">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Pdf:</property>
+              </widget>
+              <packing>
+                <property name="Position">2</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.FileChooserButton" id="filechooserbuttonPdf">
+                <property name="MemberName" />
+              </widget>
+              <packing>
                 <property name="Position">3</property>
                 <property name="AutoSize">True</property>
               </packing>
             </child>
           </widget>
           <packing>
-            <property name="Position">1</property>
+            <property name="Position">2</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -3931,7 +4063,7 @@
             </child>
           </widget>
           <packing>
-            <property name="Position">2</property>
+            <property name="Position">3</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -4422,7 +4554,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="ProjektProgramsko.WindowUredivanjeIzdanje" design-size="382 232">
+  <widget class="Gtk.Window" id="ProjektProgramsko.WindowUredivanjeIzdanje" design-size="382 268">
     <property name="MemberName" />
     <property name="Title" translatable="yes">WindowUredivanjeIzdanje</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -4595,6 +4727,60 @@
           </packing>
         </child>
         <child>
+          <widget class="Gtk.HBox" id="hbox2">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Gtk.Label" id="label9">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Slika:</property>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.FileChooserButton" id="filechooserbuttonSlika">
+                <property name="MemberName" />
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="label10">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Pdf:</property>
+              </widget>
+              <packing>
+                <property name="Position">2</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.FileChooserButton" id="filechooserbuttonPdf">
+                <property name="MemberName" />
+              </widget>
+              <packing>
+                <property name="Position">3</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
           <widget class="Gtk.HBox" id="hbox1">
             <property name="MemberName" />
             <property name="Spacing">6</property>
@@ -4615,7 +4801,7 @@
             </child>
           </widget>
           <packing>
-            <property name="Position">2</property>
+            <property name="Position">3</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -4657,27 +4843,18 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.FileChooserButton" id="filechooserbutton1">
+              <widget class="Gtk.Fixed" id="fixed1">
                 <property name="MemberName" />
+                <property name="HasWindow">False</property>
               </widget>
               <packing>
                 <property name="Position">2</property>
                 <property name="AutoSize">True</property>
               </packing>
             </child>
-            <child>
-              <widget class="Gtk.Fixed" id="fixed1">
-                <property name="MemberName" />
-                <property name="HasWindow">False</property>
-              </widget>
-              <packing>
-                <property name="Position">3</property>
-                <property name="AutoSize">True</property>
-              </packing>
-            </child>
           </widget>
           <packing>
-            <property name="Position">3</property>
+            <property name="Position">4</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -5997,6 +6174,33 @@ Najnovije</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
           </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Window" id="ProjektProgramsko.WindowPregledaj" design-size="636 506">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">WindowPregledaj</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <child>
+      <widget class="Gtk.ScrolledWindow" id="scrolledwindow1">
+        <property name="MemberName" />
+        <property name="CanFocus">True</property>
+        <property name="ShadowType">In</property>
+        <child>
+          <widget class="Gtk.Viewport" id="GtkViewport">
+            <property name="MemberName" />
+            <property name="ShadowType">None</property>
+            <child>
+              <widget class="Gtk.VBox" id="vbox1">
+                <property name="MemberName" />
+                <property name="Spacing">6</property>
+                <child>
+                  <placeholder />
+                </child>
+              </widget>
+            </child>
+          </widget>
         </child>
       </widget>
     </child>

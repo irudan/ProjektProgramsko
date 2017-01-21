@@ -32,6 +32,16 @@ namespace ProjektProgramsko
 
 		private global::Gtk.Entry entryCijena;
 
+		private global::Gtk.HBox hbox2;
+
+		private global::Gtk.Label label9;
+
+		private global::Gtk.FileChooserButton filechooserbuttonSlika;
+
+		private global::Gtk.Label label10;
+
+		private global::Gtk.FileChooserButton filechooserbuttonPdf;
+
 		private global::Gtk.HBox hbox1;
 
 		private global::Gtk.Button buttonOdabirCasopis;
@@ -41,8 +51,6 @@ namespace ProjektProgramsko
 		private global::Gtk.Button buttonSpremi;
 
 		private global::Gtk.Button buttonOdustani;
-
-		private global::Gtk.FileChooserButton filechooserbutton1;
 
 		private global::Gtk.Fixed fixed1;
 
@@ -183,6 +191,45 @@ namespace ProjektProgramsko
 			w13.Expand = false;
 			w13.Fill = false;
 			// Container child vbox3.Gtk.Box+BoxChild
+			this.hbox2 = new global::Gtk.HBox();
+			this.hbox2.Name = "hbox2";
+			this.hbox2.Spacing = 6;
+			// Container child hbox2.Gtk.Box+BoxChild
+			this.label9 = new global::Gtk.Label();
+			this.label9.Name = "label9";
+			this.label9.LabelProp = global::Mono.Unix.Catalog.GetString("Slika:");
+			this.hbox2.Add(this.label9);
+			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.label9]));
+			w14.Position = 0;
+			w14.Expand = false;
+			w14.Fill = false;
+			// Container child hbox2.Gtk.Box+BoxChild
+			this.filechooserbuttonSlika = new global::Gtk.FileChooserButton(global::Mono.Unix.Catalog.GetString("Select a File"), ((global::Gtk.FileChooserAction)(0)));
+			this.filechooserbuttonSlika.Name = "filechooserbuttonSlika";
+			this.hbox2.Add(this.filechooserbuttonSlika);
+			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.filechooserbuttonSlika]));
+			w15.Position = 1;
+			// Container child hbox2.Gtk.Box+BoxChild
+			this.label10 = new global::Gtk.Label();
+			this.label10.Name = "label10";
+			this.label10.LabelProp = global::Mono.Unix.Catalog.GetString("Pdf:");
+			this.hbox2.Add(this.label10);
+			global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.label10]));
+			w16.Position = 2;
+			w16.Expand = false;
+			w16.Fill = false;
+			// Container child hbox2.Gtk.Box+BoxChild
+			this.filechooserbuttonPdf = new global::Gtk.FileChooserButton(global::Mono.Unix.Catalog.GetString("Select a File"), ((global::Gtk.FileChooserAction)(0)));
+			this.filechooserbuttonPdf.Name = "filechooserbuttonPdf";
+			this.hbox2.Add(this.filechooserbuttonPdf);
+			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.filechooserbuttonPdf]));
+			w17.Position = 3;
+			this.vbox3.Add(this.hbox2);
+			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.hbox2]));
+			w18.Position = 2;
+			w18.Expand = false;
+			w18.Fill = false;
+			// Container child vbox3.Gtk.Box+BoxChild
 			this.hbox1 = new global::Gtk.HBox();
 			this.hbox1.Name = "hbox1";
 			this.hbox1.Spacing = 6;
@@ -193,15 +240,15 @@ namespace ProjektProgramsko
 			this.buttonOdabirCasopis.UseUnderline = true;
 			this.buttonOdabirCasopis.Label = global::Mono.Unix.Catalog.GetString("Odaberi časopis");
 			this.hbox1.Add(this.buttonOdabirCasopis);
-			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.buttonOdabirCasopis]));
-			w14.Position = 0;
-			w14.Expand = false;
-			w14.Fill = false;
+			global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.buttonOdabirCasopis]));
+			w19.Position = 0;
+			w19.Expand = false;
+			w19.Fill = false;
 			this.vbox3.Add(this.hbox1);
-			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.hbox1]));
-			w15.Position = 2;
-			w15.Expand = false;
-			w15.Fill = false;
+			global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.hbox1]));
+			w20.Position = 3;
+			w20.Expand = false;
+			w20.Fill = false;
 			// Container child vbox3.Gtk.Box+BoxChild
 			this.hbox7 = new global::Gtk.HBox();
 			this.hbox7.Name = "hbox7";
@@ -213,11 +260,11 @@ namespace ProjektProgramsko
 			this.buttonSpremi.UseUnderline = true;
 			this.buttonSpremi.Label = global::Mono.Unix.Catalog.GetString("Spremi");
 			this.hbox7.Add(this.buttonSpremi);
-			global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.buttonSpremi]));
-			w16.Position = 0;
-			w16.Expand = false;
-			w16.Fill = false;
-			w16.Padding = ((uint)(5));
+			global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.buttonSpremi]));
+			w21.Position = 0;
+			w21.Expand = false;
+			w21.Fill = false;
+			w21.Padding = ((uint)(5));
 			// Container child hbox7.Gtk.Box+BoxChild
 			this.buttonOdustani = new global::Gtk.Button();
 			this.buttonOdustani.CanFocus = true;
@@ -225,35 +272,29 @@ namespace ProjektProgramsko
 			this.buttonOdustani.UseUnderline = true;
 			this.buttonOdustani.Label = global::Mono.Unix.Catalog.GetString("Odustani");
 			this.hbox7.Add(this.buttonOdustani);
-			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.buttonOdustani]));
-			w17.Position = 1;
-			w17.Expand = false;
-			w17.Fill = false;
-			// Container child hbox7.Gtk.Box+BoxChild
-			this.filechooserbutton1 = new global::Gtk.FileChooserButton(global::Mono.Unix.Catalog.GetString("Select a File"), ((global::Gtk.FileChooserAction)(0)));
-			this.filechooserbutton1.Name = "filechooserbutton1";
-			this.hbox7.Add(this.filechooserbutton1);
-			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.filechooserbutton1]));
-			w18.Position = 2;
+			global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.buttonOdustani]));
+			w22.Position = 1;
+			w22.Expand = false;
+			w22.Fill = false;
 			// Container child hbox7.Gtk.Box+BoxChild
 			this.fixed1 = new global::Gtk.Fixed();
 			this.fixed1.Name = "fixed1";
 			this.fixed1.HasWindow = false;
 			this.hbox7.Add(this.fixed1);
-			global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.fixed1]));
-			w19.Position = 3;
+			global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.fixed1]));
+			w23.Position = 2;
 			this.vbox3.Add(this.hbox7);
-			global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.hbox7]));
-			w20.Position = 3;
-			w20.Expand = false;
-			w20.Fill = false;
+			global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.hbox7]));
+			w24.Position = 4;
+			w24.Expand = false;
+			w24.Fill = false;
 			this.Add(this.vbox3);
 			if ((this.Child != null))
 			{
 				this.Child.ShowAll();
 			}
 			this.DefaultWidth = 382;
-			this.DefaultHeight = 232;
+			this.DefaultHeight = 268;
 			this.Show();
 		}
 	}

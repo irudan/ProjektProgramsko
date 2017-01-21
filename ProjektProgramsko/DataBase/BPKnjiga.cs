@@ -21,8 +21,8 @@ namespace ProjektProgramsko
 			k.Id = BPSadrzaj.DohvatiId(k.Naziv);
 
 			//Umetanje podataka u tablicu knjiga
-			command.CommandText = String.Format(@"Insert into knjiga (broj_stranica, cijena, nakladnik, jezik, tagovi, slika_path, broj_prodanih, id_sadrzaj) 
-			Values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", k.BrojStranica, k.Cijena, k.Nakladnik, k.Jezik, k.Tagovi, k.SlikaPath, k.BrojProdanih, k.Id);
+			command.CommandText = String.Format(@"Insert into knjiga (broj_stranica, cijena, nakladnik, jezik, tagovi, slika_path, pdf_path, broj_prodanih, id_sadrzaj) 
+			Values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", k.BrojStranica, k.Cijena, k.Nakladnik, k.Jezik, k.Tagovi, k.SlikaPath, k.PdfPath, k.BrojProdanih, k.Id);
 
 			command.ExecuteNonQuery();
 
@@ -54,8 +54,8 @@ namespace ProjektProgramsko
 			command.ExecuteNonQuery();
 
 			//Umetanje podataka u tablicu knjiga
-			command.CommandText = String.Format(@"Update knjiga set broj_stranica = '{0}', cijena = '{1}', nakladnik = '{2}', jezik = '{3}', tagovi = '{4}', slika_path = '{5}' where id = '{6}'",
-			                                    k.BrojStranica, k.Cijena, k.Nakladnik, k.Jezik, k.Tagovi, k.SlikaPath, k.IdK);
+			command.CommandText = String.Format(@"Update knjiga set broj_stranica = '{0}', cijena = '{1}', nakladnik = '{2}', jezik = '{3}', tagovi = '{4}', slika_path = '{5}',
+			 pdf_path = '{6}' where id = '{7}'", k.BrojStranica, k.Cijena, k.Nakladnik, k.Jezik, k.Tagovi, k.SlikaPath, k.PdfPath, k.IdK);
 
 			command.ExecuteNonQuery();
 
@@ -148,6 +148,7 @@ namespace ProjektProgramsko
 				k.Jezik = (string)reader["jezik"];
 				k.Tagovi = (string)reader["tagovi"];
 				k.SlikaPath = (string)reader["slika_path"];
+				k.PdfPath = (string)reader["pdf_path"];
 				k.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
 			}
 
@@ -175,6 +176,7 @@ namespace ProjektProgramsko
 			{
 				Knjiga k = new Knjiga();
 
+				k.Id = (int)(Int64)reader["id_sadrzaj"];
 				k.IdK = (int)(Int64)reader["id"];
 				k.Opis = (string)reader["opis"];
 				k.Naziv = (string)reader["naziv"];
@@ -184,6 +186,7 @@ namespace ProjektProgramsko
 				k.Jezik = (string)reader["jezik"];
 				k.Tagovi = (string)reader["tagovi"];
 				k.SlikaPath = (string)reader["slika_path"];
+				k.PdfPath = (string)reader["pdf_path"];
 				k.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
 
 				listaKnjiga.Add(k);
@@ -222,6 +225,7 @@ namespace ProjektProgramsko
 				k.Jezik = (string)reader["jezik"];
 				k.Tagovi = (string)reader["tagovi"];
 				k.SlikaPath = (string)reader["slika_path"];
+				k.PdfPath = (string)reader["pdf_path"];
 				k.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
 
 				listaKnjiga.Add(k);

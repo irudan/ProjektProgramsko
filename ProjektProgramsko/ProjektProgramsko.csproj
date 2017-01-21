@@ -61,6 +61,18 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Posix">
+      <HintPath>..\packages\Mono.Posix-4.5.4.5.0\lib\net45\Mono.Posix.dll</HintPath>
+    </Reference>
+    <Reference Include="NReco.PdfGenerator">
+      <HintPath>..\packages\NReco.PdfGenerator.1.1.12.0\lib\net20\NReco.PdfGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.5.5.10\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="NReco.PdfRenderer">
+      <HintPath>..\packages\NReco.PdfRenderer.1.0.1\lib\net20\NReco.PdfRenderer.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
@@ -164,6 +176,9 @@
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetPrijava.cs" />
     <Compile Include="View\WidgetRegistracija.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetRegistracija.cs" />
+    <Compile Include="DataBase\BPNaplata.cs" />
+    <Compile Include="View\WindowPregledaj.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WindowPregledaj.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />

@@ -13,35 +13,6 @@ namespace ProjektProgramsko
 		public WidgetKartica kartica = new WidgetKartica();
 		public WidgetPayPal paypal = new WidgetPayPal();
 
-
-		public VBox vboxKupovina()
-		{
-			return vbox5;
-		}
-
-		public RadioButton radioKartica()
-		{
-			return radiobuttonkartica;
-		}
-
-		public RadioButton radioPayPal()
-		{
-			return radiobuttonpaypal;
-		}
-
-		public Button Potvrdi()
-		{
-			return buttonPotvrdi;
-			}
-
-		public Button Odustani()
-		{
-			return buttonOdustani;
-		}
-
-
-			
-
 		public WindowKupovina() :
 				base(Gtk.WindowType.Toplevel)
 		{
@@ -109,6 +80,31 @@ namespace ProjektProgramsko
 
 			foreach (var i in temp)
 				box.Remove(i);
+		}
+
+		public VBox vboxKupovina()
+		{
+			return vbox5;
+		}
+
+		public RadioButton radioKartica()
+		{
+			return radiobuttonkartica;
+		}
+
+		public RadioButton radioPayPal()
+		{
+			return radiobuttonpaypal;
+		}
+
+		public Button Potvrdi()
+		{
+			return buttonPotvrdi;
+		}
+
+		public Button Odustani()
+		{
+			return buttonOdustani;
 		}
 	}
 }

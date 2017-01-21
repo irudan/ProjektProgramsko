@@ -65,7 +65,7 @@ namespace ProjektProgramsko
 					}
 				}
 
-				f.SlikaPath = "Images/" + slika;
+				f.SlikaPath = "C:\\temp\\Images\\" + slika;
 
 				spremiSliku(f.SlikaPath);
 			}
@@ -86,7 +86,7 @@ namespace ProjektProgramsko
 			System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
 			startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
 			startInfo.FileName = "cmd.exe";
-			startInfo.Arguments = "/C copy " + filechooserbutton1.Filename + " C:\\Users\\Mateo\\Documents\\GitHub\\ProjektProgramsko\\ProjektProgramsko\\bin\\Debug\\Images";
+			startInfo.Arguments = "/C copy " + filechooserbutton1.Filename + " C:\\temp\\Images";
 			process.StartInfo = startInfo;
 			process.Start();
 		}

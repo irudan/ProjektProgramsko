@@ -8,10 +8,16 @@ namespace ProjektProgramsko
 	public partial class WidgetKnjiga : Gtk.Bin
 	{
 		public KnjigaNodeStore knjigaPresenter = new KnjigaNodeStore();
+		public Knjiga pok;
 
 		public WidgetKnjiga(Knjiga k)
 		{
 			this.Build();
+
+			pok = k;
+
+			buttonKupi.Clicked += kupi;
+			buttonPregledaj.Clicked += pregledaj;
 
 			labelNaslov.LabelProp = k.Naziv;
 			labelOpis.LabelProp = k.Opis;
@@ -27,19 +33,23 @@ namespace ProjektProgramsko
 			{
 				labelAutori.LabelProp += i.Ime + " " + i.Prezime + ", ";
 			}
-			if(listaAutora.Capacity != 0)
-			labelAutori.LabelProp = labelAutori.LabelProp.Remove(labelAutori.LabelProp.Length - 2);
+
+			if (listaAutora.Capacity != 0)
+				labelAutori.LabelProp = labelAutori.LabelProp.Remove(labelAutori.LabelProp.Length - 2);
 
 			var buffer = System.IO.File.ReadAllBytes(k.SlikaPath);
 			var pixbuf = new Gdk.Pixbuf(buffer);
 			image1.Pixbuf = pixbuf;
-
-			buttonKupi.Clicked += Kupi;
 		}
 
-		protected void Kupi(object sender, EventArgs a)
+		protected void kupi(object sender, EventArgs a)
 		{
 			var windowKupovina = new WindowKupovina();
+		}
+
+		protected void pregledaj(object sender, EventArgs a)
+		{
+			var windowPregledaj = new WindowPregledaj(pok.PdfPath, pok.Id, pok.IdK);
 		}
 	}
 }

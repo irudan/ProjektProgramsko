@@ -20,8 +20,6 @@ namespace ProjektProgramsko
 		public WidgetRegistracija()
 		{
 			this.Build();
-
-
 		}
 	}
 }
