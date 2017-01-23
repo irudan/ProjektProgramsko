@@ -54,7 +54,15 @@ namespace ProjektProgramsko
 				}
 			}
 
-			BPKorisnik.Spremi(MyGlobals.trenutni);
+			Korisnik k = new Korisnik();
+
+			k.Ime = entryIme.Text;
+			k.Prezime = entryPrezime.Text;
+			k.Username = entryKorisnickoIme.Text;
+			k.Password = entryLozinka.Text;
+			k.Mail = entryEmail.Text;
+
+			BPKorisnik.Spremi(k);
 
 			Dialog dTemp = new Gtk.MessageDialog((Window)this.Toplevel, DialogFlags.Modal, MessageType.Info, ButtonsType.Ok, "Registracija gotova, možete se prijaviti!");
 
