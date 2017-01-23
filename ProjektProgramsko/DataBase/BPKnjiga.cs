@@ -216,6 +216,7 @@ namespace ProjektProgramsko
 			{
 				Knjiga k = new Knjiga();
 
+				k.Id = (int)(Int64)reader["id_sadrzaj"];
 				k.IdK = (int)(Int64)reader["id"];
 				k.Opis = (string)reader["opis"];
 				k.Naziv = (string)reader["naziv"];

@@ -4,7 +4,7 @@ namespace ProjektProgramsko
 	public class Kartica : Naplata
 	{
 		private string brojkartice;
-		private DateTime datumisteka;
+		private string datumisteka;
 		private string imevlasnika;
 		private string prezimevlasnika;
 
@@ -25,7 +25,7 @@ namespace ProjektProgramsko
 			}
 		}
 
-		public DateTime Datumisteka
+		public string Datumisteka
 		{
 			get
 			{

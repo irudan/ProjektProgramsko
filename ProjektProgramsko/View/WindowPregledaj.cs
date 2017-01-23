@@ -42,7 +42,7 @@ namespace ProjektProgramsko
 				for (int i = 1; i <= numberOfPages; i++)
 				{
 					pdfToImg.GenerateImage(pdfFile, i,
-										   ImageFormat.Jpeg, String.Format(@"C:\temp\{0}{1}.jpg", id, i));
+					                       ImageFormat.Jpeg, String.Format(@"C:\temp\{0}{1}{2}.jpg", idS, id, i));
 				}
 
 			}
@@ -52,7 +52,7 @@ namespace ProjektProgramsko
 			{
 				Image temp = new Image();
 
-				var buffer = System.IO.File.ReadAllBytes(String.Format(@"C:\temp\{0}{1}.jpg", id, i));
+				var buffer = System.IO.File.ReadAllBytes(String.Format(@"C:\temp\{0}{1}{2}.jpg", idS, id, i));
 				var pixbuf = new Gdk.Pixbuf(buffer);
 				temp.Pixbuf = pixbuf;
 

@@ -10,7 +10,7 @@ namespace ProjektProgramsko
 
 		private global::Gtk.Label label3;
 
-		private global::Gtk.Entry entryPretraga;
+		private global::Gtk.ComboBoxEntry comboboxentry1;
 
 		private global::Gtk.Button buttonPretraga;
 
@@ -64,14 +64,18 @@ namespace ProjektProgramsko
 			w1.Expand = false;
 			w1.Fill = false;
 			// Container child hbox5.Gtk.Box+BoxChild
-			this.entryPretraga = new global::Gtk.Entry();
-			this.entryPretraga.CanFocus = true;
-			this.entryPretraga.Name = "entryPretraga";
-			this.entryPretraga.IsEditable = true;
-			this.entryPretraga.InvisibleChar = '●';
-			this.hbox5.Add(this.entryPretraga);
-			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.entryPretraga]));
+			this.comboboxentry1 = global::Gtk.ComboBoxEntry.NewText();
+			this.comboboxentry1.AppendText(global::Mono.Unix.Catalog.GetString("AAA"));
+			this.comboboxentry1.AppendText(global::Mono.Unix.Catalog.GetString("BBB"));
+			this.comboboxentry1.AppendText(global::Mono.Unix.Catalog.GetString("AAC"));
+			this.comboboxentry1.AppendText(global::Mono.Unix.Catalog.GetString("ABC"));
+			this.comboboxentry1.Name = "comboboxentry1";
+			this.comboboxentry1.AddTearoffs = true;
+			this.hbox5.Add(this.comboboxentry1);
+			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.comboboxentry1]));
 			w2.Position = 1;
+			w2.Expand = false;
+			w2.Fill = false;
 			// Container child hbox5.Gtk.Box+BoxChild
 			this.buttonPretraga = new global::Gtk.Button();
 			this.buttonPretraga.CanFocus = true;
@@ -110,6 +114,7 @@ namespace ProjektProgramsko
 			this.vbuttonbox2.LayoutStyle = ((global::Gtk.ButtonBoxStyle)(3));
 			// Container child vbuttonbox2.Gtk.ButtonBox+ButtonBoxChild
 			this.buttonPocetna = new global::Gtk.Button();
+			this.buttonPocetna.WidthRequest = 110;
 			this.buttonPocetna.CanFocus = true;
 			this.buttonPocetna.Name = "buttonPocetna";
 			this.buttonPocetna.UseUnderline = true;
@@ -120,6 +125,7 @@ namespace ProjektProgramsko
 			w6.Fill = false;
 			// Container child vbuttonbox2.Gtk.ButtonBox+ButtonBoxChild
 			this.buttonKnjige = new global::Gtk.Button();
+			this.buttonKnjige.WidthRequest = 110;
 			this.buttonKnjige.CanFocus = true;
 			this.buttonKnjige.Name = "buttonKnjige";
 			this.buttonKnjige.UseUnderline = true;
@@ -131,6 +137,7 @@ namespace ProjektProgramsko
 			w7.Fill = false;
 			// Container child vbuttonbox2.Gtk.ButtonBox+ButtonBoxChild
 			this.buttonCasopisi = new global::Gtk.Button();
+			this.buttonCasopisi.WidthRequest = 110;
 			this.buttonCasopisi.CanFocus = true;
 			this.buttonCasopisi.Name = "buttonCasopisi";
 			this.buttonCasopisi.UseUnderline = true;
@@ -142,6 +149,7 @@ namespace ProjektProgramsko
 			w8.Fill = false;
 			// Container child vbuttonbox2.Gtk.ButtonBox+ButtonBoxChild
 			this.buttonFilmovi = new global::Gtk.Button();
+			this.buttonFilmovi.WidthRequest = 110;
 			this.buttonFilmovi.CanFocus = true;
 			this.buttonFilmovi.Name = "buttonFilmovi";
 			this.buttonFilmovi.UseUnderline = true;
@@ -153,6 +161,7 @@ namespace ProjektProgramsko
 			w9.Fill = false;
 			// Container child vbuttonbox2.Gtk.ButtonBox+ButtonBoxChild
 			this.buttonProfil = new global::Gtk.Button();
+			this.buttonProfil.WidthRequest = 110;
 			this.buttonProfil.CanFocus = true;
 			this.buttonProfil.Name = "buttonProfil";
 			this.buttonProfil.UseUnderline = true;
@@ -164,6 +173,7 @@ namespace ProjektProgramsko
 			w10.Fill = false;
 			// Container child vbuttonbox2.Gtk.ButtonBox+ButtonBoxChild
 			this.buttonDodavanje = new global::Gtk.Button();
+			this.buttonDodavanje.WidthRequest = 110;
 			this.buttonDodavanje.CanFocus = true;
 			this.buttonDodavanje.Name = "buttonDodavanje";
 			this.buttonDodavanje.UseUnderline = true;
@@ -175,6 +185,7 @@ namespace ProjektProgramsko
 			w11.Fill = false;
 			// Container child vbuttonbox2.Gtk.ButtonBox+ButtonBoxChild
 			this.buttonUredivanje = new global::Gtk.Button();
+			this.buttonUredivanje.WidthRequest = 110;
 			this.buttonUredivanje.CanFocus = true;
 			this.buttonUredivanje.Name = "buttonUredivanje";
 			this.buttonUredivanje.UseUnderline = true;
@@ -223,6 +234,9 @@ namespace ProjektProgramsko
 			{
 				this.Child.ShowAll();
 			}
+			this.buttonProfil.Hide();
+			this.buttonDodavanje.Hide();
+			this.buttonUredivanje.Hide();
 			this.Hide();
 		}
 	}

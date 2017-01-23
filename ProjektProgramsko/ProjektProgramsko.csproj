@@ -164,8 +164,6 @@
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetProfil.cs" />
     <Compile Include="View\WidgetSort.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetSort.cs" />
-    <Compile Include="View\WindowKupovina.cs" />
-    <Compile Include="gtk-gui\ProjektProgramsko.WindowKupovina.cs" />
     <Compile Include="View\WidgetKartica.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetKartica.cs" />
     <Compile Include="View\WidgetPayPal.cs" />
@@ -179,6 +177,12 @@
     <Compile Include="DataBase\BPNaplata.cs" />
     <Compile Include="View\WindowPregledaj.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WindowPregledaj.cs" />
+    <Compile Include="View\WindowKupi.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WindowKupi.cs" />
+    <Compile Include="DataBase\BPKorisnik.cs" />
+    <Compile Include="Presenter\MyGlobals.cs" />
+    <Compile Include="View\WindowPreuzmi.cs" />
+    <Compile Include="gtk-gui\ProjektProgramsko.WindowPreuzmi.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />

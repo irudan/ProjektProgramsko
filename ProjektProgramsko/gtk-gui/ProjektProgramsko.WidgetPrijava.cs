@@ -4,25 +4,31 @@ namespace ProjektProgramsko
 {
 	public partial class WidgetPrijava
 	{
+		private global::Gtk.VBox vbox4;
+
 		private global::Gtk.HBox hbox2;
 
-		private global::Gtk.VBox vbox4;
+		private global::Gtk.VBox vbox5;
 
 		private global::Gtk.Label label1;
 
 		private global::Gtk.Label label2;
 
-		private global::Gtk.Button buttonPotvrdi;
-
-		private global::Gtk.Label label7;
-
 		private global::Gtk.VBox vbox3;
 
-		private global::Gtk.Entry entry1;
+		private global::Gtk.Entry entryUsername;
 
-		private global::Gtk.Entry entry2;
+		private global::Gtk.Entry entryPassword;
+
+		private global::Gtk.HBox hbox3;
+
+		private global::Gtk.Button buttonPotvrdi;
 
 		private global::Gtk.Button buttonOdustani;
+
+		private global::Gtk.HBox hbox4;
+
+		private global::Gtk.Label label7;
 
 		private global::Gtk.Button buttonRegistrirajse;
 
@@ -33,105 +39,136 @@ namespace ProjektProgramsko
 			global::Stetic.BinContainer.Attach(this);
 			this.Name = "ProjektProgramsko.WidgetPrijava";
 			// Container child ProjektProgramsko.WidgetPrijava.Gtk.Container+ContainerChild
+			this.vbox4 = new global::Gtk.VBox();
+			this.vbox4.Name = "vbox4";
+			this.vbox4.Spacing = 6;
+			this.vbox4.BorderWidth = ((uint)(10));
+			// Container child vbox4.Gtk.Box+BoxChild
 			this.hbox2 = new global::Gtk.HBox();
 			this.hbox2.Name = "hbox2";
 			this.hbox2.Spacing = 6;
 			this.hbox2.BorderWidth = ((uint)(10));
 			// Container child hbox2.Gtk.Box+BoxChild
-			this.vbox4 = new global::Gtk.VBox();
-			this.vbox4.Name = "vbox4";
-			this.vbox4.Spacing = 6;
-			// Container child vbox4.Gtk.Box+BoxChild
+			this.vbox5 = new global::Gtk.VBox();
+			this.vbox5.Name = "vbox5";
+			this.vbox5.Spacing = 6;
+			// Container child vbox5.Gtk.Box+BoxChild
 			this.label1 = new global::Gtk.Label();
 			this.label1.Name = "label1";
-			this.label1.Xalign = 0F;
+			this.label1.Xalign = 1F;
 			this.label1.LabelProp = global::Mono.Unix.Catalog.GetString("Korisničko ime:");
-			this.vbox4.Add(this.label1);
-			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.label1]));
+			this.vbox5.Add(this.label1);
+			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.label1]));
 			w1.Position = 0;
 			w1.Fill = false;
-			// Container child vbox4.Gtk.Box+BoxChild
+			// Container child vbox5.Gtk.Box+BoxChild
 			this.label2 = new global::Gtk.Label();
 			this.label2.Name = "label2";
-			this.label2.Xalign = 0F;
-			this.label2.LabelProp = global::Mono.Unix.Catalog.GetString("Lozinka");
-			this.vbox4.Add(this.label2);
-			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.label2]));
+			this.label2.Xalign = 1F;
+			this.label2.LabelProp = global::Mono.Unix.Catalog.GetString("Lozinka:");
+			this.vbox5.Add(this.label2);
+			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.label2]));
 			w2.Position = 1;
 			w2.Fill = false;
+			this.hbox2.Add(this.vbox5);
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.vbox5]));
+			w3.Position = 0;
+			w3.Expand = false;
+			w3.Fill = false;
+			// Container child hbox2.Gtk.Box+BoxChild
+			this.vbox3 = new global::Gtk.VBox();
+			this.vbox3.Name = "vbox3";
+			this.vbox3.Spacing = 6;
+			// Container child vbox3.Gtk.Box+BoxChild
+			this.entryUsername = new global::Gtk.Entry();
+			this.entryUsername.CanFocus = true;
+			this.entryUsername.Name = "entryUsername";
+			this.entryUsername.IsEditable = true;
+			this.entryUsername.InvisibleChar = '●';
+			this.vbox3.Add(this.entryUsername);
+			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.entryUsername]));
+			w4.Position = 0;
+			w4.Fill = false;
+			// Container child vbox3.Gtk.Box+BoxChild
+			this.entryPassword = new global::Gtk.Entry();
+			this.entryPassword.CanFocus = true;
+			this.entryPassword.Name = "entryPassword";
+			this.entryPassword.IsEditable = true;
+			this.entryPassword.Visibility = false;
+			this.entryPassword.InvisibleChar = '●';
+			this.vbox3.Add(this.entryPassword);
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.entryPassword]));
+			w5.Position = 1;
+			w5.Fill = false;
+			this.hbox2.Add(this.vbox3);
+			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.vbox3]));
+			w6.Position = 1;
+			this.vbox4.Add(this.hbox2);
+			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.hbox2]));
+			w7.Position = 0;
+			w7.Expand = false;
+			w7.Fill = false;
 			// Container child vbox4.Gtk.Box+BoxChild
+			this.hbox3 = new global::Gtk.HBox();
+			this.hbox3.Name = "hbox3";
+			this.hbox3.Spacing = 6;
+			// Container child hbox3.Gtk.Box+BoxChild
 			this.buttonPotvrdi = new global::Gtk.Button();
 			this.buttonPotvrdi.WidthRequest = 75;
 			this.buttonPotvrdi.CanFocus = true;
 			this.buttonPotvrdi.Name = "buttonPotvrdi";
 			this.buttonPotvrdi.UseUnderline = true;
 			this.buttonPotvrdi.Label = global::Mono.Unix.Catalog.GetString("Potvrdi");
-			this.vbox4.Add(this.buttonPotvrdi);
-			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.buttonPotvrdi]));
-			w3.Position = 2;
-			w3.Fill = false;
-			// Container child vbox4.Gtk.Box+BoxChild
-			this.label7 = new global::Gtk.Label();
-			this.label7.Name = "label7";
-			this.label7.LabelProp = global::Mono.Unix.Catalog.GetString("Nemaš korisnički račun?");
-			this.vbox4.Add(this.label7);
-			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.label7]));
-			w4.Position = 3;
-			w4.Fill = false;
-			this.hbox2.Add(this.vbox4);
-			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.vbox4]));
-			w5.Position = 0;
-			w5.Expand = false;
-			w5.Fill = false;
-			// Container child hbox2.Gtk.Box+BoxChild
-			this.vbox3 = new global::Gtk.VBox();
-			this.vbox3.Name = "vbox3";
-			this.vbox3.Spacing = 6;
-			// Container child vbox3.Gtk.Box+BoxChild
-			this.entry1 = new global::Gtk.Entry();
-			this.entry1.CanFocus = true;
-			this.entry1.Name = "entry1";
-			this.entry1.IsEditable = true;
-			this.entry1.InvisibleChar = '●';
-			this.vbox3.Add(this.entry1);
-			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.entry1]));
-			w6.Position = 0;
-			w6.Fill = false;
-			// Container child vbox3.Gtk.Box+BoxChild
-			this.entry2 = new global::Gtk.Entry();
-			this.entry2.CanFocus = true;
-			this.entry2.Name = "entry2";
-			this.entry2.IsEditable = true;
-			this.entry2.InvisibleChar = '●';
-			this.vbox3.Add(this.entry2);
-			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.entry2]));
-			w7.Position = 1;
-			w7.Fill = false;
-			// Container child vbox3.Gtk.Box+BoxChild
+			this.hbox3.Add(this.buttonPotvrdi);
+			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.buttonPotvrdi]));
+			w8.Position = 0;
+			w8.Fill = false;
+			// Container child hbox3.Gtk.Box+BoxChild
 			this.buttonOdustani = new global::Gtk.Button();
 			this.buttonOdustani.WidthRequest = 75;
 			this.buttonOdustani.CanFocus = true;
 			this.buttonOdustani.Name = "buttonOdustani";
 			this.buttonOdustani.UseUnderline = true;
 			this.buttonOdustani.Label = global::Mono.Unix.Catalog.GetString("Odustani");
-			this.vbox3.Add(this.buttonOdustani);
-			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.buttonOdustani]));
-			w8.Position = 2;
-			// Container child vbox3.Gtk.Box+BoxChild
+			this.hbox3.Add(this.buttonOdustani);
+			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.buttonOdustani]));
+			w9.Position = 1;
+			w9.Fill = false;
+			this.vbox4.Add(this.hbox3);
+			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.hbox3]));
+			w10.Position = 1;
+			w10.Expand = false;
+			w10.Fill = false;
+			// Container child vbox4.Gtk.Box+BoxChild
+			this.hbox4 = new global::Gtk.HBox();
+			this.hbox4.Name = "hbox4";
+			this.hbox4.Spacing = 6;
+			// Container child hbox4.Gtk.Box+BoxChild
+			this.label7 = new global::Gtk.Label();
+			this.label7.Name = "label7";
+			this.label7.LabelProp = global::Mono.Unix.Catalog.GetString("Nemaš korisnički račun?");
+			this.hbox4.Add(this.label7);
+			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.label7]));
+			w11.Position = 0;
+			w11.Expand = false;
+			w11.Fill = false;
+			w11.Padding = ((uint)(2));
+			// Container child hbox4.Gtk.Box+BoxChild
 			this.buttonRegistrirajse = new global::Gtk.Button();
 			this.buttonRegistrirajse.CanFocus = true;
 			this.buttonRegistrirajse.Name = "buttonRegistrirajse";
 			this.buttonRegistrirajse.UseUnderline = true;
 			this.buttonRegistrirajse.Label = global::Mono.Unix.Catalog.GetString("Registriraj se");
-			this.vbox3.Add(this.buttonRegistrirajse);
-			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.buttonRegistrirajse]));
-			w9.Position = 3;
-			this.hbox2.Add(this.vbox3);
-			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.vbox3]));
-			w10.Position = 1;
-			w10.Expand = false;
-			w10.Fill = false;
-			this.Add(this.hbox2);
+			this.hbox4.Add(this.buttonRegistrirajse);
+			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.buttonRegistrirajse]));
+			w12.Position = 1;
+			w12.Fill = false;
+			this.vbox4.Add(this.hbox4);
+			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.hbox4]));
+			w13.Position = 2;
+			w13.Expand = false;
+			w13.Fill = false;
+			this.Add(this.vbox4);
 			if ((this.Child != null))
 			{
 				this.Child.ShowAll();

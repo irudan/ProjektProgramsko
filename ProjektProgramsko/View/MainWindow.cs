@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using Gtk;
 using ProjektProgramsko;
@@ -27,13 +28,18 @@ public partial class MainWindow : Gtk.Window
 
 	public List<WidgetKnjiga> listaKnjiga;
 
+	public Button profilButton;
+	public Button prijavaButton;
+	public Button dodavanjeButton;
+	public Button uredivanjeButton;
+
 	public MainWindow() : base(Gtk.WindowType.Toplevel)
 	{
 		Build();
 
 		glavniVbox = glavnimeni2.getVbox();
 		pocetna = new WidgetPocetna();
-		profil = new WidgetProfil();
+		//profil = new WidgetProfil();
 		dodavanjeSadrzaja = new WidgetDodavanjeSadrzaja();
 		uredivanjeSadrzaja = new WidgetUredivanjeSadrzaja();
 
@@ -44,11 +50,11 @@ public partial class MainWindow : Gtk.Window
 		Button knjigaButton = glavnimeni2.getKnjige();
 		Button casopisButton = glavnimeni2.getCasopis();
 		Button filmButton = glavnimeni2.getFilm();
-		Button profilButton = glavnimeni2.getProfil();
-		Button prijavaButton = glavnimeni2.getPrijava();
 
-		Button dodavanjeButton = glavnimeni2.getDodavanje();
-		Button uredivanjeButton = glavnimeni2.getUredivanje();
+		profilButton = glavnimeni2.getProfil();
+		prijavaButton = glavnimeni2.getPrijava();
+		dodavanjeButton = glavnimeni2.getDodavanje();
+		uredivanjeButton = glavnimeni2.getUredivanje();
 
 		RadioButton radioK = dodavanjeSadrzaja.radioKnjiga();
 		RadioButton radioC = dodavanjeSadrzaja.radioCasopis();
@@ -93,6 +99,11 @@ public partial class MainWindow : Gtk.Window
 		filmCombo.Changed += sortFilm;
 
 		Build();
+
+		/*MyGlobals.trenutni.Id = 9;
+		MyGlobals.trenutni.Username = "admin";*/
+
+		provjeraKorisnik();
 	}
 
 	protected void prikaziPocetna(object sender, EventArgs a)
@@ -102,11 +113,30 @@ public partial class MainWindow : Gtk.Window
 		glavniVbox.Add(pocetna);
 
 		Build();
+
+		provjeraKorisnik();
 	}
 
 	protected void prikaziPrijava(object sender, EventArgs a)
 	{
+		Button temp = sender as Button;
+
+		if (temp.Label == "Odjavi se")
+		{
+			MyGlobals.trenutni = new Korisnik();
+			temp.Label = "Prijavi se";
+			provjeraKorisnik();
+			return;
+		}
+
 		var windowPrijavljivanje = new WindowPrijavljivanje();
+
+		windowPrijavljivanje.Destroyed += pozivProvjera;
+	}
+
+	protected void pozivProvjera(object sender, EventArgs a)
+	{
+		provjeraKorisnik();
 	}
 
 	//Funkcija za prikaz knjige
@@ -125,6 +155,8 @@ public partial class MainWindow : Gtk.Window
 		}
 
 		Build();
+
+		provjeraKorisnik();
 	}
 
 	//Funkcija za prikaz casopisa
@@ -145,6 +177,8 @@ public partial class MainWindow : Gtk.Window
 		}
 
 		Build();
+
+		provjeraKorisnik();
 	}
 
 	//Funkcija za prikaz filma
@@ -163,6 +197,8 @@ public partial class MainWindow : Gtk.Window
 		}
 
 		Build();
+
+		provjeraKorisnik();
 	}
 
 
@@ -170,9 +206,13 @@ public partial class MainWindow : Gtk.Window
 	{
 		izbrisiDjecu(glavniVbox);
 
+		profil = new WidgetProfil();
+
 		glavniVbox.Add(profil);
 
 		Build();
+
+		provjeraKorisnik();
 	}
 
 	//Funkcija za prikaz meni-a za dodavanje
@@ -357,12 +397,11 @@ public partial class MainWindow : Gtk.Window
 		{
 			WidgetKnjiga knjiga = new WidgetKnjiga(i);
 			glavniVbox.Add(knjiga);
-
-			/*Button kupi = knjiga.getKupi();
-			kupi.Clicked += test;*/
 		}
 
 		Build();
+
+		provjeraKorisnik();
 	}
 
 	protected void sortCasopis(object sender, EventArgs a)
@@ -406,6 +445,8 @@ public partial class MainWindow : Gtk.Window
 		}
 
 		Build();
+
+		provjeraKorisnik();
 	}
 
 	protected void sortFilm(object sender, EventArgs a)
@@ -444,12 +485,36 @@ public partial class MainWindow : Gtk.Window
 		{
 			WidgetFilm film = new WidgetFilm(i);
 			glavniVbox.Add(film);
-
-			/*Button kupi = knjiga.getKupi();
-			kupi.Clicked += test;*/
 		}
 
 		Build();
+
+		provjeraKorisnik();
+	}
+
+	protected void provjeraKorisnik()
+	{
+		//Skrivanje buttona
+		if (MyGlobals.trenutni.Id == -1)
+		{
+			dodavanjeButton.Visible = false;
+			uredivanjeButton.Visible = false;
+			profilButton.Visible = false;
+		}
+		else if (MyGlobals.trenutni.Id != -1 && MyGlobals.trenutni.Username != "admin")
+		{
+			dodavanjeButton.Visible = false;
+			uredivanjeButton.Visible = false;
+			profilButton.Visible = true;
+			prijavaButton.Label = "Odjavi se";
+		}
+		else 
+		{
+			dodavanjeButton.Visible = true;
+			uredivanjeButton.Visible = true;
+			profilButton.Visible = true;
+			prijavaButton.Label = "Odjavi se";
+		}
 	}
 
 	protected void izbrisiDjecu(VBox box)

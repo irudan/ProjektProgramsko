@@ -18,11 +18,12 @@ namespace ProjektProgramsko
 
 			buttonKupi.Clicked += kupi;
 			buttonPregledaj.Clicked += pregledaj;
+			buttonPreuzmi.Clicked += preuzmi;
 
 			labelNaslov.LabelProp = k.Naziv;
 			labelOpis.LabelProp = k.Opis;
 			labelBrojStranica.LabelProp = k.BrojStranica.ToString();
-			labelCijena.LabelProp = k.Cijena.ToString() + " kn";
+			labelCijena.LabelProp = k.Cijena + " kn";
 			labelNakladnik.LabelProp = k.Nakladnik;
 			labelJezik.LabelProp = k.Jezik;
 			labelTagovi.LabelProp = k.Tagovi;
@@ -40,16 +41,47 @@ namespace ProjektProgramsko
 			var buffer = System.IO.File.ReadAllBytes(k.SlikaPath);
 			var pixbuf = new Gdk.Pixbuf(buffer);
 			image1.Pixbuf = pixbuf;
+
+			provjeraKorisnika();
+		}
+
+		protected void provjeraKorisnika()
+		{
+			if (MyGlobals.trenutni.Id == -1)
+			{
+				buttonPregledaj.Sensitive = false;
+				buttonPreuzmi.Sensitive = false;
+				buttonKupi.Sensitive = false;
+			}
+			else
+			{
+				List<long> listaNaplata = BPNaplata.DohvatiSve(MyGlobals.trenutni.Id, pok.Id);
+
+				if (listaNaplata.Capacity == 0)
+				{
+					buttonPregledaj.Sensitive = false;
+					buttonPreuzmi.Sensitive = false;
+				}
+				else
+				{
+					buttonKupi.Sensitive = false;
+				}
+			}
 		}
 
 		protected void kupi(object sender, EventArgs a)
 		{
-			var windowKupovina = new WindowKupovina();
+			var windowKupovina = new WindowKupi(pok.Id, pok.Cijena);
 		}
 
 		protected void pregledaj(object sender, EventArgs a)
 		{
 			var windowPregledaj = new WindowPregledaj(pok.PdfPath, pok.Id, pok.IdK);
+		}
+
+		protected void preuzmi(object sender, EventArgs e)
+		{
+			var windowPreuzmi = new WindowPreuzmi(pok.PdfPath);
 		}
 	}
 }

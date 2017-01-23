@@ -11,8 +11,21 @@ namespace ProjektProgramsko
 		public GlavniMeni()
 		{
 			this.Build();
+
+			comboboxentry1.Changed += OnComboBoxChanged;
 		}
 
+		void OnComboBoxChanged(object o, EventArgs args)
+		{
+			ComboBox combo = o as ComboBox;
+			if (o == null)
+				return;
+
+			TreeIter iter;
+
+			if (combo.GetActiveIter(out iter))
+				Console.WriteLine((string)combo.Model.GetValue(iter, 0));
+		}
 
 		public Button getKnjige()
 		{

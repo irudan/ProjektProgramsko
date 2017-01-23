@@ -6,12 +6,57 @@ namespace ProjektProgramsko
 	public partial class WindowPrijavljivanje : Gtk.Window
 	{
 
-		public WidgetPrijava prijava = new WidgetPrijava();
+		public WidgetPrijava prijava;
 		public WidgetRegistracija registracija = new WidgetRegistracija();
 
-		public HBox glavni = new HBox();
+		public VBox glavni = new VBox();
 
-		protected void izbrisiDjecu(HBox box)
+		public WindowPrijavljivanje() :
+				base(Gtk.WindowType.Toplevel)
+		{
+			this.Build();
+
+			prijava = new WidgetPrijava();
+
+			glavni = glavniBox();
+
+			glavni.Add(prijava);
+
+			Button registracijaButton = prijava.getReg();
+			Button natragButton = registracija.getNatrag();
+
+			registracijaButton.Clicked += prikaziRegistracija;
+			natragButton.Clicked += prikaziPrijava;
+
+			Build();
+		}
+
+		protected void prikaziRegistracija(object sender, EventArgs a)
+		{
+			izbrisiDjecu(glavni);
+
+			glavni.Add(registracija);
+
+			Build();
+
+			registracija.Destroyed += prikaziPrijava;
+		}
+
+		protected void prikaziPrijava(object sender, EventArgs a)
+		{
+			izbrisiDjecu(glavni);
+
+			glavni.Add(prijava);
+
+			Build();
+		}
+
+		protected VBox glavniBox()
+		{
+			return vboxMain;
+		}
+
+		protected void izbrisiDjecu(VBox box)
 		{
 			Widget[] temp = box.Children;
 
@@ -19,30 +64,6 @@ namespace ProjektProgramsko
 				box.Remove(i);
 		}
 
-
-		public WindowPrijavljivanje() :
-				base(Gtk.WindowType.Toplevel)
-		{
-			this.Build();
-
-			glavni = widgetprijava1.getHbox();
-
-			Button Registriraj = widgetprijava1.Registrirajse();
-
-			Registriraj.Clicked += getRegistracija;
-
-			glavni.Add(prijava);
-
-		}
-
-		protected void getRegistracija(object sender, EventArgs a)
-		{
-			izbrisiDjecu(glavni);
-
-			glavni.Add(registracija);
-
-			Build();
-		}
 
 	}
 }

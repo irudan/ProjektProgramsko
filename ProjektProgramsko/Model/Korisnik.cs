@@ -5,14 +5,17 @@ namespace ProjektProgramsko
 {
 	public class Korisnik
 	{
-
+		private long id;
 		private string ime;
 		private string prezime;
 		private string username;
 		private string password;
 		private string mail;
 
-		List<Naplata> naplata;
+		public Korisnik()
+		{
+			id = -1;
+		}
 
 		public string Ime
 		{
@@ -79,16 +82,16 @@ namespace ProjektProgramsko
 			}
 		}
 
-		public List<Naplata> Naplata
+		public long Id
 		{
 			get
 			{
-				return naplata;
+				return id;
 			}
 
 			set
 			{
-				naplata = value;
+				id = value;
 			}
 		}
 	}
