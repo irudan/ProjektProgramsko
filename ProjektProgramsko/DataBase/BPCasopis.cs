@@ -142,5 +142,41 @@ namespace ProjektProgramsko
 
 			return listaCasopis;
 		}
+
+		public static List<Casopis> DohvatiMojSadrzaj()
+		{
+			List<Casopis> listaCasopis = new List<Casopis>();
+
+			BP.otvoriKonekciju();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = "Select * from casopis, sadrzaj where casopis.id_sadrzaj = sadrzaj.id";
+
+			SqliteDataReader reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				Casopis c = new Casopis();
+
+				c.Id = (int)(Int64)reader["id_sadrzaj"];
+				c.IdC = (int)(Int64)reader["id"];
+				c.Naziv = (string)reader["naziv"];
+				c.Opis = (string)reader["opis"];
+				c.Tagovi = (string)reader["tagovi"];
+
+
+				c.IzdanjeCasopis = BPIzdanjeCasopis.DohvatiMojSadrzaj(c.IdC);
+
+				listaCasopis.Add(c);
+			}
+
+			reader.Dispose();
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
+
+			return listaCasopis;
+		}
 	}
 }

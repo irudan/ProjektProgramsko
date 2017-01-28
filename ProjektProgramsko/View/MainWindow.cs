@@ -7,16 +7,15 @@ using ProjektProgramsko;
 public partial class MainWindow : Gtk.Window
 {
 	public WidgetPocetna pocetna;
-	//public WidgetKnjiga knjiga;
-	//public WidgetCasopis casopis;
-	//public WidgetFilm film;
 	public WidgetProfil profil;
 	public WidgetDodavanjeSadrzaja dodavanjeSadrzaja;
 	public WidgetUredivanjeSadrzaja uredivanjeSadrzaja;
 
-	public WidgetSort knjigaSort = new WidgetSort();
-	public WidgetSort filmSort = new WidgetSort();
-	public WidgetSort casopisSort = new WidgetSort();
+	public WidgetSortKnjige knjigaSort = new WidgetSortKnjige();
+	public WidgetSortFilmovi filmSort = new WidgetSortFilmovi();
+	public WidgetSortCasopis casopisSort = new WidgetSortCasopis();
+
+	public WidgetMojSadrzaj mojSadrzaj = new WidgetMojSadrzaj();
 
 	public ComboBox knjigaCombo;
 	public ComboBox casopisCombo;
@@ -25,6 +24,7 @@ public partial class MainWindow : Gtk.Window
 	public ComboBox comboBoxSort;
 
 	public VBox glavniVbox = new VBox();
+	public VBox sortVbox = new VBox();
 
 	public List<WidgetKnjiga> listaKnjiga;
 
@@ -32,14 +32,16 @@ public partial class MainWindow : Gtk.Window
 	public Button prijavaButton;
 	public Button dodavanjeButton;
 	public Button uredivanjeButton;
+	public Button sadrzajButton;
 
 	public MainWindow() : base(Gtk.WindowType.Toplevel)
 	{
 		Build();
 
 		glavniVbox = glavnimeni2.getVbox();
+		sortVbox = glavnimeni2.getSortBox();
+
 		pocetna = new WidgetPocetna();
-		//profil = new WidgetProfil();
 		dodavanjeSadrzaja = new WidgetDodavanjeSadrzaja();
 		uredivanjeSadrzaja = new WidgetUredivanjeSadrzaja();
 
@@ -55,6 +57,7 @@ public partial class MainWindow : Gtk.Window
 		prijavaButton = glavnimeni2.getPrijava();
 		dodavanjeButton = glavnimeni2.getDodavanje();
 		uredivanjeButton = glavnimeni2.getUredivanje();
+		sadrzajButton = glavnimeni2.getSadrzaj();
 
 		RadioButton radioK = dodavanjeSadrzaja.radioKnjiga();
 		RadioButton radioC = dodavanjeSadrzaja.radioCasopis();
@@ -68,9 +71,17 @@ public partial class MainWindow : Gtk.Window
 		RadioButton radioAU = uredivanjeSadrzaja.radioAutor();
 
 
-		ComboBox knjigaCombo = knjigaSort.getComboBox();
-		ComboBox casopisCombo = casopisSort.getComboBox();
-		ComboBox filmCombo = filmSort.getComboBox();
+		ComboBox knjigaCombo = knjigaSort.getSort();
+		ComboBox casopisCombo = casopisSort.getSort();
+		ComboBox filmCombo = filmSort.getSort();
+
+		ComboBox knjigaTag = knjigaSort.getTag();
+		ComboBox casopisTag = casopisSort.getTag();
+		ComboBox filmTag = filmSort.getTag();
+
+		Entry knjigaPretraga = knjigaSort.getPretraga();
+		Entry casopisPretraga = casopisSort.getPretraga();
+		Entry filmPretraga = filmSort.getPretraga();
 
 		pocetnaButton.Clicked += prikaziPocetna;
 		knjigaButton.Clicked += prikaziKnjige;
@@ -81,6 +92,8 @@ public partial class MainWindow : Gtk.Window
 
 		dodavanjeButton.Clicked += prikaziDodavanje;
 		uredivanjeButton.Clicked += prikaziUredivanje;
+
+		sadrzajButton.Clicked += prikaziMojSadrzaj;
 
 		radioK.Clicked += prikaziDodavanjeKnjiga;
 		radioC.Clicked += prikaziDodavanjeCasopis;
@@ -93,10 +106,22 @@ public partial class MainWindow : Gtk.Window
 		radioIU.Clicked += prikaziUredivanjeIzdanje;
 		radioAU.Clicked += prikaziUredivanjeAutor;
 
-
 		knjigaCombo.Changed += sortKnjiga;
 		casopisCombo.Changed += sortCasopis;
 		filmCombo.Changed += sortFilm;
+
+		knjigaTag.Changed += tagKnjiga;
+		casopisTag.Changed += tagCasopis;
+		filmTag.Changed += tagFilm;
+
+		knjigaPretraga.TextDeleted += pretragaKnjiga;
+		knjigaPretraga.TextInserted += pretragaKnjiga;
+
+		casopisPretraga.TextDeleted += pretragaCasopis;
+		casopisPretraga.TextInserted += pretragaCasopis;
+
+		filmPretraga.TextDeleted += pretragaFilm;
+		filmPretraga.TextInserted += pretragaFilm;
 
 		Build();
 
@@ -105,10 +130,10 @@ public partial class MainWindow : Gtk.Window
 
 		provjeraKorisnik();
 	}
-
 	protected void prikaziPocetna(object sender, EventArgs a)
 	{
 		izbrisiDjecu(glavniVbox);
+		izbrisiDjecu(sortVbox);
 
 		glavniVbox.Add(pocetna);
 
@@ -143,8 +168,11 @@ public partial class MainWindow : Gtk.Window
 	protected void prikaziKnjige(object sender, EventArgs a)
 	{
 		izbrisiDjecu(glavniVbox);
+		izbrisiDjecu(sortVbox);
 
-		glavniVbox.Add(knjigaSort);
+		sortVbox.Add(knjigaSort);
+
+		knjigaSort.postaviPrazno();
 
 		List<Knjiga> temp = BPKnjiga.DohvatiSve();
 
@@ -163,8 +191,11 @@ public partial class MainWindow : Gtk.Window
 	protected void prikaziCasopis(object sender, EventArgs a)
 	{
 		izbrisiDjecu(glavniVbox);
+		izbrisiDjecu(sortVbox);
 
-		glavniVbox.Add(casopisSort);
+		sortVbox.Add(casopisSort);
+
+		casopisSort.postaviPrazno();
 
 		List<IzdanjeCasopis> temp = BPIzdanjeCasopis.DohvatiSve();
 
@@ -185,8 +216,11 @@ public partial class MainWindow : Gtk.Window
 	protected void prikaziFilm(object sender, EventArgs a)
 	{
 		izbrisiDjecu(glavniVbox);
+		izbrisiDjecu(sortVbox);
 
-		glavniVbox.Add(filmSort);
+		sortVbox.Add(filmSort);
+
+		filmSort.postaviPrazno();
 
 		List<Film> temp = BPFilm.DohvatiSve();
 
@@ -205,6 +239,7 @@ public partial class MainWindow : Gtk.Window
 	protected void prikaziProfil(object sender, EventArgs a)
 	{
 		izbrisiDjecu(glavniVbox);
+		izbrisiDjecu(sortVbox);
 
 		profil = new WidgetProfil();
 
@@ -219,6 +254,7 @@ public partial class MainWindow : Gtk.Window
 	protected void prikaziDodavanje(object sender, EventArgs a)
 	{
 		izbrisiDjecu(glavniVbox);
+		izbrisiDjecu(sortVbox);
 
 		glavniVbox.Add(dodavanjeSadrzaja);
 
@@ -229,10 +265,23 @@ public partial class MainWindow : Gtk.Window
 	protected void prikaziUredivanje(object sender, EventArgs a)
 	{
 		izbrisiDjecu(glavniVbox);
+		izbrisiDjecu(sortVbox);
 
 		glavniVbox.Add(uredivanjeSadrzaja);
 
 		Build();
+	}
+
+	protected void prikaziMojSadrzaj(object sender, EventArgs a)
+	{
+		izbrisiDjecu(glavniVbox);
+		izbrisiDjecu(sortVbox);
+
+		glavniVbox.Add(mojSadrzaj);
+
+		Build();
+
+		provjeraKorisnik();
 	}
 
 	//Funkcija za dodavanje knjige
@@ -387,11 +436,15 @@ public partial class MainWindow : Gtk.Window
 			case "Najnovije":
 				lista = BPKnjiga.DohvatiSort("id desc");
 				break;
+			default:
+				lista = BPKnjiga.DohvatiSve();
+				break;
 		}
 		
 		izbrisiDjecu(glavniVbox);
+		izbrisiDjecu(sortVbox);
 
-		glavniVbox.Add(knjigaSort);
+		sortVbox.Add(knjigaSort);
 
 		foreach (Knjiga i in lista)
 		{
@@ -433,8 +486,9 @@ public partial class MainWindow : Gtk.Window
 		}
 
 		izbrisiDjecu(glavniVbox);
+		izbrisiDjecu(sortVbox);
 
-		glavniVbox.Add(casopisSort);
+		sortVbox.Add(casopisSort);
 
 		foreach (IzdanjeCasopis i in lista)
 		{
@@ -478,8 +532,152 @@ public partial class MainWindow : Gtk.Window
 		}
 
 		izbrisiDjecu(glavniVbox);
+		izbrisiDjecu(sortVbox);
 
-		glavniVbox.Add(filmSort);
+		sortVbox.Add(filmSort);
+
+		foreach (Film i in lista)
+		{
+			WidgetFilm film = new WidgetFilm(i);
+			glavniVbox.Add(film);
+		}
+
+		Build();
+
+		provjeraKorisnik();
+	}
+
+	protected void tagKnjiga(object sender, EventArgs a)
+	{
+		List<Knjiga> lista = new List<Knjiga>();
+
+		ComboBox comboBoxSort = sender as ComboBox;
+
+		lista = BPKnjiga.DohvatiTag(comboBoxSort.ActiveText);
+
+		izbrisiDjecu(glavniVbox);
+
+		sortVbox.Add(knjigaSort);
+
+		foreach (Knjiga i in lista)
+		{
+			WidgetKnjiga knjiga = new WidgetKnjiga(i);
+			glavniVbox.Add(knjiga);
+		}
+
+		Build();
+
+		provjeraKorisnik();
+	}
+
+	protected void tagCasopis(object sender, EventArgs a)
+	{
+		List<IzdanjeCasopis> lista = new List<IzdanjeCasopis>();
+
+		ComboBox comboBoxSort = sender as ComboBox;
+
+		lista = BPIzdanjeCasopis.DohvatiTag(comboBoxSort.ActiveText);
+
+		izbrisiDjecu(glavniVbox);
+
+		sortVbox.Add(casopisSort);
+
+		foreach (IzdanjeCasopis i in lista)
+		{
+			Casopis c = BPCasopis.DohvatiCasopis(i.IdC);
+
+			WidgetCasopis casopis = new WidgetCasopis(c, i);
+			glavniVbox.Add(casopis);
+		}
+
+		Build();
+
+		provjeraKorisnik();
+	}
+
+	protected void tagFilm(object sender, EventArgs a)
+	{
+		List<Film> lista = new List<Film>();
+
+		ComboBox comboBoxSort = sender as ComboBox;
+
+		lista = BPFilm.DohvatiTag(comboBoxSort.ActiveText);
+
+		izbrisiDjecu(glavniVbox);
+
+		sortVbox.Add(filmSort);
+
+		foreach (Film i in lista)
+		{
+			WidgetFilm film = new WidgetFilm(i);
+			glavniVbox.Add(film);
+		}
+
+		Build();
+
+		provjeraKorisnik();
+	}
+
+	protected void pretragaKnjiga(object sender, EventArgs a)
+	{
+		List<Knjiga> lista = new List<Knjiga>();
+
+		Entry entry = sender as Entry;
+
+		lista = BPKnjiga.Pretraga(entry.Text);
+
+		izbrisiDjecu(glavniVbox);
+
+		//glavniVbox.Add(knjigaSort);
+		sortVbox.Add(knjigaSort);
+
+		foreach (Knjiga i in lista)
+		{
+			WidgetKnjiga knjiga = new WidgetKnjiga(i);
+			glavniVbox.Add(knjiga);
+		}
+
+		Build();
+
+		provjeraKorisnik();
+	}
+
+	protected void pretragaCasopis(object sender, EventArgs a)
+	{
+		List<IzdanjeCasopis> lista = new List<IzdanjeCasopis>();
+
+		Entry entry = sender as Entry;
+
+		lista = BPIzdanjeCasopis.Pretraga(entry.Text);
+
+		izbrisiDjecu(glavniVbox);
+
+		sortVbox.Add(casopisSort);
+
+		foreach (IzdanjeCasopis i in lista)
+		{
+			Casopis c = BPCasopis.DohvatiCasopis(i.IdC);
+
+			WidgetCasopis casopis = new WidgetCasopis(c, i);
+			glavniVbox.Add(casopis);
+		}
+
+		Build();
+
+		provjeraKorisnik();
+	}
+
+	protected void pretragaFilm(object sender, EventArgs a)
+	{
+		List<Film> lista = new List<Film>();
+
+		Entry entry = sender as Entry;
+
+		lista = BPFilm.Pretraga(entry.Text);
+
+		izbrisiDjecu(glavniVbox);
+
+		sortVbox.Add(filmSort);
 
 		foreach (Film i in lista)
 		{
@@ -500,12 +698,14 @@ public partial class MainWindow : Gtk.Window
 			dodavanjeButton.Visible = false;
 			uredivanjeButton.Visible = false;
 			profilButton.Visible = false;
+			sadrzajButton.Visible = false;
 		}
 		else if (MyGlobals.trenutni.Id != -1 && MyGlobals.trenutni.Username != "admin")
 		{
 			dodavanjeButton.Visible = false;
 			uredivanjeButton.Visible = false;
 			profilButton.Visible = true;
+			sadrzajButton.Visible = true;
 			prijavaButton.Label = "Odjavi se";
 		}
 		else 
@@ -513,6 +713,7 @@ public partial class MainWindow : Gtk.Window
 			dodavanjeButton.Visible = true;
 			uredivanjeButton.Visible = true;
 			profilButton.Visible = true;
+			sadrzajButton.Visible = true;
 			prijavaButton.Label = "Odjavi se";
 		}
 	}
@@ -529,10 +730,5 @@ public partial class MainWindow : Gtk.Window
 	{
 		Application.Quit();
 		a.RetVal = true;
-	}
-
-	public MainWindow getId()
-	{
-		return this;
 	}
 }

@@ -184,5 +184,123 @@ namespace ProjektProgramsko
 
 			return listaFilmovi;
 		}
+
+		public static List<Film> DohvatiTag(string tag)
+		{
+			List<Film> listaFilmovi = new List<Film>();
+
+			BP.otvoriKonekciju();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = String.Format(@"Select * from film, sadrzaj where film.id_sadrzaj = sadrzaj.id and tagovi like '%{0}%'", tag);
+
+			SqliteDataReader reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				Film f = new Film();
+
+				f.Id = (int)(Int64)reader["id_sadrzaj"];
+				f.IdF = (int)(Int64)reader["id"];
+				f.Naziv = (string)reader["naziv"];
+				f.Opis = (string)reader["opis"];
+				f.Redatelj = (string)reader["redatelj"];
+				f.Godina = (int)(Int64)reader["godina"];
+				f.Trajanje = (int)(Int64)reader["trajanje"];
+				f.Cijena = (int)(Double)reader["cijena"];
+				f.Tagovi = (string)reader["tagovi"];
+				f.SlikaPath = (string)reader["slika_path"];
+				f.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
+
+				listaFilmovi.Add(f);
+			}
+
+			reader.Dispose();
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
+
+			return listaFilmovi;
+		}
+
+		public static List<Film> Pretraga(string pretraga)
+		{
+			List<Film> listaFilmovi = new List<Film>();
+
+			BP.otvoriKonekciju();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = String.Format(@"Select * from film, sadrzaj where film.id_sadrzaj = sadrzaj.id and naziv like '%{0}%'", pretraga);
+
+			SqliteDataReader reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				Film f = new Film();
+
+				f.Id = (int)(Int64)reader["id_sadrzaj"];
+				f.IdF = (int)(Int64)reader["id"];
+				f.Naziv = (string)reader["naziv"];
+				f.Opis = (string)reader["opis"];
+				f.Redatelj = (string)reader["redatelj"];
+				f.Godina = (int)(Int64)reader["godina"];
+				f.Trajanje = (int)(Int64)reader["trajanje"];
+				f.Cijena = (int)(Double)reader["cijena"];
+				f.Tagovi = (string)reader["tagovi"];
+				f.SlikaPath = (string)reader["slika_path"];
+				f.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
+
+				listaFilmovi.Add(f);
+			}
+
+			reader.Dispose();
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
+
+			return listaFilmovi;
+		}
+
+		public static List<Film> DohvatiMojSadrzaj()
+		{
+			List<Film> listaFilmovi = new List<Film>();
+
+			BP.otvoriKonekciju();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = String.Format("Select * from film, sadrzaj, naplata where film.id_sadrzaj = sadrzaj.id and sadrzaj.id = naplata.id_sadrzaj " +
+			                                    "and naplata.id_korisnik = '{0}'", MyGlobals.trenutni.Id);
+
+			SqliteDataReader reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				Film f = new Film();
+
+				f.Id = (int)(Int64)reader["id_sadrzaj"];
+				f.IdF = (int)(Int64)reader["id"];
+				f.Naziv = (string)reader["naziv"];
+				f.Opis = (string)reader["opis"];
+				f.Redatelj = (string)reader["redatelj"];
+				f.Godina = (int)(Int64)reader["godina"];
+				f.Trajanje = (int)(Int64)reader["trajanje"];
+				f.Cijena = (int)(Double)reader["cijena"];
+				f.Tagovi = (string)reader["tagovi"];
+				f.SlikaPath = (string)reader["slika_path"];
+				f.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
+
+				listaFilmovi.Add(f);
+			}
+
+			reader.Dispose();
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
+
+			return listaFilmovi;
+		}
 	}
 }

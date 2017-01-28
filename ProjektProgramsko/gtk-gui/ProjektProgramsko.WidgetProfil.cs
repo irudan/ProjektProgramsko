@@ -18,10 +18,6 @@ namespace ProjektProgramsko
 
 		private global::Gtk.Label label4;
 
-		private global::Gtk.Label label5;
-
-		private global::Gtk.Label label6;
-
 		private global::Gtk.VBox vboxEntry;
 
 		private global::Gtk.Entry entryIme;
@@ -31,6 +27,16 @@ namespace ProjektProgramsko
 		private global::Gtk.Entry entryUsername;
 
 		private global::Gtk.Entry entryMail;
+
+		private global::Gtk.HBox hbox1;
+
+		private global::Gtk.VBox vbox4;
+
+		private global::Gtk.Label label5;
+
+		private global::Gtk.Label label6;
+
+		private global::Gtk.VBox vbox3;
 
 		private global::Gtk.Entry entryStariPass;
 
@@ -96,29 +102,9 @@ namespace ProjektProgramsko
 			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.label4]));
 			w4.Position = 3;
 			w4.Fill = false;
-			// Container child vbox2.Gtk.Box+BoxChild
-			this.label5 = new global::Gtk.Label();
-			this.label5.Name = "label5";
-			this.label5.Xalign = 1F;
-			this.label5.LabelProp = global::Mono.Unix.Catalog.GetString("Stara lozinka:");
-			this.vbox2.Add(this.label5);
-			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.label5]));
-			w5.Position = 4;
-			w5.Fill = false;
-			// Container child vbox2.Gtk.Box+BoxChild
-			this.label6 = new global::Gtk.Label();
-			this.label6.Name = "label6";
-			this.label6.Xalign = 1F;
-			this.label6.LabelProp = global::Mono.Unix.Catalog.GetString("Nova lozinka");
-			this.vbox2.Add(this.label6);
-			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.vbox2[this.label6]));
-			w6.PackType = ((global::Gtk.PackType)(1));
-			w6.Position = 5;
-			w6.Fill = false;
 			this.hbox2.Add(this.vbox2);
-			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.vbox2]));
-			w7.Position = 0;
-			w7.Expand = false;
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.vbox2]));
+			w5.Position = 0;
 			// Container child hbox2.Gtk.Box+BoxChild
 			this.vboxEntry = new global::Gtk.VBox();
 			this.vboxEntry.Name = "vboxEntry";
@@ -130,9 +116,9 @@ namespace ProjektProgramsko
 			this.entryIme.IsEditable = true;
 			this.entryIme.InvisibleChar = '●';
 			this.vboxEntry.Add(this.entryIme);
-			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vboxEntry[this.entryIme]));
-			w8.Position = 0;
-			w8.Fill = false;
+			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.vboxEntry[this.entryIme]));
+			w6.Position = 0;
+			w6.Fill = false;
 			// Container child vboxEntry.Gtk.Box+BoxChild
 			this.entryPrezime = new global::Gtk.Entry();
 			this.entryPrezime.CanFocus = true;
@@ -140,9 +126,9 @@ namespace ProjektProgramsko
 			this.entryPrezime.IsEditable = true;
 			this.entryPrezime.InvisibleChar = '●';
 			this.vboxEntry.Add(this.entryPrezime);
-			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.vboxEntry[this.entryPrezime]));
-			w9.Position = 1;
-			w9.Fill = false;
+			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.vboxEntry[this.entryPrezime]));
+			w7.Position = 1;
+			w7.Fill = false;
 			// Container child vboxEntry.Gtk.Box+BoxChild
 			this.entryUsername = new global::Gtk.Entry();
 			this.entryUsername.CanFocus = true;
@@ -150,9 +136,9 @@ namespace ProjektProgramsko
 			this.entryUsername.IsEditable = true;
 			this.entryUsername.InvisibleChar = '●';
 			this.vboxEntry.Add(this.entryUsername);
-			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.vboxEntry[this.entryUsername]));
-			w10.Position = 2;
-			w10.Fill = false;
+			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vboxEntry[this.entryUsername]));
+			w8.Position = 2;
+			w8.Fill = false;
 			// Container child vboxEntry.Gtk.Box+BoxChild
 			this.entryMail = new global::Gtk.Entry();
 			this.entryMail.CanFocus = true;
@@ -160,38 +146,78 @@ namespace ProjektProgramsko
 			this.entryMail.IsEditable = true;
 			this.entryMail.InvisibleChar = '●';
 			this.vboxEntry.Add(this.entryMail);
-			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.vboxEntry[this.entryMail]));
-			w11.Position = 3;
-			w11.Fill = false;
-			// Container child vboxEntry.Gtk.Box+BoxChild
+			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.vboxEntry[this.entryMail]));
+			w9.Position = 3;
+			w9.Fill = false;
+			this.hbox2.Add(this.vboxEntry);
+			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.vboxEntry]));
+			w10.Position = 1;
+			this.vbox1.Add(this.hbox2);
+			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox2]));
+			w11.Position = 0;
+			// Container child vbox1.Gtk.Box+BoxChild
+			this.hbox1 = new global::Gtk.HBox();
+			this.hbox1.Name = "hbox1";
+			this.hbox1.Spacing = 6;
+			// Container child hbox1.Gtk.Box+BoxChild
+			this.vbox4 = new global::Gtk.VBox();
+			this.vbox4.Name = "vbox4";
+			this.vbox4.Spacing = 6;
+			// Container child vbox4.Gtk.Box+BoxChild
+			this.label5 = new global::Gtk.Label();
+			this.label5.Name = "label5";
+			this.label5.Xalign = 1F;
+			this.label5.LabelProp = global::Mono.Unix.Catalog.GetString("Stara lozinka:");
+			this.vbox4.Add(this.label5);
+			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.label5]));
+			w12.Position = 0;
+			w12.Expand = false;
+			// Container child vbox4.Gtk.Box+BoxChild
+			this.label6 = new global::Gtk.Label();
+			this.label6.Name = "label6";
+			this.label6.Xalign = 1F;
+			this.label6.LabelProp = global::Mono.Unix.Catalog.GetString("Nova lozinka");
+			this.vbox4.Add(this.label6);
+			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.label6]));
+			w13.Position = 1;
+			w13.Fill = false;
+			this.hbox1.Add(this.vbox4);
+			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vbox4]));
+			w14.Position = 0;
+			// Container child hbox1.Gtk.Box+BoxChild
+			this.vbox3 = new global::Gtk.VBox();
+			this.vbox3.Name = "vbox3";
+			this.vbox3.Spacing = 6;
+			// Container child vbox3.Gtk.Box+BoxChild
 			this.entryStariPass = new global::Gtk.Entry();
 			this.entryStariPass.CanFocus = true;
 			this.entryStariPass.Name = "entryStariPass";
 			this.entryStariPass.IsEditable = true;
 			this.entryStariPass.Visibility = false;
 			this.entryStariPass.InvisibleChar = '●';
-			this.vboxEntry.Add(this.entryStariPass);
-			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vboxEntry[this.entryStariPass]));
-			w12.Position = 4;
-			w12.Fill = false;
-			// Container child vboxEntry.Gtk.Box+BoxChild
+			this.vbox3.Add(this.entryStariPass);
+			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.entryStariPass]));
+			w15.Position = 0;
+			// Container child vbox3.Gtk.Box+BoxChild
 			this.entryNoviPass = new global::Gtk.Entry();
 			this.entryNoviPass.CanFocus = true;
 			this.entryNoviPass.Name = "entryNoviPass";
 			this.entryNoviPass.IsEditable = true;
 			this.entryNoviPass.Visibility = false;
 			this.entryNoviPass.InvisibleChar = '●';
-			this.vboxEntry.Add(this.entryNoviPass);
-			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vboxEntry[this.entryNoviPass]));
-			w13.PackType = ((global::Gtk.PackType)(1));
-			w13.Position = 5;
-			w13.Fill = false;
-			this.hbox2.Add(this.vboxEntry);
-			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.vboxEntry]));
-			w14.Position = 1;
-			this.vbox1.Add(this.hbox2);
-			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox2]));
-			w15.Position = 0;
+			this.vbox3.Add(this.entryNoviPass);
+			global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.vbox3[this.entryNoviPass]));
+			w16.Position = 1;
+			w16.Expand = false;
+			w16.Fill = false;
+			this.hbox1.Add(this.vbox3);
+			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vbox3]));
+			w17.Position = 1;
+			this.vbox1.Add(this.hbox1);
+			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox1]));
+			w18.Position = 1;
+			w18.Expand = false;
+			w18.Fill = false;
 			// Container child vbox1.Gtk.Box+BoxChild
 			this.hbuttonbox1 = new global::Gtk.HButtonBox();
 			this.hbuttonbox1.Name = "hbuttonbox1";
@@ -204,14 +230,14 @@ namespace ProjektProgramsko
 			this.buttonSpremi.UseUnderline = true;
 			this.buttonSpremi.Label = global::Mono.Unix.Catalog.GetString("Spremi");
 			this.hbuttonbox1.Add(this.buttonSpremi);
-			global::Gtk.ButtonBox.ButtonBoxChild w16 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox1[this.buttonSpremi]));
-			w16.Expand = false;
-			w16.Fill = false;
+			global::Gtk.ButtonBox.ButtonBoxChild w19 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox1[this.buttonSpremi]));
+			w19.Expand = false;
+			w19.Fill = false;
 			this.vbox1.Add(this.hbuttonbox1);
-			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbuttonbox1]));
-			w17.Position = 1;
-			w17.Expand = false;
-			w17.Fill = false;
+			global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbuttonbox1]));
+			w20.Position = 2;
+			w20.Expand = false;
+			w20.Fill = false;
 			this.Add(this.vbox1);
 			if ((this.Child != null))
 			{

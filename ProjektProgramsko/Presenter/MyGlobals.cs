@@ -1,4 +1,6 @@
 ﻿using System;
+using Gtk;
+
 namespace ProjektProgramsko
 {
 	public static class MyGlobals

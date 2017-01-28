@@ -5,6 +5,7 @@ namespace ProjektProgramsko
 	{
 		public long idK;
 		public long id;
+		public string path;
 
 		[Gtk.TreeNodeValue(Column = 0)]
 		public String naziv;
@@ -31,6 +32,7 @@ namespace ProjektProgramsko
 		{
 			this.id = k.Id;
 			this.idK = k.IdK;
+			this.path = k.PdfPath;
 
 			this.naziv = k.Naziv;
 			this.opis = k.Opis;

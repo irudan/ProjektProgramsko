@@ -202,5 +202,115 @@ namespace ProjektProgramsko
 
 			return listaIzdanja;
 		}
+
+		public static List<IzdanjeCasopis> DohvatiTag(string tag)
+		{
+			BP.otvoriKonekciju();
+
+			List<IzdanjeCasopis> listaIzdanja = new List<IzdanjeCasopis>();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = String.Format(@"Select * from izdanje_casopis, casopis, sadrzaj where izdanje_casopis.id_casopis = casopis.id and casopis.id_sadrzaj = sadrzaj.id 
+												 and tagovi like '%{0}%'", tag);
+
+			SqliteDataReader reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				IzdanjeCasopis ic = new IzdanjeCasopis();
+
+				ic.Id = (int)(Int64)reader["id"];
+				ic.Datum = (string)reader["datum"];
+				ic.BrojIzdanja = (int)(Int64)reader["broj_izdanja"];
+				ic.Cijena = (int)(double)reader["cijena"];
+				ic.SlikaPath = (string)reader["slika_path"];
+				ic.PdfPath = (string)reader["pdf_path"];
+				ic.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
+				ic.IdC = (int)(Int64)reader["id_casopis"];
+
+
+				listaIzdanja.Add(ic);
+			}
+
+			reader.Dispose();
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
+
+			return listaIzdanja;
+		}
+
+		public static List<IzdanjeCasopis> Pretraga(string pretraga)
+		{
+			BP.otvoriKonekciju();
+
+			List<IzdanjeCasopis> listaIzdanja = new List<IzdanjeCasopis>();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = String.Format(@"Select * from izdanje_casopis, casopis, sadrzaj where izdanje_casopis.id_casopis = casopis.id and casopis.id_sadrzaj = sadrzaj.id 
+												 and naziv like '%{0}%'", pretraga);
+
+			SqliteDataReader reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				IzdanjeCasopis ic = new IzdanjeCasopis();
+
+				ic.Id = (int)(Int64)reader["id"];
+				ic.Datum = (string)reader["datum"];
+				ic.BrojIzdanja = (int)(Int64)reader["broj_izdanja"];
+				ic.Cijena = (int)(double)reader["cijena"];
+				ic.SlikaPath = (string)reader["slika_path"];
+				ic.PdfPath = (string)reader["pdf_path"];
+				ic.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
+				ic.IdC = (int)(Int64)reader["id_casopis"];
+
+
+				listaIzdanja.Add(ic);
+			}
+
+			reader.Dispose();
+			command.Dispose();
+
+			BP.zatvoriKonekciju();
+
+			return listaIzdanja;
+		}
+
+		public static List<IzdanjeCasopis> DohvatiMojSadrzaj(long id)
+		{
+			List<IzdanjeCasopis> listaIzdanja = new List<IzdanjeCasopis>();
+
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = String.Format(@"Select * from izdanje_casopis, naplata where id_casopis = '{0}' and naplata.id_sadrzaj = izdanje_casopis.id and 
+			naplata.id_korisnik = '{1}'", id, MyGlobals.trenutni.Id);
+
+			SqliteDataReader reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				IzdanjeCasopis ic = new IzdanjeCasopis();
+
+				ic.Id = (int)(Int64)reader["id"];
+				ic.Datum = (string)reader["datum"];
+				ic.BrojIzdanja = (int)(Int64)reader["broj_izdanja"];
+				ic.Cijena = (int)(double)reader["cijena"];
+				ic.SlikaPath = (string)reader["slika_path"];
+				ic.PdfPath = (string)reader["pdf_path"];
+				ic.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
+				ic.IdC = (int)(Int64)reader["id_casopis"];
+
+
+				listaIzdanja.Add(ic);
+			}
+
+			reader.Dispose();
+			command.Dispose();
+
+			return listaIzdanja;
+		}
 	}
 }

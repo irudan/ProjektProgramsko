@@ -1,6 +1,8 @@
 ﻿using System;
 using Gtk;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
 namespace ProjektProgramsko
 {
 	[System.ComponentModel.ToolboxItem(true)]
@@ -52,6 +54,18 @@ namespace ProjektProgramsko
 					d.Destroy();
 					return;
 				}
+			}
+
+			Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+			Match match = regex.Match(entryEmail.Text);
+
+			if (!match.Success)
+			{
+				Dialog d = new Gtk.MessageDialog((Window)this.Toplevel, DialogFlags.Modal, MessageType.Warning, ButtonsType.Ok, "Email adresa nije u valjanom formatu!");
+
+				d.Run();
+				d.Destroy();
+				return;
 			}
 
 			Korisnik k = new Korisnik();

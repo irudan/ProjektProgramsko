@@ -130,6 +130,7 @@ namespace ProjektProgramsko
 			this.entryLozinka.CanFocus = true;
 			this.entryLozinka.Name = "entryLozinka";
 			this.entryLozinka.IsEditable = true;
+			this.entryLozinka.Visibility = false;
 			this.entryLozinka.InvisibleChar = '●';
 			this.vbox1.Add(this.entryLozinka);
 			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.entryLozinka]));

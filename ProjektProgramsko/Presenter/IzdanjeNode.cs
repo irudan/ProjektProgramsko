@@ -4,6 +4,8 @@ namespace ProjektProgramsko
 	public class IzdanjeNode : Gtk.TreeNode
 	{
 		public long id;
+		public long idC;
+		public string path;
 
 		[Gtk.TreeNodeValue(Column = 0)]
 		public String nazivCasopisa;
@@ -20,6 +22,9 @@ namespace ProjektProgramsko
 		public IzdanjeNode(Casopis c, IzdanjeCasopis i)
 		{
 			this.id = i.Id;
+			this.idC = c.IdC;
+			this.path = i.PdfPath;
+
 
 			this.nazivCasopisa = c.Naziv;
 			this.datum = i.Datum;
