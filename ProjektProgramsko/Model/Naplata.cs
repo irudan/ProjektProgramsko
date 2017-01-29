@@ -3,23 +3,23 @@ namespace ProjektProgramsko
 {
 	public class Naplata
 	{
-		private string brnaplate;
+		private long id;
 		private double iznos;
 
 		public Naplata()
 		{
 		}
 
-		public string Brnaplate
+		public long Id
 		{
 			get
 			{
-				return brnaplate;
+				return id;
 			}
 
 			set
 			{
-				brnaplate = value;
+				id = value;
 			}
 		}
 

@@ -46,7 +46,7 @@ namespace ProjektProgramsko
 			}
 			else
 			{
-				List<long> listaNaplata = BPNaplata.DohvatiSve(MyGlobals.trenutni.Id, pokI.Id);
+				List<Naplata> listaNaplata = BPNaplata.DohvatiSve(MyGlobals.trenutni.Id, pokI.Id);
 
 				if (listaNaplata.Capacity == 0)
 				{

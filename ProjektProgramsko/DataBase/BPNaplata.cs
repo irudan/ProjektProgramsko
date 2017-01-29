@@ -82,9 +82,9 @@ namespace ProjektProgramsko
 			BP.zatvoriKonekciju();
 		}
 
-		public static List<long> DohvatiSve(long id, long idS)
+		public static List<Naplata> DohvatiSve(long id, long idS)
 		{
-			List<long> listaNaplata = new List<long>();
+			List<Naplata> listaNaplata = new List<Naplata>();
 
 			BP.otvoriKonekciju();
 
@@ -96,7 +96,9 @@ namespace ProjektProgramsko
 
 			while (reader.Read())
 			{
-				int n = (int)(Int64)reader["id"];
+				Naplata n = new Naplata();
+
+				n.Id = (int)(Int64)reader["id"];
 
 				listaNaplata.Add(n);
 			}
