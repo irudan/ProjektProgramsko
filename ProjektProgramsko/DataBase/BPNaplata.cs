@@ -39,6 +39,8 @@ namespace ProjektProgramsko
 
 			command.Dispose();
 
+			povecajProdano(idS);
+
 			BP.zatvoriKonekciju();
 		}
 
@@ -75,6 +77,8 @@ namespace ProjektProgramsko
 
 			command.Dispose();
 
+			povecajProdano(idS);
+
 			BP.zatvoriKonekciju();
 		}
 
@@ -103,6 +107,28 @@ namespace ProjektProgramsko
 			BP.zatvoriKonekciju();
 
 			return listaNaplata;
+		}
+
+		public static void povecajProdano(long idS)
+		{
+			SqliteCommand command = BP.konekcija.CreateCommand();
+
+			command.CommandText = String.Format(@"Update knjiga set broj_prodanih = broj_prodanih + 1 where id_sadrzaj = '{0}'", idS);
+
+			command.ExecuteNonQuery();
+
+
+			command.CommandText = String.Format(@"Update film set broj_prodanih = broj_prodanih + 1 where id_sadrzaj = '{0}'", idS);
+
+			command.ExecuteNonQuery();
+
+
+			command.CommandText = String.Format(@"Update izdanje_casopis set broj_prodanih = broj_prodanih + 1 where id = '{0}'", idS);
+
+			command.ExecuteNonQuery();
+
+
+			command.Dispose();
 		}
 	}
 }

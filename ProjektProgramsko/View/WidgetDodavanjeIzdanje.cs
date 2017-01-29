@@ -47,12 +47,13 @@ namespace ProjektProgramsko
 
 			IzdanjeCasopis ic = new IzdanjeCasopis();
 
+			//ic.Id = odabraniCasopis.Id;
 			ic.Datum = entryMjesec.Text + entryGodina.Text;
 			ic.BrojIzdanja = int.Parse(entryIzdanja.Text);
 			ic.Cijena = double.Parse(entryCijena.Text);
-			ic.PdfPath = filechooserbuttonPdf.Filename;
 
 			string slika = filechooserbuttonSlika.Filename;
+			string pdf = filechooserbuttonPdf.Filename;
 
 			for (int i = slika.Length - 1; i != 0; i--)
 			{
@@ -63,9 +64,20 @@ namespace ProjektProgramsko
 				}
 			}
 
-			ic.SlikaPath = "C:\\temp\\Images\\" + slika;
+			for (int i = pdf.Length - 1; i != 0; i--)
+			{
+				if (pdf[i] == '\\')
+				{
+					pdf = pdf.Remove(0, i + 1);
+					break;
+				}
+			}
 
-			spremiSliku(ic.SlikaPath);
+			ic.SlikaPath = "C:\\temp\\Images\\" + slika;
+			ic.PdfPath = "C:\\temp\\Pdf\\" + pdf;
+
+			spremiSliku();
+			spremiPdf();
 
 			BPIzdanjeCasopis.Spremi(ic, odabraniCasopis.IdC);
 
@@ -85,13 +97,24 @@ namespace ProjektProgramsko
 			var windowCasopisi = new WindowPregledCasopisa(odabraniCasopis);
 		}
 
-		protected void spremiSliku(string slika)
+		protected void spremiSliku()
 		{
 			System.Diagnostics.Process process = new System.Diagnostics.Process();
 			System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
 			startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
 			startInfo.FileName = "cmd.exe";
-			startInfo.Arguments = "/C copy " + filechooserbuttonSlika.Filename + " C:\\temp\\Images";
+			startInfo.Arguments = "/C copy \"" + filechooserbuttonSlika.Filename + "\" C:\\temp\\Images";
+			process.StartInfo = startInfo;
+			process.Start();
+		}
+
+		protected void spremiPdf()
+		{
+			System.Diagnostics.Process process = new System.Diagnostics.Process();
+			System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+			startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+			startInfo.FileName = "cmd.exe";
+			startInfo.Arguments = "/C copy \"" + filechooserbuttonPdf.Filename + "\" C:\\temp\\Pdf";
 			process.StartInfo = startInfo;
 			process.Start();
 		}

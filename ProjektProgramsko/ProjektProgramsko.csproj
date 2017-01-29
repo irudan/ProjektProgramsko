@@ -178,7 +178,6 @@
     <Compile Include="View\WindowKupi.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WindowKupi.cs" />
     <Compile Include="DataBase\BPKorisnik.cs" />
-    <Compile Include="Presenter\MyGlobals.cs" />
     <Compile Include="View\WindowPreuzmi.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WindowPreuzmi.cs" />
     <Compile Include="View\WidgetSortKnjige.cs" />
@@ -189,6 +188,7 @@
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetSortFilmovi.cs" />
     <Compile Include="View\WidgetMojSadrzaj.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetMojSadrzaj.cs" />
+    <Compile Include="Model\MyGlobals.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />

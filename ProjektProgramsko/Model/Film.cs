@@ -10,6 +10,7 @@ namespace ProjektProgramsko
 		private double cijena;
 		private string tagovi;
 		private string slikaPath;
+		private string videoPath;
 		private long brojProdanih;
 
 		public Film()
@@ -118,6 +119,19 @@ namespace ProjektProgramsko
 			set
 			{
 				brojProdanih = value;
+			}
+		}
+
+		public string VideoPath
+		{
+			get
+			{
+				return videoPath;
+			}
+
+			set
+			{
+				videoPath = value;
 			}
 		}
 	}

@@ -67,7 +67,22 @@ namespace ProjektProgramsko
 			k.Jezik = entryJezik.Text;
 
 			if (filechooserbuttonPdf.Filename != null)
-				k.PdfPath = filechooserbuttonPdf.Filename;
+			{
+				string pdf = filechooserbuttonPdf.Filename;
+
+				for (int i = pdf.Length - 1; i != 0; i--)
+				{
+					if (pdf[i] == '\\')
+					{
+						pdf = pdf.Remove(0, i + 1);
+						break;
+					}
+				}
+
+				k.PdfPath = "C:\\temp\\Pdf\\" + pdf;
+
+				spremiPdf();
+			}
 
 			if (filechooserbuttonSlika.Filename != null)
 			{
@@ -113,7 +128,18 @@ namespace ProjektProgramsko
 			System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
 			startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
 			startInfo.FileName = "cmd.exe";
-			startInfo.Arguments = "/C copy " + filechooserbuttonSlika.Filename + " C:\\temp\\Images";
+			startInfo.Arguments = "/C copy \"" + filechooserbuttonSlika.Filename + "\" C:\\temp\\Images";
+			process.StartInfo = startInfo;
+			process.Start();
+		}
+
+		protected void spremiPdf()
+		{
+			System.Diagnostics.Process process = new System.Diagnostics.Process();
+			System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+			startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+			startInfo.FileName = "cmd.exe";
+			startInfo.Arguments = "/C copy \"" + filechooserbuttonPdf.Filename + "\" C:\\temp\\Pdf";
 			process.StartInfo = startInfo;
 			process.Start();
 		}

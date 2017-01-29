@@ -54,9 +54,9 @@ namespace ProjektProgramsko
 			k.Nakladnik = entryNakladnik.Text;
 			k.Tagovi = entryTagovi.Text;
 			k.Jezik = entryJezik.Text;
-			k.PdfPath = filechooserbuttonPdf.Filename;
 
 			string slika = filechooserbuttonSlika.Filename;
+			string pdf = filechooserbuttonPdf.Filename;
 
 			for (int i = slika.Length - 1; i != 0; i--)
 			{
@@ -67,9 +67,20 @@ namespace ProjektProgramsko
 				}
 			}
 
-			k.SlikaPath = "C:\\temp\\Images\\" + slika;
+			for (int i = pdf.Length - 1; i != 0; i--)
+			{
+				if (pdf[i] == '\\')
+				{
+					pdf = pdf.Remove(0, i + 1);
+					break;
+				}
+			}
 
-			spremiSliku(k.SlikaPath);
+			k.SlikaPath = "C:\\temp\\Images\\" + slika;
+			k.PdfPath = "C:\\temp\\Pdf\\" + pdf;
+
+			spremiSliku();
+			spremiPdf();
 
 			//D:\Downloads\AeKQcUf.jpg
 			BPKnjiga.Spremi(k, listaAutora);
@@ -81,13 +92,24 @@ namespace ProjektProgramsko
 			}
 		}
 
-		protected void spremiSliku(string slika)
+		protected void spremiSliku()
 		{
 			System.Diagnostics.Process process = new System.Diagnostics.Process();
 			System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
 			startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
 			startInfo.FileName = "cmd.exe";
-			startInfo.Arguments = "/C copy "+ filechooserbuttonSlika.Filename + " C:\\temp\\Images";
+			startInfo.Arguments = "/C copy \""+ filechooserbuttonSlika.Filename + "\" C:\\temp\\Images";
+			process.StartInfo = startInfo;
+			process.Start();
+		}
+
+		protected void spremiPdf()
+		{
+			System.Diagnostics.Process process = new System.Diagnostics.Process();
+			System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+			startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+			startInfo.FileName = "cmd.exe";
+			startInfo.Arguments = "/C copy \"" + filechooserbuttonPdf.Filename + "\" C:\\temp\\Pdf";
 			process.StartInfo = startInfo;
 			process.Start();
 		}

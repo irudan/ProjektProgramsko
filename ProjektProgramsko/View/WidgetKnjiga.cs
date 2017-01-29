@@ -72,6 +72,15 @@ namespace ProjektProgramsko
 		protected void kupi(object sender, EventArgs a)
 		{
 			var windowKupovina = new WindowKupi(pok.Id, pok.Cijena);
+
+			windowKupovina.Destroyed += updateButton;
+		}
+
+		protected void updateButton(object sender, EventArgs a)
+		{
+			buttonKupi.Sensitive = false;
+			buttonPregledaj.Sensitive = true;
+			buttonPreuzmi.Sensitive = true;
 		}
 
 		protected void pregledaj(object sender, EventArgs a)

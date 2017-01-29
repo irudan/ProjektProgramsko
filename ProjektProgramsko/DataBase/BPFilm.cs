@@ -21,8 +21,8 @@ namespace ProjektProgramsko
 			f.Id = BPSadrzaj.DohvatiId(f.Naziv);
 
 			//Umetanje podataka u tablicu casopis
-			command.CommandText = String.Format(@"Insert into film (redatelj, godina, trajanje, cijena, tagovi, slika_path, broj_prodanih, id_sadrzaj) 
-			Values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", f.Redatelj, f.Godina, f.Trajanje, f.Cijena, f.Tagovi, f.SlikaPath, f.BrojProdanih, f.Id);
+			command.CommandText = String.Format(@"Insert into film (redatelj, godina, trajanje, cijena, tagovi, slika_path, video_path, broj_prodanih, id_sadrzaj) 
+			Values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", f.Redatelj, f.Godina, f.Trajanje, f.Cijena, f.Tagovi, f.SlikaPath, f.VideoPath, f.BrojProdanih, f.Id);
 
 			command.ExecuteNonQuery();
 
@@ -42,8 +42,8 @@ namespace ProjektProgramsko
 
 			command.ExecuteNonQuery();
 
-			command.CommandText = String.Format(@"Update film set redatelj = '{0}', godina = '{1}', trajanje = '{2}', cijena = '{3}', tagovi = '{4}', slika_path = '{5}' where film.id = '{6}'", 
-			                                    f.Redatelj, f.Godina, f.Trajanje, f.Cijena, f.Tagovi, f.SlikaPath, f.IdF);
+			command.CommandText = String.Format(@"Update film set redatelj = '{0}', godina = '{1}', trajanje = '{2}', cijena = '{3}', tagovi = '{4}', slika_path = '{5}', video_path = '{6}' where film.id = '{7}'", 
+			                                    f.Redatelj, f.Godina, f.Trajanje, f.Cijena, f.Tagovi, f.SlikaPath, f.VideoPath, f.IdF);
 
 			command.ExecuteNonQuery();
 
@@ -96,6 +96,7 @@ namespace ProjektProgramsko
 				f.Cijena = (int)(Double)reader["cijena"];
 				f.Tagovi = (string)reader["tagovi"];
 				f.SlikaPath = (string)reader["slika_path"];
+				f.VideoPath = (string)reader["video_path"];
 				f.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
 			}
 
@@ -133,6 +134,7 @@ namespace ProjektProgramsko
 				f.Cijena = (int)(Double)reader["cijena"];
 				f.Tagovi = (string)reader["tagovi"];
 				f.SlikaPath = (string)reader["slika_path"];
+				f.VideoPath = (string)reader["video_path"];
 				f.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
 
 				listaFilmovi.Add(f);
@@ -172,6 +174,7 @@ namespace ProjektProgramsko
 				f.Cijena = (int)(Double)reader["cijena"];
 				f.Tagovi = (string)reader["tagovi"];
 				f.SlikaPath = (string)reader["slika_path"];
+				f.VideoPath = (string)reader["video_path"];
 				f.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
 
 				listaFilmovi.Add(f);
@@ -211,6 +214,7 @@ namespace ProjektProgramsko
 				f.Cijena = (int)(Double)reader["cijena"];
 				f.Tagovi = (string)reader["tagovi"];
 				f.SlikaPath = (string)reader["slika_path"];
+				f.VideoPath = (string)reader["video_path"];
 				f.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
 
 				listaFilmovi.Add(f);
@@ -250,6 +254,7 @@ namespace ProjektProgramsko
 				f.Cijena = (int)(Double)reader["cijena"];
 				f.Tagovi = (string)reader["tagovi"];
 				f.SlikaPath = (string)reader["slika_path"];
+				f.VideoPath = (string)reader["video_path"];
 				f.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
 
 				listaFilmovi.Add(f);
@@ -290,6 +295,7 @@ namespace ProjektProgramsko
 				f.Cijena = (int)(Double)reader["cijena"];
 				f.Tagovi = (string)reader["tagovi"];
 				f.SlikaPath = (string)reader["slika_path"];
+				f.VideoPath = (string)reader["video_path"];
 				f.BrojProdanih = (int)(Int64)reader["broj_prodanih"];
 
 				listaFilmovi.Add(f);

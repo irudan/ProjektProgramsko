@@ -32,8 +32,6 @@ namespace ProjektProgramsko
 			process.StartInfo = startInfo;
 			process.Start();
 
-			Console.WriteLine("/C copy " + pok + " " + filechooserwidget1.CurrentFolder);
-
 			this.Destroy();
 		}
 	}

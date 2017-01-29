@@ -87,6 +87,7 @@ namespace ProjektProgramsko
 			temp.Ime = entryIme.Text;
 			temp.Prezime = entryPrezime.Text;
 			temp.Username = entryUsername.Text;
+			if(entryStariPass.Text != "" && entryNoviPass.Text != "")
 			temp.Password = entryNoviPass.Text;
 			temp.Mail = entryMail.Text;
 

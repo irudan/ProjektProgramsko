@@ -8,7 +8,7 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/ProjektProgramsko.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="675 400">
+  <widget class="Gtk.Window" id="MainWindow" design-size="819 472">
     <property name="MemberName" />
     <property name="WidthRequest">675</property>
     <property name="HeightRequest">400</property>
@@ -311,13 +311,26 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="ProjektProgramsko.WidgetPocetna" design-size="300 375">
+  <widget class="Gtk.Bin" id="ProjektProgramsko.WidgetPocetna" design-size="355 375">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
       <widget class="Gtk.VBox" id="vbox5">
         <property name="MemberName" />
         <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.Label" id="label13">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="LabelProp" translatable="yes">Najprodavanije knjige:</property>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
         <child>
           <widget class="Gtk.HBox" id="hbox7">
             <property name="MemberName" />
@@ -329,8 +342,6 @@
                 <child>
                   <widget class="Gtk.Image" id="image1">
                     <property name="MemberName" />
-                    <property name="WidthRequest">70</property>
-                    <property name="HeightRequest">100</property>
                   </widget>
                   <packing>
                     <property name="Position">0</property>
@@ -340,7 +351,7 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="label4">
+                  <widget class="Gtk.Label" id="label1">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">label4</property>
                   </widget>
@@ -366,8 +377,6 @@
                 <child>
                   <widget class="Gtk.Image" id="image2">
                     <property name="MemberName" />
-                    <property name="WidthRequest">70</property>
-                    <property name="HeightRequest">100</property>
                   </widget>
                   <packing>
                     <property name="Position">0</property>
@@ -377,7 +386,7 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="label5">
+                  <widget class="Gtk.Label" id="label2">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">label4</property>
                   </widget>
@@ -403,8 +412,6 @@
                 <child>
                   <widget class="Gtk.Image" id="image3">
                     <property name="MemberName" />
-                    <property name="WidthRequest">70</property>
-                    <property name="HeightRequest">100</property>
                   </widget>
                   <packing>
                     <property name="Position">0</property>
@@ -414,7 +421,7 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="label6">
+                  <widget class="Gtk.Label" id="label3">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">label4</property>
                   </widget>
@@ -434,14 +441,23 @@
               </packing>
             </child>
             <child>
+              <widget class="Gtk.Fixed" id="fixed1">
+                <property name="MemberName" />
+                <property name="HasWindow">False</property>
+              </widget>
+              <packing>
+                <property name="PackType">End</property>
+                <property name="Position">3</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
               <widget class="Gtk.VBox" id="vbox9">
                 <property name="MemberName" />
                 <property name="Spacing">6</property>
                 <child>
                   <widget class="Gtk.Image" id="image4">
                     <property name="MemberName" />
-                    <property name="WidthRequest">70</property>
-                    <property name="HeightRequest">100</property>
                   </widget>
                   <packing>
                     <property name="Position">0</property>
@@ -451,7 +467,7 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="label7">
+                  <widget class="Gtk.Label" id="label4">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">label4</property>
                   </widget>
@@ -465,7 +481,7 @@
               </widget>
               <packing>
                 <property name="PackType">End</property>
-                <property name="Position">3</property>
+                <property name="Position">4</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
@@ -473,7 +489,31 @@
             </child>
           </widget>
           <packing>
-            <property name="Position">0</property>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label16">
+            <property name="MemberName" />
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label14">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="LabelProp" translatable="yes">Najprodavaniji časopisi:</property>
+          </widget>
+          <packing>
+            <property name="Position">3</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -490,8 +530,6 @@
                 <child>
                   <widget class="Gtk.Image" id="image5">
                     <property name="MemberName" />
-                    <property name="WidthRequest">70</property>
-                    <property name="HeightRequest">100</property>
                   </widget>
                   <packing>
                     <property name="Position">0</property>
@@ -501,7 +539,7 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="label8">
+                  <widget class="Gtk.Label" id="label5">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">label4</property>
                   </widget>
@@ -527,8 +565,6 @@
                 <child>
                   <widget class="Gtk.Image" id="image6">
                     <property name="MemberName" />
-                    <property name="WidthRequest">70</property>
-                    <property name="HeightRequest">100</property>
                   </widget>
                   <packing>
                     <property name="Position">0</property>
@@ -538,7 +574,7 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="label9">
+                  <widget class="Gtk.Label" id="label6">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">label4</property>
                   </widget>
@@ -564,8 +600,6 @@
                 <child>
                   <widget class="Gtk.Image" id="image7">
                     <property name="MemberName" />
-                    <property name="WidthRequest">70</property>
-                    <property name="HeightRequest">100</property>
                   </widget>
                   <packing>
                     <property name="Position">0</property>
@@ -575,7 +609,7 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="label10">
+                  <widget class="Gtk.Label" id="label7">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">label4</property>
                   </widget>
@@ -595,14 +629,23 @@
               </packing>
             </child>
             <child>
+              <widget class="Gtk.Fixed" id="fixed2">
+                <property name="MemberName" />
+                <property name="HasWindow">False</property>
+              </widget>
+              <packing>
+                <property name="PackType">End</property>
+                <property name="Position">3</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
               <widget class="Gtk.VBox" id="vbox13">
                 <property name="MemberName" />
                 <property name="Spacing">6</property>
                 <child>
                   <widget class="Gtk.Image" id="image8">
                     <property name="MemberName" />
-                    <property name="WidthRequest">70</property>
-                    <property name="HeightRequest">100</property>
                   </widget>
                   <packing>
                     <property name="Position">0</property>
@@ -612,7 +655,7 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="label11">
+                  <widget class="Gtk.Label" id="label8">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">label4</property>
                   </widget>
@@ -626,7 +669,7 @@
               </widget>
               <packing>
                 <property name="PackType">End</property>
-                <property name="Position">3</property>
+                <property name="Position">4</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
@@ -634,7 +677,31 @@
             </child>
           </widget>
           <packing>
-            <property name="Position">1</property>
+            <property name="Position">4</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label17">
+            <property name="MemberName" />
+          </widget>
+          <packing>
+            <property name="Position">5</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label15">
+            <property name="MemberName" />
+            <property name="Xalign">0</property>
+            <property name="LabelProp" translatable="yes">Najprodavaniji filmovi:</property>
+          </widget>
+          <packing>
+            <property name="Position">6</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -651,8 +718,6 @@
                 <child>
                   <widget class="Gtk.Image" id="image9">
                     <property name="MemberName" />
-                    <property name="WidthRequest">70</property>
-                    <property name="HeightRequest">100</property>
                   </widget>
                   <packing>
                     <property name="Position">0</property>
@@ -662,7 +727,7 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="label12">
+                  <widget class="Gtk.Label" id="label9">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">label4</property>
                   </widget>
@@ -688,8 +753,6 @@
                 <child>
                   <widget class="Gtk.Image" id="image10">
                     <property name="MemberName" />
-                    <property name="WidthRequest">70</property>
-                    <property name="HeightRequest">100</property>
                   </widget>
                   <packing>
                     <property name="Position">0</property>
@@ -699,7 +762,7 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="label13">
+                  <widget class="Gtk.Label" id="label10">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">label4</property>
                   </widget>
@@ -725,8 +788,6 @@
                 <child>
                   <widget class="Gtk.Image" id="image11">
                     <property name="MemberName" />
-                    <property name="WidthRequest">70</property>
-                    <property name="HeightRequest">100</property>
                   </widget>
                   <packing>
                     <property name="Position">0</property>
@@ -736,7 +797,7 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="label14">
+                  <widget class="Gtk.Label" id="label11">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">label4</property>
                   </widget>
@@ -756,14 +817,23 @@
               </packing>
             </child>
             <child>
+              <widget class="Gtk.Fixed" id="fixed3">
+                <property name="MemberName" />
+                <property name="HasWindow">False</property>
+              </widget>
+              <packing>
+                <property name="PackType">End</property>
+                <property name="Position">3</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
               <widget class="Gtk.VBox" id="vbox17">
                 <property name="MemberName" />
                 <property name="Spacing">6</property>
                 <child>
                   <widget class="Gtk.Image" id="image12">
                     <property name="MemberName" />
-                    <property name="WidthRequest">70</property>
-                    <property name="HeightRequest">100</property>
                   </widget>
                   <packing>
                     <property name="Position">0</property>
@@ -773,7 +843,7 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Label" id="label15">
+                  <widget class="Gtk.Label" id="label12">
                     <property name="MemberName" />
                     <property name="LabelProp" translatable="yes">label4</property>
                   </widget>
@@ -787,7 +857,7 @@
               </widget>
               <packing>
                 <property name="PackType">End</property>
-                <property name="Position">3</property>
+                <property name="Position">4</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
@@ -795,7 +865,7 @@
             </child>
           </widget>
           <packing>
-            <property name="Position">2</property>
+            <property name="Position">7</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -1190,6 +1260,7 @@
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">Knjiga</property>
+                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
@@ -2874,15 +2945,48 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.HBox" id="hbox1">
+          <widget class="Gtk.HBox" id="hbox2">
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.FileChooserButton" id="filechooserbutton1">
+              <widget class="Gtk.Label" id="label9">
                 <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Slika:</property>
               </widget>
               <packing>
                 <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.FileChooserButton" id="filechooserbuttonSlika">
+                <property name="MemberName" />
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="label10">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Pdf:</property>
+              </widget>
+              <packing>
+                <property name="Position">2</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.FileChooserButton" id="filechooserbuttonVideo">
+                <property name="MemberName" />
+              </widget>
+              <packing>
+                <property name="Position">3</property>
                 <property name="AutoSize">True</property>
               </packing>
             </child>
@@ -4533,8 +4637,51 @@
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.FileChooserButton" id="filechooserbutton1">
+              <widget class="Gtk.HBox" id="hbox2">
                 <property name="MemberName" />
+                <property name="Spacing">6</property>
+                <child>
+                  <widget class="Gtk.Label" id="label9">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">Slika:</property>
+                  </widget>
+                  <packing>
+                    <property name="Position">0</property>
+                    <property name="AutoSize">True</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.FileChooserButton" id="filechooserbuttonSlika">
+                    <property name="MemberName" />
+                  </widget>
+                  <packing>
+                    <property name="Position">1</property>
+                    <property name="AutoSize">True</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="label10">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">Pdf:</property>
+                  </widget>
+                  <packing>
+                    <property name="Position">2</property>
+                    <property name="AutoSize">True</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.FileChooserButton" id="filechooserbuttonVideo">
+                    <property name="MemberName" />
+                  </widget>
+                  <packing>
+                    <property name="Position">3</property>
+                    <property name="AutoSize">True</property>
+                  </packing>
+                </child>
               </widget>
               <packing>
                 <property name="Position">0</property>

@@ -28,7 +28,7 @@ namespace ProjektProgramsko
 			FileFilter filter = new FileFilter();
 			filter.Name = "Images";
 			filter.AddPattern("*.jpg");
-			filechooserbutton1.AddFilter(filter);
+			filechooserbuttonSlika.AddFilter(filter);
 		}
 
 		protected void spremiFilm(object sender, EventArgs a)
@@ -52,9 +52,27 @@ namespace ProjektProgramsko
 			f.Cijena = int.Parse(entryCijena.Text);
 			f.Tagovi = entryTagovi.Text;
 
-			if (filechooserbutton1.Filename != null)
+			if (filechooserbuttonVideo.Filename != null)
 			{
-				string slika = filechooserbutton1.Filename;
+				string pdf = filechooserbuttonVideo.Filename;
+
+				for (int i = pdf.Length - 1; i != 0; i--)
+				{
+					if (pdf[i] == '\\')
+					{
+						pdf = pdf.Remove(0, i + 1);
+						break;
+					}
+				}
+
+				f.VideoPath = "C:\\temp\\Pdf\\" + pdf;
+
+				spremiVideo();
+			}
+
+			if (filechooserbuttonSlika.Filename != null)
+			{
+				string slika = filechooserbuttonSlika.Filename;
 
 				for (int i = slika.Length - 1; i != 0; i--)
 				{
@@ -86,7 +104,18 @@ namespace ProjektProgramsko
 			System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
 			startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
 			startInfo.FileName = "cmd.exe";
-			startInfo.Arguments = "/C copy " + filechooserbutton1.Filename + " C:\\temp\\Images";
+			startInfo.Arguments = "/C copy \"" + filechooserbuttonSlika.Filename + "\" C:\\temp\\Images";
+			process.StartInfo = startInfo;
+			process.Start();
+		}
+
+		protected void spremiVideo()
+		{
+			System.Diagnostics.Process process = new System.Diagnostics.Process();
+			System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+			startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+			startInfo.FileName = "cmd.exe";
+			startInfo.Arguments = "/C copy \"" + filechooserbuttonVideo.Filename + "\" C:\\temp\\Video";
 			process.StartInfo = startInfo;
 			process.Start();
 		}
