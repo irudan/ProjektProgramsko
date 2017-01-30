@@ -9,12 +9,6 @@ namespace ProjektProgramsko
 		{
 		}
 
-		/*public void dodajIzdanje(IzdanjeCasopis i)
-		{
-			IzdanjeNode temp = new IzdanjeNode(i);
-			this.AddNode(temp);
-		}*/
-
 		public void dodajIzdanja(List<Casopis> c)
 		{
 			foreach (Casopis i in c)

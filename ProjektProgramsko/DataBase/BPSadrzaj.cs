@@ -5,19 +5,20 @@ namespace ProjektProgramsko
 {
 	public static class BPSadrzaj
 	{
-		public static int DohvatiId(string naziv)
+		public static long DohvatiId()
 		{
 			SqliteCommand command = BP.konekcija.CreateCommand();
 
-			command.CommandText = String.Format(@"Select id from sadrzaj where sadrzaj.naziv = '{0}'", naziv);
+			command.CommandText = "Select id from sadrzaj order by id desc";
 
 			SqliteDataReader reader = command.ExecuteReader();
 
-			int id = new int();
+			long id = new int();
 
 			while (reader.Read())
 			{
 				id = (int)(Int64)reader["id"];
+				break;
 			}
 
 			reader.Dispose();

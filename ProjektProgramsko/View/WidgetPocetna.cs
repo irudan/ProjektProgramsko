@@ -15,7 +15,7 @@ namespace ProjektProgramsko
 			List<IzdanjeCasopis> listaI = BPIzdanjeCasopis.DohvatiSort("izdanje_casopis.broj_prodanih");
 
 			//Knjige
-			var buffer = System.IO.File.ReadAllBytes(listaK[0].SlikaPath);
+			/*var buffer = System.IO.File.ReadAllBytes(listaK[0].SlikaPath);
 			var pixbuf = new Gdk.Pixbuf(buffer);
 			image1.Pixbuf = pixbuf;
 			label1.Text = listaK[0].Naziv;
@@ -79,7 +79,7 @@ namespace ProjektProgramsko
 			buffer = System.IO.File.ReadAllBytes(listaF[3].SlikaPath);
 			pixbuf = new Gdk.Pixbuf(buffer);
 			image12.Pixbuf = pixbuf;
-			label12.Text = listaF[3].Naziv;
+			label12.Text = listaF[3].Naziv;*/
 		}
 	}
 }

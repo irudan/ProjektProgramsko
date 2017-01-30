@@ -18,7 +18,7 @@ namespace ProjektProgramsko
 			command.ExecuteNonQuery();
 
 			//Dohvacanje id koji je stvoren prethodnim ubacivanjem podataka
-			c.Id = BPSadrzaj.DohvatiId(c.Naziv);
+			c.Id = BPSadrzaj.DohvatiId();
 
 			//Umetanje podataka u tablicu casopis
 			command.CommandText = String.Format(@"Insert into casopis (tagovi, id_sadrzaj) 

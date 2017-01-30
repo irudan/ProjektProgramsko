@@ -65,7 +65,7 @@ namespace ProjektProgramsko
 					}
 				}
 
-				f.VideoPath = "C:\\temp\\Pdf\\" + pdf;
+				f.VideoPath = "C:\\temp\\Video\\" + pdf;
 
 				spremiVideo();
 			}

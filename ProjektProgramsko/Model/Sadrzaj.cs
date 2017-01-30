@@ -9,8 +9,6 @@ namespace ProjektProgramsko
 		private string naziv;
 		private string opis;
 
-		List<Naplata> naplata;
-
 		public string Naziv
 		{
 			get
@@ -21,19 +19,6 @@ namespace ProjektProgramsko
 			set
 			{
 				naziv = value;
-			}
-		}
-
-		public List<Naplata> Naplata
-		{
-			get
-			{
-				return naplata;
-			}
-
-			set
-			{
-				naplata = value;
 			}
 		}
 

@@ -32,7 +32,7 @@ namespace ProjektProgramsko
 		{
 			this.idF = f.IdF;
 			this.id = f.Id;
-			this.path = "";
+			this.path = f.VideoPath;
 
 			this.naziv = f.Naziv;
 			this.opis = f.Opis;

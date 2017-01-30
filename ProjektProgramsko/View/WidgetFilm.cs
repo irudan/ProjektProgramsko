@@ -12,6 +12,9 @@ namespace ProjektProgramsko
 		{
 			this.Build();
 
+			buttonKupi.Clicked += kupi;
+			buttonPregledaj.Clicked += pregledaj;
+
 			pok = f;
 
 			labelNaslov.LabelProp = f.Naziv;
@@ -25,9 +28,6 @@ namespace ProjektProgramsko
 			var buffer = System.IO.File.ReadAllBytes(f.SlikaPath);
 			var pixbuf = new Gdk.Pixbuf(buffer);
 			image1.Pixbuf = pixbuf;
-
-			buttonKupi.Clicked += kupi;
-			//buttonPreuzmi.Clicked += preuzmi;
 
 			provjeraKorisnika();
 		}
@@ -63,16 +63,22 @@ namespace ProjektProgramsko
 			windowKupovina.Destroyed += updateButton;
 		}
 
+		protected void pregledaj(object sender, EventArgs e)
+		{
+			System.Diagnostics.Process process = new System.Diagnostics.Process();
+			System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+			startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+			startInfo.FileName = "cmd.exe";
+			startInfo.Arguments = "/C " + pok.VideoPath;
+			process.StartInfo = startInfo;
+			process.Start();
+		}
+
 		protected void updateButton(object sender, EventArgs a)
 		{
 			buttonKupi.Sensitive = false;
 			buttonPregledaj.Sensitive = true;
 			buttonPreuzmi.Sensitive = true;
 		}
-
-		/*protected void preuzmi(object sender, EventArgs e)
-		{
-			var windowPreuzmi = new WindowPreuzmi();
-		}*/
 	}
 }

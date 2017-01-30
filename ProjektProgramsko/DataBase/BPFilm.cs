@@ -18,7 +18,7 @@ namespace ProjektProgramsko
 			command.ExecuteNonQuery();
 
 			//Dohvacanje id koji je stvoren prethodnim ubacivanjem podataka
-			f.Id = BPSadrzaj.DohvatiId(f.Naziv);
+			f.Id = BPSadrzaj.DohvatiId();
 
 			//Umetanje podataka u tablicu casopis
 			command.CommandText = String.Format(@"Insert into film (redatelj, godina, trajanje, cijena, tagovi, slika_path, video_path, broj_prodanih, id_sadrzaj) 

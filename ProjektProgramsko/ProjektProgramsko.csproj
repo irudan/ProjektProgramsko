@@ -106,7 +106,6 @@
     <Compile Include="Model\PayPal.cs" />
     <Compile Include="Model\Sadrzaj.cs" />
     <Compile Include="Presenter\CasopisNode.cs" />
-    <Compile Include="Presenter\CasopisNodeStore.cs" />
     <Compile Include="DataBase\BPCasopis.cs" />
     <Compile Include="View\WidgetDodavanjeSadrzaja.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetDodavanjeSadrzaja.cs" />
@@ -140,8 +139,10 @@
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetUredivanjeCasopis.cs" />
     <Compile Include="View\WidgetUredivanjeFilm.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetUredivanjeFilm.cs" />
+    <Compile Include="Presenter\CasopisNodeStore.cs" />
     <Compile Include="Presenter\FilmNode.cs" />
     <Compile Include="Presenter\FilmNodeStore.cs" />
+    <Compile Include="View\WidgetRegistracija.cs" />
     <Compile Include="View\WidgetUredivanjeIzdanje.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetUredivanjeIzdanje.cs" />
     <Compile Include="Presenter\IzdanjeNode.cs" />
@@ -170,7 +171,6 @@
     <Compile Include="gtk-gui\ProjektProgramsko.WindowPrijavljivanje.cs" />
     <Compile Include="View\WidgetPrijava.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetPrijava.cs" />
-    <Compile Include="View\WidgetRegistracija.cs" />
     <Compile Include="gtk-gui\ProjektProgramsko.WidgetRegistracija.cs" />
     <Compile Include="DataBase\BPNaplata.cs" />
     <Compile Include="View\WindowPregledaj.cs" />

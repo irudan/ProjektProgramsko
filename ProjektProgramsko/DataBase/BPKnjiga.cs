@@ -18,7 +18,7 @@ namespace ProjektProgramsko
 			command.ExecuteNonQuery();
 
 			//Dohvacanje id koji je stvoren prethodnim ubacivanjem podataka
-			k.Id = BPSadrzaj.DohvatiId(k.Naziv);
+			k.Id = BPSadrzaj.DohvatiId();
 
 			//Umetanje podataka u tablicu knjiga
 			command.CommandText = String.Format(@"Insert into knjiga (broj_stranica, cijena, nakladnik, jezik, tagovi, slika_path, pdf_path, broj_prodanih, id_sadrzaj) 

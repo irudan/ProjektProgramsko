@@ -51,11 +51,6 @@ namespace ProjektProgramsko
 			Build();
 		}
 
-		protected VBox glavniBox()
-		{
-			return vboxMain;
-		}
-
 		protected void izbrisiDjecu(VBox box)
 		{
 			Widget[] temp = box.Children;
@@ -64,6 +59,9 @@ namespace ProjektProgramsko
 				box.Remove(i);
 		}
 
-
+		protected VBox glavniBox()
+		{
+			return vboxMain;
+		}
 	}
 }

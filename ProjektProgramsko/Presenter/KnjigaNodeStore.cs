@@ -9,12 +9,6 @@ namespace ProjektProgramsko
 		{
 		}
 
-		public void dodajKnjiga(Knjiga k)
-		{
-			KnjigaNode temp = new KnjigaNode(k);
-			this.AddNode(temp);
-		}
-
 		public void dodajKnjige(List <Knjiga> k)
 		{
 			foreach (Knjiga i in k)

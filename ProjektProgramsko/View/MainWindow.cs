@@ -16,16 +16,8 @@ public partial class MainWindow : Gtk.Window
 
 	public WidgetMojSadrzaj mojSadrzaj = new WidgetMojSadrzaj();
 
-	public ComboBox knjigaCombo;
-	public ComboBox casopisCombo;
-	public ComboBox filmCombo;
-
-	public ComboBox comboBoxSort;
-
 	public VBox glavniVbox = new VBox();
 	public VBox sortVbox = new VBox();
-
-	public List<WidgetKnjiga> listaKnjiga;
 
 	public Button profilButton;
 	public Button prijavaButton;
@@ -141,7 +133,7 @@ public partial class MainWindow : Gtk.Window
 		provjeraKorisnik();
 	}
 
-	protected void prikaziPrijava(object sender, EventArgs a)
+	protected void prikaziPrijava(object sender, EventArgs a)	
 	{
 		Button temp = sender as Button;
 

@@ -9,12 +9,6 @@ namespace ProjektProgramsko
 		{
 		}
 
-		public void dodajFilm(Film f)
-		{
-			FilmNode temp = new FilmNode(f);
-			this.AddNode(temp);
-		}
-
 		public void dodajFilmove(List<Film> f)
 		{
 			foreach (Film i in f)
