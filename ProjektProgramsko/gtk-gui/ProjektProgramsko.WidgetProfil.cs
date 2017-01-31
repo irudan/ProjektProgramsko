@@ -4,6 +4,8 @@ namespace ProjektProgramsko
 {
 	public partial class WidgetProfil
 	{
+		private global::Gtk.HBox hbox1;
+
 		private global::Gtk.VBox vbox1;
 
 		private global::Gtk.HBox hbox2;
@@ -28,7 +30,7 @@ namespace ProjektProgramsko
 
 		private global::Gtk.Entry entryMail;
 
-		private global::Gtk.HBox hbox1;
+		private global::Gtk.HBox hbox3;
 
 		private global::Gtk.VBox vbox4;
 
@@ -46,6 +48,8 @@ namespace ProjektProgramsko
 
 		private global::Gtk.Button buttonSpremi;
 
+		private global::Gtk.Fixed fixed2;
+
 		protected virtual void Build()
 		{
 			global::Stetic.Gui.Initialize(this);
@@ -53,6 +57,10 @@ namespace ProjektProgramsko
 			global::Stetic.BinContainer.Attach(this);
 			this.Name = "ProjektProgramsko.WidgetProfil";
 			// Container child ProjektProgramsko.WidgetProfil.Gtk.Container+ContainerChild
+			this.hbox1 = new global::Gtk.HBox();
+			this.hbox1.Name = "hbox1";
+			this.hbox1.Spacing = 6;
+			// Container child hbox1.Gtk.Box+BoxChild
 			this.vbox1 = new global::Gtk.VBox();
 			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
@@ -156,10 +164,10 @@ namespace ProjektProgramsko
 			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox2]));
 			w11.Position = 0;
 			// Container child vbox1.Gtk.Box+BoxChild
-			this.hbox1 = new global::Gtk.HBox();
-			this.hbox1.Name = "hbox1";
-			this.hbox1.Spacing = 6;
-			// Container child hbox1.Gtk.Box+BoxChild
+			this.hbox3 = new global::Gtk.HBox();
+			this.hbox3.Name = "hbox3";
+			this.hbox3.Spacing = 6;
+			// Container child hbox3.Gtk.Box+BoxChild
 			this.vbox4 = new global::Gtk.VBox();
 			this.vbox4.Name = "vbox4";
 			this.vbox4.Spacing = 6;
@@ -171,7 +179,6 @@ namespace ProjektProgramsko
 			this.vbox4.Add(this.label5);
 			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.label5]));
 			w12.Position = 0;
-			w12.Expand = false;
 			// Container child vbox4.Gtk.Box+BoxChild
 			this.label6 = new global::Gtk.Label();
 			this.label6.Name = "label6";
@@ -181,10 +188,10 @@ namespace ProjektProgramsko
 			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox4[this.label6]));
 			w13.Position = 1;
 			w13.Fill = false;
-			this.hbox1.Add(this.vbox4);
-			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vbox4]));
+			this.hbox3.Add(this.vbox4);
+			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.vbox4]));
 			w14.Position = 0;
-			// Container child hbox1.Gtk.Box+BoxChild
+			// Container child hbox3.Gtk.Box+BoxChild
 			this.vbox3 = new global::Gtk.VBox();
 			this.vbox3.Name = "vbox3";
 			this.vbox3.Spacing = 6;
@@ -210,11 +217,11 @@ namespace ProjektProgramsko
 			w16.Position = 1;
 			w16.Expand = false;
 			w16.Fill = false;
-			this.hbox1.Add(this.vbox3);
-			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vbox3]));
+			this.hbox3.Add(this.vbox3);
+			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.vbox3]));
 			w17.Position = 1;
-			this.vbox1.Add(this.hbox1);
-			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox1]));
+			this.vbox1.Add(this.hbox3);
+			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox3]));
 			w18.Position = 1;
 			w18.Expand = false;
 			w18.Fill = false;
@@ -238,7 +245,19 @@ namespace ProjektProgramsko
 			w20.Position = 2;
 			w20.Expand = false;
 			w20.Fill = false;
-			this.Add(this.vbox1);
+			this.hbox1.Add(this.vbox1);
+			global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vbox1]));
+			w21.Position = 0;
+			w21.Expand = false;
+			// Container child hbox1.Gtk.Box+BoxChild
+			this.fixed2 = new global::Gtk.Fixed();
+			this.fixed2.Name = "fixed2";
+			this.fixed2.HasWindow = false;
+			this.hbox1.Add(this.fixed2);
+			global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.fixed2]));
+			w22.PackType = ((global::Gtk.PackType)(1));
+			w22.Position = 1;
+			this.Add(this.hbox1);
 			if ((this.Child != null))
 			{
 				this.Child.ShowAll();

@@ -34,7 +34,7 @@ namespace ProjektProgramsko
 			// Widget ProjektProgramsko.WindowUredivanjeAutora
 			this.Name = "ProjektProgramsko.WindowUredivanjeAutora";
 			this.Title = global::Mono.Unix.Catalog.GetString("WindowUredivanjeAutora");
-			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			this.WindowPosition = ((global::Gtk.WindowPosition)(3));
 			this.Modal = true;
 			this.BorderWidth = ((uint)(10));
 			// Container child ProjektProgramsko.WindowUredivanjeAutora.Gtk.Container+ContainerChild

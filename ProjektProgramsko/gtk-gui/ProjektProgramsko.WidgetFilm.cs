@@ -52,8 +52,6 @@ namespace ProjektProgramsko
 
 		private global::Gtk.Button buttonKupi;
 
-		private global::Gtk.Button buttonPreuzmi;
-
 		private global::Gtk.Button buttonPregledaj;
 
 		protected virtual void Build()
@@ -106,7 +104,7 @@ namespace ProjektProgramsko
 			this.labelOpis = new global::Gtk.Label();
 			this.labelOpis.Name = "labelOpis";
 			this.labelOpis.LabelProp = global::Mono.Unix.Catalog.GetString("label5");
-			this.labelOpis.MaxWidthChars = 20;
+			this.labelOpis.MaxWidthChars = 60;
 			this.hbox3.Add(this.labelOpis);
 			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.labelOpis]));
 			w4.Position = 1;
@@ -273,32 +271,21 @@ namespace ProjektProgramsko
 			w22.Expand = false;
 			w22.Fill = false;
 			// Container child vbuttonbox1.Gtk.ButtonBox+ButtonBoxChild
-			this.buttonPreuzmi = new global::Gtk.Button();
-			this.buttonPreuzmi.CanFocus = true;
-			this.buttonPreuzmi.Name = "buttonPreuzmi";
-			this.buttonPreuzmi.UseUnderline = true;
-			this.buttonPreuzmi.Label = global::Mono.Unix.Catalog.GetString("Preuzmi");
-			this.vbuttonbox1.Add(this.buttonPreuzmi);
-			global::Gtk.ButtonBox.ButtonBoxChild w23 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.vbuttonbox1[this.buttonPreuzmi]));
-			w23.Position = 1;
-			w23.Expand = false;
-			w23.Fill = false;
-			// Container child vbuttonbox1.Gtk.ButtonBox+ButtonBoxChild
 			this.buttonPregledaj = new global::Gtk.Button();
 			this.buttonPregledaj.CanFocus = true;
 			this.buttonPregledaj.Name = "buttonPregledaj";
 			this.buttonPregledaj.UseUnderline = true;
 			this.buttonPregledaj.Label = global::Mono.Unix.Catalog.GetString("Pregledaj");
 			this.vbuttonbox1.Add(this.buttonPregledaj);
-			global::Gtk.ButtonBox.ButtonBoxChild w24 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.vbuttonbox1[this.buttonPregledaj]));
+			global::Gtk.ButtonBox.ButtonBoxChild w23 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.vbuttonbox1[this.buttonPregledaj]));
+			w23.Position = 1;
+			w23.Expand = false;
+			w23.Fill = false;
+			this.hbox1.Add(this.vbuttonbox1);
+			global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vbuttonbox1]));
 			w24.Position = 2;
 			w24.Expand = false;
 			w24.Fill = false;
-			this.hbox1.Add(this.vbuttonbox1);
-			global::Gtk.Box.BoxChild w25 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.vbuttonbox1]));
-			w25.Position = 2;
-			w25.Expand = false;
-			w25.Fill = false;
 			this.Add(this.hbox1);
 			if ((this.Child != null))
 			{

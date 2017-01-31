@@ -34,7 +34,7 @@ namespace ProjektProgramsko
 			// Widget ProjektProgramsko.WindowDodavanjeAutora
 			this.Name = "ProjektProgramsko.WindowDodavanjeAutora";
 			this.Title = global::Mono.Unix.Catalog.GetString("WindowDodavanjeAutora");
-			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			this.WindowPosition = ((global::Gtk.WindowPosition)(3));
 			this.BorderWidth = ((uint)(15));
 			// Container child ProjektProgramsko.WindowDodavanjeAutora.Gtk.Container+ContainerChild
 			this.vbox3 = new global::Gtk.VBox();

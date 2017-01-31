@@ -264,7 +264,7 @@ namespace ProjektProgramsko
 			// Container child hbox2.Gtk.Box+BoxChild
 			this.label10 = new global::Gtk.Label();
 			this.label10.Name = "label10";
-			this.label10.LabelProp = global::Mono.Unix.Catalog.GetString("Pdf:");
+			this.label10.LabelProp = global::Mono.Unix.Catalog.GetString("Video:");
 			this.hbox2.Add(this.label10);
 			global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.hbox2[this.label10]));
 			w20.Position = 2;

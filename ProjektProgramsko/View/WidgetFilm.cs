@@ -37,7 +37,6 @@ namespace ProjektProgramsko
 			if (MyGlobals.trenutni.Id == -1)
 			{
 				buttonPregledaj.Sensitive = false;
-				buttonPreuzmi.Sensitive = false;
 				buttonKupi.Sensitive = false;
 			}
 			else
@@ -47,7 +46,6 @@ namespace ProjektProgramsko
 				if (listaNaplata.Capacity == 0)
 				{
 					buttonPregledaj.Sensitive = false;
-					buttonPreuzmi.Sensitive = false;
 				}
 				else
 				{
@@ -78,7 +76,6 @@ namespace ProjektProgramsko
 		{
 			buttonKupi.Sensitive = false;
 			buttonPregledaj.Sensitive = true;
-			buttonPreuzmi.Sensitive = true;
 		}
 	}
 }

@@ -100,7 +100,7 @@ namespace ProjektProgramsko
 			this.labelOpis = new global::Gtk.Label();
 			this.labelOpis.Name = "labelOpis";
 			this.labelOpis.LabelProp = global::Mono.Unix.Catalog.GetString("label5");
-			this.labelOpis.MaxWidthChars = 20;
+			this.labelOpis.MaxWidthChars = 60;
 			this.hbox3.Add(this.labelOpis);
 			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.labelOpis]));
 			w4.Position = 1;

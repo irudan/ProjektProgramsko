@@ -10,6 +10,10 @@ namespace ProjektProgramsko
 		public GlavniMeni()
 		{
 			this.Build();
+
+			var buffer = System.IO.File.ReadAllBytes("C:\\Users\\Mateo\\Desktop\\logo.png");
+			var pixbuf = new Gdk.Pixbuf(buffer);
+			image1.Pixbuf = pixbuf;
 		}
 
 		public Button getKnjige()

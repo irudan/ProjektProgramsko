@@ -72,7 +72,7 @@ namespace ProjektProgramsko
 			// Widget ProjektProgramsko.WindowUredivanjeKnjiga
 			this.Name = "ProjektProgramsko.WindowUredivanjeKnjiga";
 			this.Title = global::Mono.Unix.Catalog.GetString("WindowUredivanjeKnjiga");
-			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			this.WindowPosition = ((global::Gtk.WindowPosition)(3));
 			this.Modal = true;
 			this.BorderWidth = ((uint)(10));
 			// Container child ProjektProgramsko.WindowUredivanjeKnjiga.Gtk.Container+ContainerChild

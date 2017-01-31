@@ -130,6 +130,8 @@ namespace ProjektProgramsko
 			this.vbox6.Spacing = 6;
 			// Container child vbox6.Gtk.Box+BoxChild
 			this.image1 = new global::Gtk.Image();
+			this.image1.WidthRequest = 200;
+			this.image1.HeightRequest = 270;
 			this.image1.Name = "image1";
 			this.vbox6.Add(this.image1);
 			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox6[this.image1]));
@@ -156,6 +158,8 @@ namespace ProjektProgramsko
 			this.vbox7.Spacing = 6;
 			// Container child vbox7.Gtk.Box+BoxChild
 			this.image2 = new global::Gtk.Image();
+			this.image2.WidthRequest = 200;
+			this.image2.HeightRequest = 270;
 			this.image2.Name = "image2";
 			this.vbox7.Add(this.image2);
 			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox7[this.image2]));
@@ -182,6 +186,8 @@ namespace ProjektProgramsko
 			this.vbox8.Spacing = 6;
 			// Container child vbox8.Gtk.Box+BoxChild
 			this.image3 = new global::Gtk.Image();
+			this.image3.WidthRequest = 200;
+			this.image3.HeightRequest = 270;
 			this.image3.Name = "image3";
 			this.vbox8.Add(this.image3);
 			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox8[this.image3]));
@@ -216,6 +222,8 @@ namespace ProjektProgramsko
 			this.vbox9.Spacing = 6;
 			// Container child vbox9.Gtk.Box+BoxChild
 			this.image4 = new global::Gtk.Image();
+			this.image4.WidthRequest = 200;
+			this.image4.HeightRequest = 270;
 			this.image4.Name = "image4";
 			this.vbox9.Add(this.image4);
 			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox9[this.image4]));
@@ -270,6 +278,8 @@ namespace ProjektProgramsko
 			this.vbox10.Spacing = 6;
 			// Container child vbox10.Gtk.Box+BoxChild
 			this.image5 = new global::Gtk.Image();
+			this.image5.WidthRequest = 200;
+			this.image5.HeightRequest = 270;
 			this.image5.Name = "image5";
 			this.vbox10.Add(this.image5);
 			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.vbox10[this.image5]));
@@ -296,6 +306,8 @@ namespace ProjektProgramsko
 			this.vbox11.Spacing = 6;
 			// Container child vbox11.Gtk.Box+BoxChild
 			this.image6 = new global::Gtk.Image();
+			this.image6.WidthRequest = 200;
+			this.image6.HeightRequest = 270;
 			this.image6.Name = "image6";
 			this.vbox11.Add(this.image6);
 			global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.vbox11[this.image6]));
@@ -322,6 +334,8 @@ namespace ProjektProgramsko
 			this.vbox12.Spacing = 6;
 			// Container child vbox12.Gtk.Box+BoxChild
 			this.image7 = new global::Gtk.Image();
+			this.image7.WidthRequest = 200;
+			this.image7.HeightRequest = 270;
 			this.image7.Name = "image7";
 			this.vbox12.Add(this.image7);
 			global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.vbox12[this.image7]));
@@ -356,6 +370,8 @@ namespace ProjektProgramsko
 			this.vbox13.Spacing = 6;
 			// Container child vbox13.Gtk.Box+BoxChild
 			this.image8 = new global::Gtk.Image();
+			this.image8.WidthRequest = 200;
+			this.image8.HeightRequest = 270;
 			this.image8.Name = "image8";
 			this.vbox13.Add(this.image8);
 			global::Gtk.Box.BoxChild w28 = ((global::Gtk.Box.BoxChild)(this.vbox13[this.image8]));
@@ -410,6 +426,8 @@ namespace ProjektProgramsko
 			this.vbox14.Spacing = 6;
 			// Container child vbox14.Gtk.Box+BoxChild
 			this.image9 = new global::Gtk.Image();
+			this.image9.WidthRequest = 200;
+			this.image9.HeightRequest = 270;
 			this.image9.Name = "image9";
 			this.vbox14.Add(this.image9);
 			global::Gtk.Box.BoxChild w34 = ((global::Gtk.Box.BoxChild)(this.vbox14[this.image9]));
@@ -436,6 +454,8 @@ namespace ProjektProgramsko
 			this.vbox15.Spacing = 6;
 			// Container child vbox15.Gtk.Box+BoxChild
 			this.image10 = new global::Gtk.Image();
+			this.image10.WidthRequest = 200;
+			this.image10.HeightRequest = 270;
 			this.image10.Name = "image10";
 			this.vbox15.Add(this.image10);
 			global::Gtk.Box.BoxChild w37 = ((global::Gtk.Box.BoxChild)(this.vbox15[this.image10]));
@@ -462,6 +482,8 @@ namespace ProjektProgramsko
 			this.vbox16.Spacing = 6;
 			// Container child vbox16.Gtk.Box+BoxChild
 			this.image11 = new global::Gtk.Image();
+			this.image11.WidthRequest = 200;
+			this.image11.HeightRequest = 270;
 			this.image11.Name = "image11";
 			this.vbox16.Add(this.image11);
 			global::Gtk.Box.BoxChild w40 = ((global::Gtk.Box.BoxChild)(this.vbox16[this.image11]));
@@ -496,6 +518,8 @@ namespace ProjektProgramsko
 			this.vbox17.Spacing = 6;
 			// Container child vbox17.Gtk.Box+BoxChild
 			this.image12 = new global::Gtk.Image();
+			this.image12.WidthRequest = 200;
+			this.image12.HeightRequest = 270;
 			this.image12.Name = "image12";
 			this.vbox17.Add(this.image12);
 			global::Gtk.Box.BoxChild w44 = ((global::Gtk.Box.BoxChild)(this.vbox17[this.image12]));

@@ -22,7 +22,7 @@ namespace ProjektProgramsko
 			// Widget ProjektProgramsko.WindowPregledAutora
 			this.Name = "ProjektProgramsko.WindowPregledAutora";
 			this.Title = global::Mono.Unix.Catalog.GetString("WindowPregledAutora");
-			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			this.WindowPosition = ((global::Gtk.WindowPosition)(3));
 			this.Modal = true;
 			this.BorderWidth = ((uint)(15));
 			// Container child ProjektProgramsko.WindowPregledAutora.Gtk.Container+ContainerChild
